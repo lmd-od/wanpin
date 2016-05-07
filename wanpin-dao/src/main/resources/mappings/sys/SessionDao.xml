@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wanpin.dao.SessionDao">
+
+    <!-- 获取 session -->
+    <select id="get" resultType="Session">
+		SELECT
+			*
+		FROM  sys_session s
+		WHERE 1 = 1
+		<if test="userCode != null and userCode != ''">
+		  and s.user_code = #{userCode} 
+		</if>
+		<if test="sid != null and sid != ''">
+		  and s.sid = #{sid} 
+		</if>
+	</select>
+	
+	<!-- 更新 session -->
+	<update id="update">
+	    UPDATE sys_session s
+	      SET 
+	      s.sid = #{sid},
+	      s.begin_date = #{beginDate},
+	      s.end_date = #{endDate}
+	    WHERE s.user_code = #{userCode}
+	</update>
+	
+	<!-- 插入 session -->
+	<insert id="insert">
+	    INSERT INTO sys_session 
+	     (
+	       sid,
+	       user_code,
+	       begin_date,
+	       end_date
+	     )
+	     VALUES(
+	       #{sid},
+	       #{userCode},
+	       #{beginDate},
+	       #{endDate}
+	     )
+	</insert>
+	
+	
+</mapper>

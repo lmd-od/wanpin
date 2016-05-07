@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wanpin.dao.UserDao">
+
+    <!-- 根源用户名密码验证登陆成功返回用户信息 -->
+    <select id="login" resultType="User">
+		SELECT
+			*
+		FROM sys_user a
+		WHERE a.login_name = #{loginName} AND a.password = #{password}
+	</select>
+	
+	<!-- 获取用户信息 -->
+	<select id="get" resultType="User">
+		SELECT
+			*
+		FROM  sys_user s
+		WHERE 1 = 1
+		<if test="userCode != null and userCode != ''">
+		  and s.user_code = #{userCode} 
+		</if>
+		<if test="type != null and type != ''">
+		  and s.type = #{type} 
+		</if>
+	</select>
+	
+	<!-- 更新用户 -->
+	<update id="update">
+	    UPDATE sys_user s
+	      SET 
+	      s.update_date = #{updateDate}
+	      <if test="loginName != null and loginName != ''">
+	        ,s.login_name = #{loginName}
+	      </if>
+	      <if test="password != null and password != ''">
+	        ,s.password = #{password}
+	      </if>
+	      <if test="payPassword != null and payPassword != ''">
+	        ,s.pay_password = #{payPassword}
+	      </if>
+	      <if test="delFlag != null and delFlag != ''">
+	        ,s.del_flag = #{delFlag}
+	      </if>
+	      <if test="name != null and name != ''">
+	        ,s.name = #{name}
+	      </if>
+	      <if test="mobile != null and mobile != ''">
+	        ,s.mobile = #{mobile}
+	      </if>
+	      <if test="newPassword != null and newPassword != ''">
+	        ,s.new_password = #{newPassword}
+	      </if>
+	      <if test="language != null and language != ''">
+	        ,s.language = #{language}
+	      </if>
+	      <if test="loginIp != null and loginIp != ''">
+	        ,s.login_ip = #{loginIp}
+	      </if>
+	      <if test="loginDate != null and loginDate != ''">
+	        ,s.login_date = #{loginDate}
+	      </if>
+	      <if test="loginFlag != null and loginFlag != ''">
+	        ,s.login_flag = #{loginFlag}
+	      </if>
+	      <if test="oldLoginIp != null and oldLoginIp != ''">
+	        ,s.old_login_ip = #{oldLoginIp}
+	      </if>
+	      <if test="oldLoginDate != null and oldLoginDate != ''">
+	        ,s.old_login_date = #{oldLoginDate}
+	      </if>
+	      <if test="photo != null and photo != ''">
+	        ,s.photo = #{photo}
+	      </if>
+	      <if test="email != null and email != ''">
+	        ,s.email = #{email}
+	      </if>
+	      <if test="phone != null and phone != ''">
+	        ,s.phone = #{phone}
+	      </if>
+	    WHERE s.user_code = #{userCode}
+	</update>
+	
+	<!-- 插入用户 -->
+	<insert id="insert">
+	    INSERT INTO sys_user 
+	     ( 
+	       login_name,
+	       password,
+	       create_date,
+	       pay_password,
+	       update_date,
+	       del_flag,
+	       name,
+	       mobile,
+	       new_password,
+	       type,
+	       user_code,
+	       language,
+	       login_ip,
+	       login_date,
+	       login_flag,
+	       old_login_ip,
+	       old_login_date,
+	       photo,
+	       email,
+	       phone
+	     )
+	     VALUES(
+	       #{loginName},
+	       #{password},
+	       #{createDate},
+	       #{payPassword},
+	       #{updateDate},
+	       #{delFlag},
+	       #{name},
+	       #{mobile},
+	       #{newPassword},
+	       #{type},
+	       #{userCode},
+	       #{language},
+	       #{loginIp},
+	       #{loginDate},
+	       #{loginFlag},
+	       #{oldLoginIp},
+	       #{oldLoginDate},
+	       #{photo},
+	       #{email},
+	       #{phone}
+	     )
+	</insert>
+	
+	
+</mapper>
