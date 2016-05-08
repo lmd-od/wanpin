@@ -52,7 +52,7 @@ public class LogServiceImple extends BaseServiceImple implements LogService{
 		session.setUserCode(userL.getUserCode());//根据 userCode 查询 session
 		session = sessionDao.get(session);
 		Date endDate = new Date();
-		endDate.setDate(endDate.getDate() - 1);// 保留登录1天时间
+		endDate.setDate(endDate.getDate() + 1);// 保留登录1天时间
 		if(session != null){
 			session.setBeginDate(new Date());
 			session.setEndDate(endDate);

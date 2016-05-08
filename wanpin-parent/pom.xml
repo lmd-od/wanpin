@@ -16,7 +16,7 @@
 	</properties>
 	
 	<modules>
-	  <module>../wanpin-common</module>
+      <module>../wanpin-common</module>
 	  <module>../wanpin-entity</module>
 	  <module>../wanpin-dao</module>
 	  <module>../wanpin-service</module>
