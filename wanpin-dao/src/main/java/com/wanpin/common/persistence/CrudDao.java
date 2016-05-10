@@ -3,6 +3,8 @@ package com.wanpin.common.persistence;
 
 import java.util.List;
 
+import com.wanpin.common.query.BaseQuery;
+
 /**
  * DAO支持类实现
  * @author MingDingLi
@@ -16,7 +18,7 @@ public interface CrudDao<T> extends BaseDao {
 	 * @param id
 	 * @return
 	 */
-	public T get(String id);
+	public T get(Long id);
 	
 	/**
 	 * 获取单条数据
@@ -38,6 +40,14 @@ public interface CrudDao<T> extends BaseDao {
 	 * @return
 	 */
 	public List<T> findAllList(T entity);
+	
+	/**
+	 * <p>查询数据列表</p>
+	 * @author litr 2016年5月9日
+	 * @param queryObject
+	 * @return
+	 */
+	public List<T> queryList(BaseQuery<T> queryObject);
 	
 	/**
 	 * 查询所有数据列表
@@ -68,7 +78,7 @@ public interface CrudDao<T> extends BaseDao {
 	 * @return
 	 */
 	@Deprecated
-	public int delete(String id);
+	public int delete(Long id);
 	
 	/**
 	 * 删除数据（一般为逻辑删除，更新del_flag字段为1）

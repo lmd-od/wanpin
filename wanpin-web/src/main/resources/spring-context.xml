@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop" 
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
 	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
-    xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task" xsi:schemaLocation="
+    xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task" 
+    xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
@@ -44,6 +46,41 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<!-- 统一事物配置 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="create*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="save*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="publish*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="commit*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="generate*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="favorite*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="extract*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="set*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="modify*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="remove*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="cancel*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="do*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="login*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="register*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="bind*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="submit*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="upload*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="send*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="check*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="confirm*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="*" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="txPointcut" expression="execution(* com.wanpin..service.*.*ServiceImple.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" order="1"/>
+	</aop:config>
 	
 	<!-- 配置 Annotation 驱动，扫描@Transactional注解的类定义事务  -->
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>

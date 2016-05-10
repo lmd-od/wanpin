@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wanpin.dao.DictDao" >
+	
+	<resultMap id="dictMap" type="com.wanpin.entity.Dict" >
+		<id column="dict_id" property="dictId" jdbcType="BIGINT" />
+		<result column="dict_code" property="dictCode" jdbcType="VARCHAR" />
+	    <result column="dict_name" property="dictName" jdbcType="VARCHAR" />
+	    <result column="description" property="description" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List" >
+    d.dict_id, d.dict_code, d.dict_name, d.description
+ 	</sql>
+	<select id="queryList" parameterType="com.wanpin.query.DictQuery" resultMap="com.wanpin.dao.DictDao.dictMap">
+		select 
+	    <include refid="Base_Column_List" />
+	    from wp_dict d
+	    <where>
+	    	<if test="dictCode != null and dictCode != ''">AND d.dict_code like '%${dictCode}%'</if>
+	    	<if test="dictName != null and dictName != ''">AND d.dict_name like '%${dictName}%'</if>
+	    </where>
+	</select>
+	
+	<select id="getInfo" parameterType="string" resultMap="com.wanpin.dao.DictDao.dictMap">
+		select 
+	    <include refid="Base_Column_List" />
+	    from wp_dict d
+	    where
+	    	d.dict_code = #{dictCode}
+	</select>
+	
+	<insert id="insert" parameterType="com.wanpin.entity.Dict" >
+	    insert into wp_dict
+	    <trim prefix="(" suffix=")" suffixOverrides="," >
+	      <if test="dictId != null" >
+	        dict_id,
+	      </if>
+	      <if test="dictCode != null" >
+	        dict_code,
+	      </if>
+	      <if test="dictName != null" >
+	        dict_name,
+	      </if>
+	      <if test="description != null" >
+	        description,
+	      </if>
+	    </trim>
+	    <trim prefix="values (" suffix=")" suffixOverrides="," >
+	      <if test="dictId != null" >
+	        #{dictId,jdbcType=BIGINT},
+	      </if>
+	      <if test="dictCode != null" >
+	        #{dictCode,jdbcType=VARCHAR},
+	      </if>
+	      <if test="dictName != null" >
+	        #{dictName,jdbcType=VARCHAR},
+	      </if>
+	      <if test="description != null" >
+	        #{description,jdbcType=VARCHAR},
+	      </if>
+	    </trim>
+	</insert>
+	<update id="update" parameterType="com.wanpin.entity.Dict" >
+	    update wp_dict
+	    <set >
+	      <if test="dictCode != null" >
+	        dict_code = #{dictCode,jdbcType=VARCHAR},
+	      </if>
+	      <if test="dictName != null" >
+	        dict_name = #{dictName,jdbcType=VARCHAR},
+	      </if>
+	      <if test="description != null" >
+	        description = #{description,jdbcType=VARCHAR},
+	      </if>
+	    </set>
+	    where dict_id = #{dictId,jdbcType=BIGINT}
+	</update>
+  <delete id="delete" parameterType="com.wanpin.entity.Dict" >
+    delete from wp_dict
+    <where>
+    	<if test="dictId != null">AND dict_id = #{dictId,jdbcType=BIGINT}</if>
+    	<if test="dictCode != null and dictCode != ''">AND dict_code = #{dictCode}</if>
+    </where>
+  </delete>
+	
+</mapper>

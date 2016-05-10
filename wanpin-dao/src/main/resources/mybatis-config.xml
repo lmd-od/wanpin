@@ -42,5 +42,11 @@
 	<!-- 类型别名 -->
 	<typeAliases>
 	</typeAliases>
+	<!-- 翻页插件拦截器-->
+	<plugins>
+		<plugin interceptor="com.wanpin.common.query.MyBatisPaginationInterceptor">
+			<property name="dialect" value="mysql" />
+		</plugin>
+	</plugins>
 	
 </configuration>

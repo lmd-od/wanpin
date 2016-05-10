@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wanpin.dao.DictValDao" >
+  <resultMap id="dictValMap" type="com.wanpin.entity.DictVal" >
+    <id column="dict_val_id" property="dictValId" jdbcType="BIGINT" />
+    <result column="dict_code" property="dictCode" jdbcType="VARCHAR" />
+    <result column="val_code" property="valCode" jdbcType="VARCHAR" />
+    <result column="val_name" property="valName" jdbcType="VARCHAR" />
+    <result column="sort_no" property="sortNo" jdbcType="INTEGER" />
+    <result column="is_valid" property="isValid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    dv.dict_val_id, dv.dict_code, dv.val_code, dv.val_name, dv.sort_no, dv.is_valid
+  </sql>
+  <select id="queryList" resultMap="dictValMap" parameterType="com.wanpin.query.DictValQuery" >
+    select 
+    <include refid="Base_Column_List" />
+    from wp_dict_val dv
+    <where>
+    	<if test="isValid != null">AND dv.is_valid = #{isValid}</if>
+    	<if test="dictCode != null and dictCode != ''">AND dv.dict_code = #{dictCode}</if>
+    </where>
+  </select>
+  
+  <select id="get" resultMap="dictValMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from wp_dict_val dv
+    where dv.dict_val_id = #{dictValId,jdbcType=BIGINT}
+  </select>
+  
+  <insert id="insert" parameterType="com.wanpin.entity.DictVal" >
+    insert into wp_dict_val
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dictValId != null" >
+        dict_val_id,
+      </if>
+      <if test="dictCode != null" >
+        dict_code,
+      </if>
+      <if test="valCode != null" >
+        val_code,
+      </if>
+      <if test="valName != null" >
+        val_name,
+      </if>
+      <if test="sortNo != null" >
+        sort_no,
+      </if>
+      <if test="isValid != null" >
+        is_valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dictValId != null" >
+        #{dictValId,jdbcType=BIGINT},
+      </if>
+      <if test="dictCode != null" >
+        #{dictCode,jdbcType=VARCHAR},
+      </if>
+      <if test="valCode != null" >
+        #{valCode,jdbcType=VARCHAR},
+      </if>
+      <if test="valName != null" >
+        #{valName,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNo != null" >
+        #{sortNo,jdbcType=INTEGER},
+      </if>
+      <if test="isValid != null" >
+        #{isValid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="com.wanpin.entity.DictVal" >
+    update wp_dict_val
+    <set >
+      <if test="dictCode != null" >
+        dict_code = #{dictCode,jdbcType=VARCHAR},
+      </if>
+      <if test="valCode != null" >
+        val_code = #{valCode,jdbcType=VARCHAR},
+      </if>
+      <if test="valName != null" >
+        val_name = #{valName,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNo != null" >
+        sort_no = #{sortNo,jdbcType=INTEGER},
+      </if>
+      <if test="isValid != null" >
+        is_valid = #{isValid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where dict_val_id = #{dictValId,jdbcType=BIGINT}
+  </update>
+  
+  <delete id="delete" parameterType="com.wanpin.entity.DictVal" >
+    delete from wp_dict_val
+    <where>
+    	<if test="dictValId != null">AND dict_val_id = #{dictValId,jdbcType=BIGINT}</if>
+    	<if test="dictCode != null and dictCode != ''">AND dict_code = #{dictCode}</if>
+    </where>
+  </delete>
+</mapper>
