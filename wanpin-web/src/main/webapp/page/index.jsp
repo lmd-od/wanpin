@@ -4,7 +4,10 @@
 <!doctype html>
 <html  class="no-js" lang="en">
 	<head>
-		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="referrer" content="always" />
+		<meta name="format-detection" content="telephone=no" />
 		<title>首页</title>
 		<link href="${ctx}/res/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="${ctx}/res/css/Engine.css">
@@ -40,24 +43,22 @@
 			<a href="#"><img src="${ctx}/res/img/13.png" /></a>
 		</div>
 		<!--登録条-->
-		<div class="regsiter">
+		<div class="regsiter-warp">
+			<div class="regsiter">
 			<ul>
-				<li class="active"><a href="#">登录</a></li>
-				<li class="active02"><a href="#">注册</a></li>
-				<li class="active03"><a href="#">中文版</a>/<a href="#">EngclsH</a></li>
+				<li class="active"><a href="${ctx}/page/user/user_base.jsp">登录</a></li>
+				<li class="active02"><a href="${ctx}/page/register.jsp">注册</a></li>
+				<li class="active03"><a href="#">中文版</a> / <a href="#">EngclsH</a></li>
 			</ul>
+		</div>
 		</div>
 		<!--解决方案-->
 		<div class="scheme">
-			<div class="scheme-warp">
-				<P class="p1">高效·创新·颠覆</P>
-				<P class="p2">建筑可视化解决方案</P>
-				<P class="p3">专业运营商</P>
-			</div>
+			<img src="${ctx}/res/img/index-01.png"/>
 		</div>
 		<!--WPL图片-->
 		<div class="logo">
-			<img src="${ctx}/res/img/01.png" /><em>上海万品数据有限公司</em>
+			<img src="${ctx}/res/img/index-02.png"/>
 		</div>
 		</div>
 		<script src="${ctx}/res/js/jquery.min.js"></script>
