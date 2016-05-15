@@ -13,10 +13,5 @@ import com.wanpin.entity.User;
  */
 @MyBatisDao
 public interface UserDao extends CrudDao<User>  {
- /**
- * 登录实现
- * @param user
- * @return
- */
-	public User login(User user);
+
 }

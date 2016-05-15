@@ -1,132 +1,366 @@
 package com.wanpin.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
-import com.wanpin.common.persistence.SystemEnum;
+public class User {
+    private Long userId;
 
-/**
- * 用户Entity
- * 
- * @author MingDingLi
- * @version 2013-12-05
- */
-public class User extends Login{
-    
-	private String loginName; // 登录名
-	private String password; // 密码
-	private String payPassword;//支付密码
-	private String name; // 姓名
-	private String mobile; // 手机
-	private String newPassword; // 新密码
-	private String type;// 用户类型 vip 用户/普通用户/游客
-	private String userCode;
-	private String language = SystemEnum.SYS_USER_LANGUAGE_ZH;// 语言 默认中文
+    private String mobile;
 
-	private String loginIp; // 最后登陆IP
-	private Date loginDate; // 最后登陆日期
-	private String loginFlag; // 是否允许登陆
-	private String oldLoginIp; // 上次登陆IP
-	private Date oldLoginDate; // 上次登陆日期
+    private String email;
 
-	private String photo; // 头像
-	private String email; // 邮箱
-	private String phone; // 电话
+    private String password;
 
-	public String getLoginName() {
-		return loginName;
-	}
-	public void setLoginName(String loginName) {
-		this.loginName = loginName;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getMobile() {
-		return mobile;
-	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-	public String getNewPassword() {
-		return newPassword;
-	}
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getUserCode() {
-		return userCode;
-	}
-	public void setUserCode(String userCode) {
-		this.userCode = userCode;
-	}
-	public String getLanguage() {
-		return language;
-	}
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-	public String getLoginIp() {
-		return loginIp;
-	}
-	public void setLoginIp(String loginIp) {
-		this.loginIp = loginIp;
-	}
-	public Date getLoginDate() {
-		return loginDate;
-	}
-	public void setLoginDate(Date loginDate) {
-		this.loginDate = loginDate;
-	}
-	public String getLoginFlag() {
-		return loginFlag;
-	}
-	public void setLoginFlag(String loginFlag) {
-		this.loginFlag = loginFlag;
-	}
-	public String getOldLoginIp() {
-		return oldLoginIp;
-	}
-	public void setOldLoginIp(String oldLoginIp) {
-		this.oldLoginIp = oldLoginIp;
-	}
-	public Date getOldLoginDate() {
-		return oldLoginDate;
-	}
-	public void setOldLoginDate(Date oldLoginDate) {
-		this.oldLoginDate = oldLoginDate;
-	}
-	public String getPhoto() {
-		return photo;
-	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    private String payPassword;
 
+    private String type;
+
+    private String language;
+
+    private String nickName;
+
+    private String realName;
+
+    private String idcardNo;
+
+    private Byte userGrad;
+
+    private Date birthday;
+
+    private String qq;
+
+    private String weiXin;
+
+    private String university;
+
+    private Byte education;
+
+    private Byte sex;
+
+    private Byte isAuth;
+
+    private String company;
+
+    private String position;
+
+    private BigDecimal remainMoney;
+
+    private Byte status;
+
+    private String recommendCode;
+
+    private String recommendUser;
+
+    private String idcardPhoto1;
+
+    private String idcardPhoto2;
+
+    private String resume;
+
+    private Boolean delFlag;
+
+    private String loginIp;
+
+    private Date loginDate;
+
+    private String oldLoginIp;
+
+    private Date oldLoginDate;
+
+    private String createUser;
+
+    private Date createTime;
+
+    private String updateUser;
+
+    private Date updateTime;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
+
+    public String getPayPassword() {
+        return payPassword;
+    }
+
+    public void setPayPassword(String payPassword) {
+        this.payPassword = payPassword == null ? null : payPassword.trim();
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language == null ? null : language.trim();
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName == null ? null : nickName.trim();
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName == null ? null : realName.trim();
+    }
+
+    public String getIdcardNo() {
+        return idcardNo;
+    }
+
+    public void setIdcardNo(String idcardNo) {
+        this.idcardNo = idcardNo == null ? null : idcardNo.trim();
+    }
+
+    public Byte getUserGrad() {
+        return userGrad;
+    }
+
+    public void setUserGrad(Byte userGrad) {
+        this.userGrad = userGrad;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    public String getWeiXin() {
+        return weiXin;
+    }
+
+    public void setWeiXin(String weiXin) {
+        this.weiXin = weiXin == null ? null : weiXin.trim();
+    }
+
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university == null ? null : university.trim();
+    }
+
+    public Byte getEducation() {
+        return education;
+    }
+
+    public void setEducation(Byte education) {
+        this.education = education;
+    }
+
+    public Byte getSex() {
+        return sex;
+    }
+
+    public void setSex(Byte sex) {
+        this.sex = sex;
+    }
+
+    public Byte getIsAuth() {
+        return isAuth;
+    }
+
+    public void setIsAuth(Byte isAuth) {
+        this.isAuth = isAuth;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company == null ? null : company.trim();
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position == null ? null : position.trim();
+    }
+
+    public BigDecimal getRemainMoney() {
+        return remainMoney;
+    }
+
+    public void setRemainMoney(BigDecimal remainMoney) {
+        this.remainMoney = remainMoney;
+    }
+
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
+    }
+
+    public String getRecommendCode() {
+        return recommendCode;
+    }
+
+    public void setRecommendCode(String recommendCode) {
+        this.recommendCode = recommendCode == null ? null : recommendCode.trim();
+    }
+
+    public String getRecommendUser() {
+        return recommendUser;
+    }
+
+    public void setRecommendUser(String recommendUser) {
+        this.recommendUser = recommendUser == null ? null : recommendUser.trim();
+    }
+
+    public String getIdcardPhoto1() {
+        return idcardPhoto1;
+    }
+
+    public void setIdcardPhoto1(String idcardPhoto1) {
+        this.idcardPhoto1 = idcardPhoto1 == null ? null : idcardPhoto1.trim();
+    }
+
+    public String getIdcardPhoto2() {
+        return idcardPhoto2;
+    }
+
+    public void setIdcardPhoto2(String idcardPhoto2) {
+        this.idcardPhoto2 = idcardPhoto2 == null ? null : idcardPhoto2.trim();
+    }
+
+    public String getResume() {
+        return resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume == null ? null : resume.trim();
+    }
+
+    public Boolean getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Boolean delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    public String getLoginIp() {
+        return loginIp;
+    }
+
+    public void setLoginIp(String loginIp) {
+        this.loginIp = loginIp == null ? null : loginIp.trim();
+    }
+
+    public Date getLoginDate() {
+        return loginDate;
+    }
+
+    public void setLoginDate(Date loginDate) {
+        this.loginDate = loginDate;
+    }
+
+    public String getOldLoginIp() {
+        return oldLoginIp;
+    }
+
+    public void setOldLoginIp(String oldLoginIp) {
+        this.oldLoginIp = oldLoginIp == null ? null : oldLoginIp.trim();
+    }
+
+    public Date getOldLoginDate() {
+        return oldLoginDate;
+    }
+
+    public void setOldLoginDate(Date oldLoginDate) {
+        this.oldLoginDate = oldLoginDate;
+    }
+
+    public String getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser == null ? null : createUser.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateUser() {
+        return updateUser;
+    }
+
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser == null ? null : updateUser.trim();
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 }
