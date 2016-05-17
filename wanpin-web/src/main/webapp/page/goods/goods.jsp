@@ -73,7 +73,7 @@
                             <span>￥1500</span>
                             <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
@@ -83,7 +83,7 @@
                             <span>￥1500</span>
                             <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
@@ -93,7 +93,7 @@
                             <span>￥1500</span>
                             <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
@@ -103,7 +103,7 @@
                             <span>￥1500</span>
                             <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
@@ -111,83 +111,14 @@
 						<li>
                             <img src="${ctx}/res/img/Engine-li-img.png" />
                             <span>￥1500</span>
-                            <a href="#">
+                            <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
 						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <span>￥1500</span>
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <span>￥1500</span>
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <span>￥1500</span>
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <span>￥1500</span>
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <span>￥1500</span>
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <span>￥1500</span>
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <span>￥1500</span>
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
+						
                         </ul>
 					</div>
 				</div>

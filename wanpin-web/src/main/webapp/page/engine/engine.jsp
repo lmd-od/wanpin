@@ -73,7 +73,7 @@
                             <img src="${ctx}/res/img/Engine-li-img.png" />
                             <a href="${ctx}/page/engine/engine_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
@@ -82,7 +82,7 @@
                             <img src="${ctx}/res/img/Engine-li-img.png" />
                             <a href="${ctx}/page/engine/engine_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
@@ -91,124 +91,43 @@
                             <img src="${ctx}/res/img/Engine-li-img.png" />
                             <a href="${ctx}/page/engine/engine_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
 						</li>
 						<li>
                             <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
+                            <a href="${ctx}/page/engine/engine_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
 						</li>
 						<li>
                             <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
+                            <a href="${ctx}/page/engine/engine_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
 						</li>
 						<li>
                             <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
+                            <a href="${ctx}/page/engine/engine_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
 						</li>
 						<li>
                             <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
+                            <a href="${ctx}/page/engine/engine_detail.jsp" target="_blank">
                                 <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
-                                    <br /> 中国.水上大楼.混疑土.异形.办公
-                                </p>
-                            </a>
-						</li>
-						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
-                            <a href="#">
-                                <p>
-                                    Alvaro Siza.
+                                    <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>

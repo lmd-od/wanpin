@@ -177,7 +177,7 @@ main {
 
 /*WPL——↓*/
 .logo {
-	width: 58%;
+	width: 40%;
 	position: absolute;
 	z-index: 98;
 	left: 0px;
@@ -245,7 +245,7 @@ main {
 	margin-left: 100px;
 }
 .regsiter-warp{
-	width:42%;position: absolute;right: 0;overflow: hidden;height: 60px;
+	width:27%;position: absolute;right: 0;overflow: hidden;height: 60px;
 }
 /*响应式*/
 @media screen and (max-width:1440px) {
@@ -353,11 +353,11 @@ main {
 	height: 25px;
 	text-align: center;
 	line-height: 25px;
-	border-left: 1px solid #001925;
+	border-left: 1px solid #1e659d;
 }
 
 .regsiter ul li a:hover {
-	color: #9F9FA0;
+	color: #00e4ff;
 }
 
 .regsiter ul .active {
@@ -853,9 +853,9 @@ main {
 
 .header-content-loginbar span {
 	text-align: right;
-	font-size: 14px;
+	font-size: 13px;
 	color: #FFFFFF;
-	float: left;
+	float: right;
 	margin-left: 10px;
 }
 
@@ -901,12 +901,12 @@ main {
 }
 
 .video-warp video {
-	border: 5px solid #ddd;
-	border-radius: 5px;
-	float: right;
-	height: 337px;
-	margin: 57px 26px 0 0;
-	width: 597px;
+    border: 5px solid #ddd;
+    border-radius: 5px;
+    float: right;
+    height: 395px;
+    margin: 35px 33px 0 0;
+    width: 700px;
 }
 
 .download-warp {
@@ -993,10 +993,11 @@ main {
 	color: #FFFFFF;
 	border-radius: 3px;
 	text-align: center;
-	line-height: 24px;
+	line-height: 27px;
 	cursor: pointer;
 	display: block;
 }
+.active-content-text-button:hover{ background:#266ea8; color:#fff;}
 
 
 /*中间内容-搜素——↓*/
@@ -1017,7 +1018,7 @@ main {
 	width: 100%;
 	height: auto;
 	background: #eeefef;
-	border-radius: 5px;
+	border-radius: 3px;
 	overflow: hidden;
 }
 
@@ -1038,10 +1039,12 @@ main {
 	margin-bottom: 15px;
 	letter-spacing: 6px;
 	border-radius: 2px;
+	
 }
 
 .list li a {
 	display: block;
+	color:#fff
 }
 
 .list li a:hover {
@@ -1053,6 +1056,8 @@ main {
 	height: auto;
 	margin-left: 15px;
 	margin-bottom: 15px;
+	width: 917px;
+    overflow: hidden;
 }
 
 .list-01,
@@ -1070,7 +1075,6 @@ main {
 	float: left;
 	font-size: 14px;
 	margin-left: 11px;
-	font-weight: 700;
 	color: #040000;
 	line-height: 40px;
 	height: 35px;
@@ -1104,18 +1108,21 @@ main {
 
 .logo-list-01 li p {
 	background: #eeefef none repeat scroll 0 0;
-	border-radius: 5px;
+	border-radius: 3px;
 	margin-top: 5px;
-	padding: 10px 0;
+	padding: 5px 0;
 	text-align: center;
 	width: 100%;
 	font-size: 14px;
+	color:#555;
 }
+.logo-list-01 li p b{ color:#333;}
 
-.logo-list-01 li p:hover {
+.logo-list-01 li:hover p {
 	background: #0097db;
-	color: #000;
+	color: #fff;
 }
+.logo-list-01 li:hover p b{color: #fff;}
 
 
 /*图片——↓*/
@@ -1123,7 +1130,7 @@ main {
 .active-content-footer img {
 	width: 242px;
 	height: 156px;
-	border-radius: 5px;
+	border-radius: 3px;
 }
 
 
@@ -1150,6 +1157,7 @@ main {
 	margin-right: 5px;
 	text-align: center;
 	line-height: 22px;
+	border-radius:3px;
 }
 
 .paging ul li a {
@@ -1298,8 +1306,9 @@ main {
 	float: left;
 	padding: 0 0 0 20px;
 	line-height: 28px;
-	font-size: 12px;
+	font-size: 14px;
 	text-indent: 2em;
+	color:#444
 }
 
 .details-logo img {
@@ -1326,7 +1335,7 @@ main {
 
 .companyProfile {
 	width: 1025px;
-	background: #eeefef;
+	background: #f3f3f3;
 	overflow: hidden;
 	margin: 0 auto;
 }
@@ -1359,20 +1368,23 @@ main {
 
 .companyProfile-left ul li a {
 	display: block;
+	color:#fff
 }
+
 
 .companyProfile-left ul li {
 	width: 114px;
-	height: 31px;
+	height: 30px;
 	background: #009bcb;
-	line-height: 31px;
+	line-height: 30px;
 	text-align: center;
-	font-size: 18px;
+	font-size: 15px;
 	letter-spacing: 3px;
 	border-radius: 3px;
-	margin: 20px 0 0 20px;
+	margin: 15px 0 0 20px;
 }
 
+.companyProfile-left ul li a:hover{ background:#004a8f; border-radius:3px;}
 .companyProfile-left ul .active {
 	background: #004a8f;
 }
@@ -1394,7 +1406,7 @@ main {
 }
 
 .profession-right {
-	width: 735px;
+	width: 775px;
 	height: auto;
 }
 
@@ -1403,16 +1415,16 @@ main {
 }
 
 .headline ul {
-	width: 770px;
+	width: 815px;
 	background: #dcdddd;
 	height: 40px;
 	border-radius: 3px;
 }
-
+.headline ul li{ font-weight:bold}
 .headline ul li,
 .require ul li {
 	float: left;
-	width: 117px;
+	width: 125px;
 	text-align: center;
 	line-height: 40px;
 	font-size: 16px;
@@ -1425,28 +1437,27 @@ main {
 }
 
 .require ul {
-	width: 770px;
-	height: 105px;
+	width: 811px;
 	background: #eeefef;
 	border: 2px solid #b5b5b6;
 	margin-top: 7px;
 	border-radius: 5px;
+	overflow:hidden
 }
 
 .require ul li {
-	height: 105px;
 	line-height: 105px;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .require ul .active {
-	width: 292px;
-	height: 85px;
-	line-height: 22px;
-	font-size: 16px;
+	width: 301px;
+	line-height: 30px;
+	font-size: 14px;
 	text-align: left;
 	overflow: hidden;
 	padding: 5px;
+	color:#555;
 }
 
 .sidebar ul {
@@ -1472,8 +1483,9 @@ main {
 	width: 76px;
 	text-align: center;
 	font-size: 14px;
-	border-radius: 2px;
-}
+	border-radius: 3px;
+	height:22px;
+	line-height:22px;}
 
 .recommend-warp ul .active {
 	background: #00a0e9;
@@ -1481,9 +1493,16 @@ main {
 	letter-spacing: 3px;
 	margin-right: 20px;
 }
+.recommend-warp ul .active a{	
+	color:#Fff;
+}
 
-.recommend-warp ul li:hover {
+.recommend-warp ul li a:hover {
 	background: #00a0e9;
+	color:#fff;
+	border-radius: 3px;
+	height:22px;
+	display:block
 }
 
 
@@ -1537,7 +1556,7 @@ main {
 }
 
 .recommend-title .active {
-	width: 265px;
+	width: 277px;
 	letter-spacing: 3px;
 }
 
@@ -1545,7 +1564,7 @@ main {
 /*全选——↓*/
 
 .all-warp {
-	width: 845px;
+	width: 100%;
 	margin-top: 10px;
 	line-height: 25px;
 	font-size: 12px;
@@ -1562,6 +1581,7 @@ main {
 	margin: 0 3px 0 4px;
 	background: #dddede;
 }
+.all span{ display:block; float:left; line-height:14px;}
 
 .nextpage {
 	float: right;
@@ -1571,12 +1591,14 @@ main {
 
 
 /*订单列表——↓*/
-
 .all-warp-list {
 	border: 1px solid #9eadbe;
 	overflow: hidden;
 	float: left;
 	margin-bottom: 5px;
+	padding:10px;
+	border-radius:3px;
+	color:#555
 }
 
 .all-warp-list-two {
@@ -1596,18 +1618,21 @@ main {
 }
 
 .all-warp-list .nextpage {
-	margin-right: 50px;
+	margin-right: 20px;
 }
 
 .all-warp-list .nextpage a {
 	border: 1px solid #dededf;
-	margin-top: 2px;
-	display: block;
-	line-height: 15px;
+    margin-top: 2px;
+    display: block;
+    line-height: 15px;
+    padding: 2px 5px;
 }
 
 .all-warp-list .nextpage a:hover {
-	background: darkgray;
+	background: #3084c7;
+	border:#3084c7 solid 1px;
+	color:#fff
 }
 
 .all-warp-list-logo ul li {
@@ -1686,6 +1711,7 @@ main {
 .active-06 {
 	font-weight: 700;
 }
+.wdsc{ padding:0;}
 
 
 /*翻页——↓*/
@@ -2028,6 +2054,8 @@ main {
 	border-radius: 2px;
 	margin-top: 15px;
 }
+.recommend-evaluate:hover{border: 1px solid #09C;}
+.recommend-evaluate a:hover{ background:#09C; display:block; color:#fff}
 
 .fl .recommend-evaluate-text textarea {
 	width: 830px;
@@ -2074,16 +2102,19 @@ main {
 	width: 70px;
 	height: 25px;
 	background: #00a0e9;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: center;
 	line-height: 25px;
 	border-radius: 2px;
-	margin: 50px 20px 180px 0;
+	margin: 30px 20px 180px 0;
 	float: right;
+	border-radius:3px;
+	
 }
 
 .yijian a {
 	display: block;
+	color:#fff
 }
 
 .yijian a:hover {
@@ -2110,14 +2141,15 @@ label {
 }
 
 #sbutton {
-	width: 60px;
-	margin: 15px 0 90px 190px;
-	border-radius: 2px;
-	background: #008cd6;
-	color: #000000;
-	border-radius: 8px;
-	font-size: 16px;
-	line-height: 20px;
+    width: 90px;
+    margin: 15px 0 90px 170px;
+    border-radius: 2px;
+    background: #008cd6;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    height: 30px;
 }
 
 .sidebar ul {
@@ -2170,8 +2202,7 @@ label {
 	margin-top: 10px;
 	border-radius: 3px;
 	overflow: hidden;
-	padding: 5px 0 32px 0;
-}
+    padding: 5px 0 2px 0;}
 
 .recommend-img-01 {
 	width: 179px;
@@ -2182,8 +2213,12 @@ label {
 .recommend-img-01 img {
 	width: 100%;
 	height: 114px;
+	border-radius:3px;
 }
-
+.recommend-img-01 p{ text-align:center}
+.recommend-img-01 .figcaption{ background:#fff; border-radius:3px; padding:5px 0}
+.recommend-img-01:hover .figcaption{ background:#09C; color:#fff}
+.recommend-img-01:hover .figcaption a{ color:#fff}
 .paging ul li {
 	width: 23px;
 	height: 25px;
@@ -2208,10 +2243,10 @@ label {
 }
 
 .Mallcollection-logo {
-	width: 274px;
+	width: 255px;
 	border: 1px solid #bcc5d0;
 	border-radius: 2px;
-	padding: 10px 0px 10px 0;
+	padding: 10px;
 	margin-top: 10px;
 	overflow: hidden;
 }
@@ -2223,11 +2258,12 @@ label {
 }
 
 .Mallcollection-logo p {
-	width: 130px;
+	width: 120px;
 	float: left;
-	font-size: 16px;
+	font-size: 14px;
 	margin: 5px 0 0 8px;
 }
+.Mallcollection-logo:hover{ background:#ECF5FF}
 
 .fanye {
 	float: right;
@@ -2235,7 +2271,7 @@ label {
 }
 
 .header-content-loginbar {
-	width: 220px;
+	width: 195px;
 	margin: 27px 0 0 30px;
 	float: right;
 }
@@ -2260,7 +2296,9 @@ label {
 }
 
 .sidebar ul .active a {
-	background: #008dd7;
+    background: #008dd7;
+    color: #fff;
+    padding: 0 5px;
 }
 
 .sidebar ul li a {
@@ -2269,6 +2307,8 @@ label {
 
 .sidebar ul li a:hover {
 	background: #008dd7;
+	color: #fff;
+    padding: 0 5px;
 }
 
 .information {
@@ -2295,12 +2335,15 @@ label {
 .information-logo a {
 	background: #008cd6;
 	display: block;
-	width: 75px;
+	width: 80px;
 	margin: 10px auto;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: center;
 	letter-spacing: 1px;
-	border-radius: 2px;
+	border-radius: 3px;
+	height:25px;
+	color:#fff;
+	line-height:25px;
 }
 
 
@@ -2402,14 +2445,19 @@ select {
 
 .introduce {
 	width: 340px;
-	float: left;
-	padding-left: 20px;
-	font-size: 14px;
+    float: left;
+    padding-left: 20px;
+    font-size: 14px;
+    overflow: hidden;
+    height: 384px;
+    position: relative;
 }
 
+
 .introduce h1 {
-	font-size: 18px;
+	font-size: 22px;
 	margin: 0;
+	width:100%; overflow:hidden
 }
 
 .introduce-01,
@@ -2420,17 +2468,10 @@ select {
 }
 
 .introduce-01,
-.introduce-03 {
-	height: 25px;
+.introduce-03,.introduce-02,.introduce-04 {
+	overflow:hidden
 }
 
-.introduce-02 {
-	height: 80px;
-}
-
-.introduce-04 {
-	height: 60px;
-}
 
 .picture-warp em {
 	background: #00a0e9;
@@ -2440,7 +2481,7 @@ select {
 	display: block;
 	text-align: center;
 	float: left;
-	color: #231815;
+	color: #fff;
 }
 
 .introduce-01 span,
@@ -2451,6 +2492,7 @@ select {
 	display: block;
 	float: left;
 	line-height: 30px;
+	color:#555
 }
 
 .introduce-04 span {
@@ -2458,12 +2500,14 @@ select {
 }
 
 .goumai-warp {
-	margin-top: 55px;
+	position:absolute;
+	bottom:0;
 }
 
 .goumai-warp p {
 	color: #f08300;
-	font-size: 16px;
+	font-size: 22px;
+	font-weight:bold
 }
 
 .goumai {
@@ -2475,7 +2519,9 @@ select {
 	color: #FFFFFF;
 	font-size: 16px;
 	margin-top: 10px;
+	border-radius:3px;
 }
+.goumai:hover{ color:#fff; background:#FC0;}
 
 .zhifu {
 	background: #009bcb;
@@ -2488,6 +2534,7 @@ select {
 	float: left;
 	margin: 0 10px 0 5px;
 }
+.zhifu li b{ color:#fff;}
 
 .zhifu li a {
 	color: #FFFFFF;
@@ -2495,7 +2542,7 @@ select {
 }
 
 .zhifu li a:hover {
-	color: #00498F;
+	color:#0FF;
 }
 
 
@@ -2523,6 +2570,7 @@ select {
 	line-height: 25px;
 	margin-right: 10px;
 	letter-spacing: 5px;
+	border-radius:3px;
 }
 
 .share-list li a {
@@ -2531,7 +2579,9 @@ select {
 }
 
 .share-list-02 {
-	width: 180px;
+	width: 175px;
+	overflow:hidden;
+	border-radius:3px;
 }
 
 .share-list-02 img {
@@ -2542,6 +2592,7 @@ select {
 	margin-right: 0;
 	width: 35px;
 	line-height: 35px;
+	border-radius:0;
 }
 
 .share-list li:hover {
@@ -2615,11 +2666,16 @@ select {
 }
 
 .changepassword-warp form #affirm {
-	width: 80px;
+	width: 100px;
 	margin: 20px 155px 100px 0;
 	background: #079ff0;
 	border-radius: 2px;
 	font-size: 16px;
+	border:none;
+	color:#fff;
+	cursor:pointer;
+	height:30px;
+	line-height:30px;
 }
 
 .changepassword-warp form #affirm:hover {
@@ -2706,7 +2762,7 @@ select {
 	width: 350px;
 	height: 80px;
 	background: #00A0E9;
-	border-radius: 20px;
+	border-radius: 5px;
 	color: #FFFAF0;
 	line-height: 80px;
 	margin: 30px 0 250px 185px;
@@ -2731,7 +2787,7 @@ select {
 	width: 115px;
 	height: 60px;
 	background: #00A0E9;
-	border-radius: 15px;
+	border-radius:5px;
 	font-size: 34px;
 	color: #FFFFFF;
 	line-height: 60px;

@@ -17,7 +17,7 @@
 				
 				<jsp:include page="/page/user/user_left.jsp"></jsp:include>
 				
-				<div class="all-warp-list all-warp-list-two">
+				<div class="all-warp-list all-warp-list-two wdsc">
 					<div class="recommend-warp-two recommend-warp">
 						<form action="" method="post">
 							<input type="text" placeholder="输入商品名称，商品编号，订单号" class="text"/>
@@ -29,99 +29,94 @@
 					</div>
 					<div class="recommend-img">
 						<div class="recommend-img-01">
-							<img src="${ctx}/res/img/52415.png"/>
+							<a href="#"><img src="${ctx}/res/img/52415.png"/></a>
 							<figcaption class="figcaption">
-								<a href="#">
+								<a href="${ctx}/page/engine/engine_detail.jsp">
 									<P>
-										Alvaro Siza.
+										<b><b>Alvaro Siza.</b></b>
 										<br /> 中国.水上大楼.混疑土.异形.办公
 									</P>
 								</a>
 							</figcaption>
 						</div>
 						<div class="recommend-img-01">
-							<img src="${ctx}/res/img/52415.png"/>
+							<a href="#"><img src="${ctx}/res/img/52415.png"/></a>
 							<figcaption class="figcaption">
-								<a href="#">
+								<a href="${ctx}/page/engine/engine_detail.jsp">
 									<P>
-										Alvaro Siza.
+										<b>Alvaro Siza.</b>
 										<br /> 中国.水上大楼.混疑土.异形.办公
 									</P>
 								</a>
 							</figcaption>
 						</div>
 						<div class="recommend-img-01">
-							<img src="${ctx}/res/img/52415.png"/>
+							<a href="#"><img src="${ctx}/res/img/52415.png"/></a>
 							<figcaption class="figcaption">
-								<a href="#">
+								<a href="${ctx}/page/engine/engine_detail.jsp">
 									<P>
-										Alvaro Siza.
+										<b><b>Alvaro Siza.</b></b>
+										<br /> 中国.水上大楼.混疑土.异形.办公
+									</P>
+								</a>
+							</figcaption>
+						</div><div class="recommend-img-01">
+							<a href="#"><img src="${ctx}/res/img/52415.png"/></a>
+							<figcaption class="figcaption">
+								<a href="${ctx}/page/engine/engine_detail.jsp">
+									<P>
+										<b><b>Alvaro Siza.</b></b>
+										<br /> 中国.水上大楼.混疑土.异形.办公
+									</P>
+								</a>
+							</figcaption>
+						</div><div class="recommend-img-01">
+							<a href="#"><img src="${ctx}/res/img/52415.png"/></a>
+							<figcaption class="figcaption">
+								<a href="${ctx}/page/engine/engine_detail.jsp">
+									<P>
+										<b><b>Alvaro Siza.</b></b>
+										<br /> 中国.水上大楼.混疑土.异形.办公
+									</P>
+								</a>
+							</figcaption>
+						</div><div class="recommend-img-01">
+							<a href="#"><img src="${ctx}/res/img/52415.png"/></a>
+							<figcaption class="figcaption">
+								<a href="${ctx}/page/engine/engine_detail.jsp">
+									<P>
+										<b><b>Alvaro Siza.</b></b>
+										<br /> 中国.水上大楼.混疑土.异形.办公
+									</P>
+								</a>
+							</figcaption>
+						</div><div class="recommend-img-01">
+							<a href="#"><img src="${ctx}/res/img/52415.png"/></a>
+							<figcaption class="figcaption">
+								<a href="${ctx}/page/engine/engine_detail.jsp">
+									<P>
+										<b><b>Alvaro Siza.</b></b>
+										<br /> 中国.水上大楼.混疑土.异形.办公
+									</P>
+								</a>
+							</figcaption>
+						</div><div class="recommend-img-01">
+							<a href="#"><img src="${ctx}/res/img/52415.png"/></a>
+							<figcaption class="figcaption">
+								<a href="${ctx}/page/engine/engine_detail.jsp">
+									<P>
+										<b><b>Alvaro Siza.</b></b>
 										<br /> 中国.水上大楼.混疑土.异形.办公
 									</P>
 								</a>
 							</figcaption>
 						</div>
 						<div class="recommend-img-01">
-							<img src="${ctx}/res/img/52415.png"/>
+							<a href="#"><img src="${ctx}/res/img/52415.png"/></a>
 							<figcaption class="figcaption">
-								<a href="#">
+								<a href="${ctx}/page/engine/engine_detail.jsp">
 									<P>
-										Alvaro Siza.
-										<br /> 中国.水上大楼.混疑土.异形.办公
-									</P>
-								</a>
-							</figcaption>
-						</div>
-						<div class="recommend-img-01">
-							<img src="${ctx}/res/img/52415.png"/>
-							<figcaption class="figcaption">
-								<a href="#">
-									<P>
-										Alvaro Siza.
-										<br /> 中国.水上大楼.混疑土.异形.办公
-									</P>
-								</a>
-							</figcaption>
-						</div>
-						<div class="recommend-img-01">
-							<img src="${ctx}/res/img/52415.png"/>
-							<figcaption class="figcaption">
-								<a href="#">
-									<P>
-										Alvaro Siza.
-										<br /> 中国.水上大楼.混疑土.异形.办公
-									</P>
-								</a>
-							</figcaption>
-						</div>
-						<div class="recommend-img-01">
-							<img src="${ctx}/res/img/52415.png"/>
-							<figcaption class="figcaption">
-								<a href="#">
-									<P>
-										Alvaro Siza.
-										<br /> 中国.水上大楼.混疑土.异形.办公
-									</P>
-								</a>
-							</figcaption>
-						</div>
-						<div class="recommend-img-01">
-							<img src="${ctx}/res/img/52415.png"/>
-							<figcaption class="figcaption">
-								<a href="#">
-									<P>
-										Alvaro Siza.
-										<br /> 中国.水上大楼.混疑土.异形.办公
-									</P>
-								</a>
-							</figcaption>
-						</div>
-						<div class="recommend-img-01">
-							<img src="${ctx}/res/img/52415.png"/>
-							<figcaption class="figcaption">
-								<a href="#">
-									<P>
-										Alvaro Siza.
+										<b><b>Alvaro Siza.</b></b>
 										<br /> 中国.水上大楼.混疑土.异形.办公
 									</P>
 								</a>
@@ -153,27 +148,27 @@
 						<P><a href="#">商城收藏</a></P>
 					</div>
 					<div class="Mallcollection-logo">
-						<a href="#"><img src="${ctx}/res/img/415.png"/></a>
-						<P>意大利(底层)单层单体别墅<br />￥1500</P>
+						<a href="${ctx}/page/goods/goods_detail.jsp"><img src="${ctx}/res/img/415.png"/></a>
+						<P>意大利(底层)单层单体别墅<br />￥<b>1500</b></P>
 					</div>
 					<div class="Mallcollection-logo">
-						<a href="#"><img src="${ctx}/res/img/415.png"/></a>
-						<P>意大利(底层)单体别墅<br />￥1500</P>
+						<a href="${ctx}/page/goods/goods_detail.jsp"><img src="${ctx}/res/img/415.png"/></a>
+						<P>意大利(底层)单体别墅<br />￥<b>1500</b></P>
 					</div>
 					<div class="Mallcollection-logo">
-						<a href="#"><img src="${ctx}/res/img/415.png"/></a>
-						<P>意大利(底层)单体别墅<br />￥1500</P>
+						<a href="${ctx}/page/goods/goods_detail.jsp"><img src="${ctx}/res/img/415.png"/></a>
+						<P>意大利(底层)单体别墅<br />￥<b>1500</b></P>
 					</div>
 					<div class="Mallcollection-logo">
-						<a href="#"><img src="${ctx}/res/img/415.png"/></a>
-						<P>意大利(底层)单体别墅<br />￥1500</P>
+						<a href="${ctx}/page/goods/goods_detail.jsp"><img src="${ctx}/res/img/415.png"/></a>
+						<P>意大利(底层)单体别墅<br />￥<b>1500</b></P>
 					</div>
 					<div class="Mallcollection-logo">
-						<a href="#"><img src="${ctx}/res/img/415.png"/></a>
-						<P>意大利(底层)单体别墅<br />￥1500</P>
+						<a href="${ctx}/page/goods/goods_detail.jsp"><img src="${ctx}/res/img/415.png"/></a>
+						<P>意大利(底层)单体别墅<br />￥<b>1500</b></P>
 					</div>
 					<div class="fanye">
-						<a href="#">上</a>/<a href="#">下一页</a>
+						<a href="#">上一页</a>/<a href="#">下一页</a>
 					</div>
 				</div>
 			</div>	

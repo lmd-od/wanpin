@@ -2,4 +2,359 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wanpin.dao.UserDao">
 
+  <sql id="Base_Column_List" >
+    user_id, mobile, email, password, pay_password, type, language, nick_name, real_name, 
+    idcard_no, user_grad, birthday, qq, wei_xin, university, education, sex, is_auth, 
+    company, position, remain_money, status, recommend_code, recommend_user, idcard_photo1, 
+    idcard_photo2, resume, del_flag, login_ip, login_date, old_login_ip, old_login_date, 
+    create_user, create_time, update_user, update_time
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="User" parameterType="User" >
+    select 
+    <include refid="Base_Column_List" />
+    from wp_user
+    <where>
+    	<if test="userId != null">AND user_id = #{userId}</if>
+    	<if test="mobile != null and mobile != ''">AND mobile = #{mobile}</if>
+    	<if test="password != null and password != ''">AND password = #{password}</if>
+    </where>
+  </select>
+
+  <insert id="insert" parameterType="com.wanpin.entity.User" >
+    insert into wp_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="payPassword != null" >
+        pay_password,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="idcardNo != null" >
+        idcard_no,
+      </if>
+      <if test="userGrad != null" >
+        user_grad,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="weiXin != null" >
+        wei_xin,
+      </if>
+      <if test="university != null" >
+        university,
+      </if>
+      <if test="education != null" >
+        education,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="isAuth != null" >
+        is_auth,
+      </if>
+      <if test="company != null" >
+        company,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="remainMoney != null" >
+        remain_money,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="recommendCode != null" >
+        recommend_code,
+      </if>
+      <if test="recommendUser != null" >
+        recommend_user,
+      </if>
+      <if test="idcardPhoto1 != null" >
+        idcard_photo1,
+      </if>
+      <if test="idcardPhoto2 != null" >
+        idcard_photo2,
+      </if>
+      <if test="resume != null" >
+        resume,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="loginIp != null" >
+        login_ip,
+      </if>
+      <if test="loginDate != null" >
+        login_date,
+      </if>
+      <if test="oldLoginIp != null" >
+        old_login_ip,
+      </if>
+      <if test="oldLoginDate != null" >
+        old_login_date,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="payPassword != null" >
+        #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=CHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardNo != null" >
+        #{idcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userGrad != null" >
+        #{userGrad,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="weiXin != null" >
+        #{weiXin,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null" >
+        #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="isAuth != null" >
+        #{isAuth,jdbcType=TINYINT},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="remainMoney != null" >
+        #{remainMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="recommendCode != null" >
+        #{recommendCode,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendUser != null" >
+        #{recommendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardPhoto1 != null" >
+        #{idcardPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardPhoto2 != null" >
+        #{idcardPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="resume != null" >
+        #{resume,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=BIT},
+      </if>
+      <if test="loginIp != null" >
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null" >
+        #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldLoginIp != null" >
+        #{oldLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="oldLoginDate != null" >
+        #{oldLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="update" parameterType="com.wanpin.entity.User" >
+    update wp_user
+    <set >
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="payPassword != null" >
+        pay_password = #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=CHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardNo != null" >
+        idcard_no = #{idcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userGrad != null" >
+        user_grad = #{userGrad,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="weiXin != null" >
+        wei_xin = #{weiXin,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null" >
+        university = #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        education = #{education,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="isAuth != null" >
+        is_auth = #{isAuth,jdbcType=TINYINT},
+      </if>
+      <if test="company != null" >
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="remainMoney != null" >
+        remain_money = #{remainMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="recommendCode != null" >
+        recommend_code = #{recommendCode,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendUser != null" >
+        recommend_user = #{recommendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardPhoto1 != null" >
+        idcard_photo1 = #{idcardPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardPhoto2 != null" >
+        idcard_photo2 = #{idcardPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="resume != null" >
+        resume = #{resume,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=BIT},
+      </if>
+      <if test="loginIp != null" >
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null" >
+        login_date = #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldLoginIp != null" >
+        old_login_ip = #{oldLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="oldLoginDate != null" >
+        old_login_date = #{oldLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+
 </mapper>

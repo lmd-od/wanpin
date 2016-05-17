@@ -10,12 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.wanpin.common.persistence.SystemEnum;
 import com.wanpin.common.utils.Des3Utils;
-import com.wanpin.service.LogService;
 
 
 /**
@@ -23,8 +21,8 @@ import com.wanpin.service.LogService;
  * @author MingDing.Li
  */
 public class ParameterDecodeFilter extends OncePerRequestFilter {
-	@Autowired
-	private LogService logService;
+//	@Autowired
+//	private LogService logService;
 	/* 解密参数名列表 */
 	private Map<String,Integer> parameMap = new HashMap<String,Integer>();
 	 public ParameterDecodeFilter(){
@@ -76,7 +74,8 @@ public class ParameterDecodeFilter extends OncePerRequestFilter {
 		            	 if("language".equals(name)){
 		            		 String ip = super.getRemoteHost();
 		            		 String sid = this.getParameter("sid");
-		            		 String centLanguage = logService.getLanguage(sid, ip);
+//		            		 String centLanguage = logService.getLanguage(sid, ip);
+		            		 String centLanguage = null;
 		            		 if(centLanguage != null && !"".equals(centLanguage)){
 		            			 return centLanguage;
 		            		 }else{

@@ -49,5 +49,15 @@ public class SystemEnum {
 	/** 英文 */
 	public static final String SYS_USER_LANGUAGE_EN = "en";
 	
+	/*
+	 * 性别
+	 */
+	/**男*/
+	public static final int SEX_MALE = 0;
+	/**女*/
+	public static final int SEX_FEMALE = 1;
+	/**保密*/
+	public static final int SEX_SECRECY = 2;
+	
 	
 }
