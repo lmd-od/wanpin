@@ -22,7 +22,7 @@
 			<span>
 				<a href="#">中文版</a>
 				 / 
-				<a href="#">EngclsH</a>
+				<a href="#">English</a>
 			</span>
 		</div>
 	</div>

@@ -48,7 +48,7 @@
 			<ul>
 				<li class="active"><a href="${ctx}/page/user/user_base.jsp">登录</a></li>
 				<li class="active02"><a href="${ctx}/page/register.jsp">注册</a></li>
-				<li class="active03"><a href="#">中文版</a> / <a href="#">EngclsH</a></li>
+				<li class="active03"><a href="#">中文版</a> / <a href="#">English</a></li>
 			</ul>
 		</div>
 		</div>
