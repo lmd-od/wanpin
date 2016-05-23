@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wanpin.cms.modules.sys.dao.GoodsDao">
+    <sql id="goodsColumns">
+       a.goods_id,
+       a.goods_source,
+       a.goods_status,
+       a.goods_name,
+       a.goods_money,
+       a.detail,
+       a.goods_cover,
+       a.goods_image,
+       a.country_code,
+       a.country_name,
+       a.city_id,
+       a.city_zh_name,
+       a.architect,
+       a.built_area,
+       a.project_year,
+       a.create_user as "createUser.id",
+       u.name as "createUser.name",
+       a.create_time,
+       a.update_user,
+       a.update_time
+    </sql>
+    
+    
+    <!-- 分页查询解决方案信息 -->
+	<select id="findList" resultType="Goods">
+	   SELECT
+			<include refid="goodsColumns"/>
+		FROM wp_goods a 
+		LEFT JOIN sys_user u ON u.id = a.create_user
+		WHERE 1 = 1
+		<!-- 创建时间排序 -->
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.create_time
+			</otherwise>
+		</choose>
+		
+	</select>
+  
+
+</mapper>
