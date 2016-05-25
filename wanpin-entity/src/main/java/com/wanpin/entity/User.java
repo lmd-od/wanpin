@@ -24,7 +24,7 @@ public class User {
 
     private String idcardNo;
 
-    private Byte userGrad;
+    private Integer userGrad;
 
     private Date birthday;
 
@@ -34,11 +34,11 @@ public class User {
 
     private String university;
 
-    private Byte education;
+    private Integer education;
 
-    private Byte sex;
+    private Integer sex;
 
-    private Byte isAuth;
+    private Integer isAuth;
 
     private String company;
 
@@ -46,7 +46,7 @@ public class User {
 
     private BigDecimal remainMoney;
 
-    private Byte status;
+    private Integer status;
 
     private String recommendCode;
 
@@ -156,11 +156,11 @@ public class User {
         this.idcardNo = idcardNo == null ? null : idcardNo.trim();
     }
 
-    public Byte getUserGrad() {
+    public Integer getUserGrad() {
         return userGrad;
     }
 
-    public void setUserGrad(Byte userGrad) {
+    public void setUserGrad(Integer userGrad) {
         this.userGrad = userGrad;
     }
 
@@ -196,27 +196,27 @@ public class User {
         this.university = university == null ? null : university.trim();
     }
 
-    public Byte getEducation() {
+    public Integer getEducation() {
         return education;
     }
 
-    public void setEducation(Byte education) {
+    public void setEducation(Integer education) {
         this.education = education;
     }
 
-    public Byte getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(Byte sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
-    public Byte getIsAuth() {
+    public Integer getIsAuth() {
         return isAuth;
     }
 
-    public void setIsAuth(Byte isAuth) {
+    public void setIsAuth(Integer isAuth) {
         this.isAuth = isAuth;
     }
 
@@ -244,11 +244,11 @@ public class User {
         this.remainMoney = remainMoney;
     }
 
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

@@ -11,21 +11,22 @@
 		<jsp:include page="/page/common/header.jsp"></jsp:include>
 		<div class="article">
 			<div class="active-content">
-				<div class="active-content-column">
-					<h1>首页>>互联</h1>
-				</div>
-				<div class="video-warp">
-					<!--视屏放置区——↓-->
-						<video src="${ctx}/res/video/02.mp4" controls autobuffer ></video>
-				</div>
-				<div class="download-warp">
-                    <a href="#"><img src="${ctx}/res/img/42.png" class="download-warp-noe" /></a>
-                    <a href="#"><img src="${ctx}/res/img/36.png" /></a>
-				</div>
-				<div class="xiazai-warp">
-					<div class="xiazai-logo">
-						<img src="${ctx}/res/img/38.png" />
-						<img src="${ctx}/res/img/38.png" class="xiazai-logo-gs" />
+				<h1 class="active-content-h1">首页>>登录/注册</h1>
+				<div class="warp">
+					<div class="form">
+						<form action="" method="post">
+							<span class="wenben-01">
+								用户名
+							</span><input type="text" name="" id="" value="" placeholder="请填写注册或登录用的手机号" class="text"/>
+							<br /><br />
+							<span class="wenben-02">密码</span>
+							<input type="password" name=""  class="text" placeholder="请输入密码"/>
+							<br /><br /> 
+							<span class="wenben-04">验证码</span>
+							<input type="text" name="" id="" value="" placeholder="请输入验证码" class="text"/>
+							<br /><br />
+							<input type="submit" value=" 登录 " class="register"/>
+						</form>
 					</div>
 				</div>
 			</div>

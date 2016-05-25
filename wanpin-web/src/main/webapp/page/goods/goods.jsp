@@ -18,7 +18,7 @@
 						</div>
 						<input type="image" name="" id="" value="" src="${ctx}/res/img/03.png" class="active-content-text-image" />
 					</form>
-					<input type="button" name="" id="" value="充值" class="active-content-text-button" />
+					<a href="forum.html" class="active-content-text-button">充 值</a>
 				</div>
 				<div class="active-content-column">
 					<h1>首页>>引擎>>搜索结果</h1>
@@ -69,9 +69,9 @@
 					<div class="logo-list-01">
                     	<ul>
 						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
+                            <a href="${ctx}/page/goods/goods_detail.jsp"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
                             <span>￥1500</span>
-                            <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
+                            <a href="${ctx}/page/goods/goods_detail.jsp">
                                 <p>
                                     <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
@@ -79,9 +79,9 @@
                             </a>
 						</li>
 						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
+                            <a href="${ctx}/page/goods/goods_detail.jsp"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
                             <span>￥1500</span>
-                            <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
+                            <a href="${ctx}/page/goods/goods_detail.jsp">
                                 <p>
                                     <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
@@ -89,9 +89,9 @@
                             </a>
 						</li>
 						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
+                            <a href="${ctx}/page/goods/goods_detail.jsp"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
                             <span>￥1500</span>
-                            <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
+                            <a href="${ctx}/page/goods/goods_detail.jsp">
                                 <p>
                                     <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
@@ -99,9 +99,9 @@
                             </a>
 						</li>
 						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
+                            <a href="#"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
                             <span>￥1500</span>
-                            <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
+                            <a href="#">
                                 <p>
                                     <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
@@ -109,16 +109,85 @@
                             </a>
 						</li>
 						<li>
-                            <img src="${ctx}/res/img/Engine-li-img.png" />
+                            <a href="#"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
                             <span>￥1500</span>
-                            <a href="${ctx}/page/goods/goods_detail.jsp" target="_blank">
+                            <a href="#">
                                 <p>
                                     <b>Alvaro Siza.</b>
                                     <br /> 中国.水上大楼.混疑土.异形.办公
                                 </p>
                             </a>
 						</li>
-						
+						<li>
+                            <a href="#"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
+                            <span>￥1500</span>
+                            <a href="#">
+                                <p>
+                                    <b>Alvaro Siza.</b>
+                                    <br /> 中国.水上大楼.混疑土.异形.办公
+                                </p>
+                            </a>
+						</li>
+						<li>
+                            <a href="#"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
+                            <span>￥1500</span>
+                            <a href="#">
+                                <p>
+                                    <b>Alvaro Siza.</b>
+                                    <br /> 中国.水上大楼.混疑土.异形.办公
+                                </p>
+                            </a>
+						</li>
+						<li>
+                            <a href="#"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
+                            <span>￥1500</span>
+                            <a href="#">
+                                <p>
+                                    <b>Alvaro Siza.</b>
+                                    <br /> 中国.水上大楼.混疑土.异形.办公
+                                </p>
+                            </a>
+						</li>
+						<li>
+                            <a href="#"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
+                            <span>￥1500</span>
+                            <a href="#">
+                                <p>
+                                    <b>Alvaro Siza.</b>
+                                    <br /> 中国.水上大楼.混疑土.异形.办公
+                                </p>
+                            </a>
+						</li>
+						<li>
+                            <a href="#"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
+                            <span>￥1500</span>
+                            <a href="#">
+                                <p>
+                                    <b>Alvaro Siza.</b>
+                                    <br /> 中国.水上大楼.混疑土.异形.办公
+                                </p>
+                            </a>
+						</li>
+						<li>
+                            <a href="#"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
+                            <span>￥1500</span>
+                            <a href="#">
+                                <p>
+                                    <b>Alvaro Siza.</b>
+                                    <br /> 中国.水上大楼.混疑土.异形.办公
+                                </p>
+                            </a>
+						</li>
+						<li>
+                            <a href="#"><img src="${ctx}/res/img/Engine-li-img.png" /></a>
+                            <span>￥1500</span>
+                            <a href="#">
+                                <p>
+                                    <b>Alvaro Siza.</b>
+                                    <br /> 中国.水上大楼.混疑土.异形.办公
+                                </p>
+                            </a>
+						</li>
                         </ul>
 					</div>
 				</div>

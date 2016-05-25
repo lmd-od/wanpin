@@ -1,8 +1,25 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="/page/common/taglibs.jsp"%>
 <div class="qq-contact">
-	<a href="#"><img src="${ctx}/res/img/12.png" /></a>
-	<a href="#"><img src="${ctx}/res/img/13.png" /></a>
+	<div class="eject01">
+		<img src="${ctx}/res/img/12.png" />
+		<div class="Connectionbox01">
+			<ul>
+				<li><a href="#">人力资源部</a></li>
+				<li><a href="#">人力资源部</a></li>
+				<li><a href="#">人力资源部</a></li>
+				<li><a href="#">人力资源部</a></li>
+				<li><a href="#">人力资源部</a></li>
+				<li><a href="#">人力资源部</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="eject02">
+		<img src="${ctx}/res/img/13.png" />
+		<div class="Connectionbox01 Connectionbox02">
+			全国联系电话：<P>400-0214-5431</P>
+		</div>
+	</div>
 </div>
 <div class="footer">
 	<div class="footer-content">

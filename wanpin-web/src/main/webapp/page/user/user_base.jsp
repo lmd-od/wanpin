@@ -25,89 +25,66 @@
 					<!--表单——↓-->
 					<div class="information-warp">
 						<form action="" method="post">
-							<label for="user">登录账号</label>
-							<input type="text"value="" /><br />
-							<label for="email">级别</label>
-							<input type="text"  value="" /><br />
+							
+							<label for="user">手机号</label>
+							<input name="mobile" type="text" value="${user.mobile}" /><br />
+							<!-- <label for="email">级别</label>
+							<input type="text"  value="" /><br /> -->
 							<label for="comment">姓名</label>
-							<input type="text"  value="" />
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
-    						</select>
-    						<br />
-    						<label for="comment">电话</label>
-    						<input type="text"  value="" />
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
-    						</select>
+							<input name="realName" type="text"  value="${user.realName}" />
     						<br />
     						<label for="comment">性别</label>
-							<input type="radio" class="nan"/><span class="nanre">男</span>
-							<input type="radio" class="nv"/><span class="nvren">女</span>
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
-    						</select>
+							<input type="radio" name="sex" class="nan" value="0" <c:if test="${empty user.sex or user.sex eq 0}">checked="checked"</c:if>/><span class="nanre">男</span>
+							<input type="radio" name="sex" class="nan" value="1" <c:if test="${user.sex eq 1}">checked="checked"</c:if>/><span class="nanre">女</span>
+							<input type="radio" name="sex" class="nan" value="2" <c:if test="${user.sex eq 2}">checked="checked"</c:if>/><span class="nanre">保密</span>
     						<br />
     						<label for="comment">出生年月</label>
-    						<input type="text"  value="" />
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
-    						</select>
+    						<input name="birthday" type="text"  value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>" />
     						<br />
     						<label for="comment">微信</label>
-    						<input type="text"  value="" />
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
-    						</select>
+    						<input name="weiXin" type="text"  value="${user.weiXin}" />
     						<br />
     						<label for="comment">QQ</label>
-    						<input type="text"  value="" />
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
-    						</select>
+    						<input name="qq" type="text"  value="${user.qq}" />
     						<br />
     						<label for="comment">毕业学校</label>
-    						<input type="text"  value="" />
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
-    						</select>
+    						<input name="university" type="text"  value="${user.university}" />
     						<br />
     						<label for="comment">学历</label>
-    						<input type="text"  value="" />
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
+    						<select name="education">
     						</select>
     						<br />
     						<label for="comment">公司</label>
-    						<input type="text"  value="" />
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
-    						</select>
+    						<input name="company" type="text"  value="${user.company}" />
     						<br />
     						<label for="comment">职位</label>
-    						<input type="text"  value="" />
-							<select>
-      							<option>公开</option>
-      							<option>保密</option>
-    						</select>
+    						<input name="position" type="text"  value="${user.position}" />
 							<br />
 							<input type="submit" id="sbutton" value="保 存" /><br />
 						</form>
 					</div>
+					<!-- .information-warp -->
 				</div>
+				<!-- .information -->
 			</div>
 		</div>
 		<jsp:include page="/page/common/footer.jsp"></jsp:include>
 		<jsp:include page="/page/common/footer_js.jsp"></jsp:include>
+<script type="text/javascript">
+$(function(){
+	(function(){
+		var $select = $("select[name='education']"),type=[];
+		$.each(DICT_VAL.EDUCATION,function(idx,item){
+			var selected = '';
+			if ('${user.education}' == item['k']) {
+				selected = 'selected';
+			}
+			type.push('<option ' + selected + ' value="' + item['k'] + '">' + item['v']+ '</option>');
+		});
+		$select.html(type.join(''));
+	})();
+});
+</script>
 	</body>
 
 </html>

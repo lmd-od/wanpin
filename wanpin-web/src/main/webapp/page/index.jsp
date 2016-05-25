@@ -39,16 +39,33 @@
 		</div>
 		<!--QQ-->
 		<div class="qq">
-			<a href="#"><img src="${ctx}/res/img/12.png" /></a>
-			<a href="#"><img src="${ctx}/res/img/13.png" /></a>
+			<div class="eject01">
+				<img src="${ctx}/res/img/12.png" />
+				<div class="Connectionbox01 Connection01">
+					<ul>
+						<li><a href="#">人力资源部</a></li>
+						<li><a href="#">人力资源部</a></li>
+						<li><a href="#">人力资源部</a></li>
+						<li><a href="#">人力资源部</a></li>
+						<li><a href="#">人力资源部</a></li>
+						<li><a href="#">人力资源部</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="eject02">
+				<img src="${ctx}/res/img/13.png" />
+				<div class="Connectionbox01 Connectionbox02 Connection02">
+					全国联系电话：<P>400-0214-5431</P>
+				</div>
+			</div>
 		</div>
 		<!--登録条-->
 		<div class="regsiter-warp">
 			<div class="regsiter">
 			<ul>
-				<li class="active"><a href="${ctx}/page/user/user_base.jsp">登录</a></li>
-				<li class="active02"><a href="${ctx}/page/register.jsp">注册</a></li>
-				<li class="active03"><a href="#">中文版</a> / <a href="#">English</a></li>
+				<li class="active"><a href="#">登录</a></li>
+				<li class="active02"><a href="#">注册</a></li>
+				<li class="active03"><a href="#">中文版</a> / <a href="#">EngclsH</a></li>
 			</ul>
 		</div>
 		</div>

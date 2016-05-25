@@ -10,7 +10,7 @@
     create_user, create_time, update_user, update_time
   </sql>
 
-  <select id="selectByPrimaryKey" resultMap="User" parameterType="User" >
+  <select id="get" resultType="User" parameterType="User" >
     select 
     <include refid="Base_Column_List" />
     from wp_user

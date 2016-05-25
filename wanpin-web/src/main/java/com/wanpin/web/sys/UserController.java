@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.wanpin.common.utils.SecurityHelper;
 import com.wanpin.entity.User;
 import com.wanpin.service.UserService;
 import com.wanpin.web.BaseController;
@@ -20,7 +21,7 @@ import com.wanpin.web.BaseController;
 * @date 2016年2月26日 上午11:13:51
  */
 @Controller
-@RequestMapping("${adminPath}/user")
+@RequestMapping("${webAdminPath}/user")
 public class UserController extends BaseController{
 	
 	@Autowired
@@ -30,7 +31,7 @@ public class UserController extends BaseController{
 	public ModelAndView gobase() throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			Long userId = 1L;
+			Long userId = SecurityHelper.getUserId();
 			if (userId != null) {
 				User user = userService.getInfo(userId);
 				model.put("user", user);
