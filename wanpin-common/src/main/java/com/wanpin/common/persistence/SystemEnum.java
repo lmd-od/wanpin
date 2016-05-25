@@ -59,5 +59,46 @@ public class SystemEnum {
 	/**保密*/
 	public static final int SEX_SECRECY = 2;
 	
+	/*
+	 * 方案来源
+	 */
+	/** 公司内部 */
+	public static final int GOODS_SOURCE_MY  = 1;
+	/** 其他公司 */
+	public static final int GOODS_SOURCE_ORTHER  = 2;
+	
+	/*
+	 * 方案位置
+	 */
+	/** 搜索引擎 */
+	public static final int GOODS_PLACES_ENGINE  = 1;
+	/** 商城 */
+	public static final int GOODS_PLACES_SHOPPING = 2;
+	
+	/*
+	 * 审核状态
+	 */
+	/** 1：草稿 */
+	public static final int GOODS_STATUS_DRAFT  = 1;
+	/** 2：待审核 */
+	public static final int GOODS_STATUS_PENDING  = 2;
+	/** 3：审核通过*/
+	public static final int GOODS_STATUS_PASSED  = 3;
+	/** 4：审核不通过*/
+	public static final int GOODS_STATUS_NO_PASSED  = 4;
+	/** 5：已下架*/
+	public static final int GOODS_STATUS_FROMSALE  = 5;
+	
+	/** 方案风格字典类型 */
+	public static final String WP_GOODS_STYLE  = "wp_goods_style";
+	/** 方案功能字典类型 */
+	public static final String WP_GOODS_FUNCTION  = "wp_goods_function";
+	/** 方案层数字典类型 */
+	public static final String WP_GOODS_HIERARCHY  = "wp_goods_hierarchy";
+
+	
+	
+	
+	
 	
 }

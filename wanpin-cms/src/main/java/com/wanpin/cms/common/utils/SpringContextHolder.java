@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/wanpin">wanpin</a> All rights reserved.
- */
 package com.wanpin.cms.common.utils;
 
 import java.net.HttpURLConnection;

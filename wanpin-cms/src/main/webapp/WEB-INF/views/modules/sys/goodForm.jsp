@@ -15,7 +15,7 @@
 		<li><a href="${ctx}/sys/good/list">方案列表</a></li>
 		<li class="active"><a href="#">方案添加</a></li>
 	</ul><br/>
-	<form:form id="inputForm" modelAttribute="user" action="${ctx}/sys/user/save" method="post" class="form-horizontal">
+	<form:form id="inputForm" modelAttribute="good" action="${ctx}/sys/good/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>
 		<sys:message content="${message}"/>
 		<div class="control-group">
@@ -28,7 +28,7 @@
 		<div class="control-group">
 			<label class="control-label">方案名称:</label>
 			<div class="controls">
-					<form:input path="office" htmlEscape="false" maxlength="50" class="required"/>
+					<form:input path="goodsName" htmlEscape="false" maxlength="50" class="required"/>
 					<span class="help-inline"><font color="red">*</font> </span>
 			</div>
 		</div>
@@ -89,13 +89,13 @@
 			<div class="control-group">
 				<label class="control-label">创建时间:</label>
 				<div class="controls">
-					<label class="lbl"><fmt:formatDate value="${user.createDate}" type="both" dateStyle="full"/></label>
+					<label class="lbl"><fmt:formatDate value="${good.createDate}" type="both" dateStyle="full"/></label>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label">最后登陆:</label>
 				<div class="controls">
-					<label class="lbl">IP: ${user.loginIp}&nbsp;&nbsp;&nbsp;&nbsp;时间：<fmt:formatDate value="${user.loginDate}" type="both" dateStyle="full"/></label>
+					<label class="lbl">IP: ${good.loginIp}&nbsp;&nbsp;&nbsp;&nbsp;时间：<fmt:formatDate value="${user.loginDate}" type="both" dateStyle="full"/></label>
 				</div>
 			</div>
 		</c:if>

@@ -10,6 +10,14 @@ public class Goods {
     private Long goodsId;
 
     private Byte goodsSource;//方案来源：1：公司自有，2：其它公司
+    
+    private Byte goodsPlaces;//方案位置(1:搜索引擎    2:方案商城)
+    
+    private String goodsStyle;//方案风格(欧式/中式等)
+    
+    private String goodsFunction;//方案功能(工业/农用/居住等)
+    
+    private String goodsHierarchy;//方案层数(底层/中层/高层)
 
     private Byte goodsStatus;//1：草稿 2：待审核 3：审核通过 4：审核不通过 5：已下架
 
@@ -17,7 +25,7 @@ public class Goods {
 
     private BigDecimal goodsMoney;//方案金额
 
-    private Long detail;//详情（方案描述）；外键：关联文章表
+    private String detail;//详情（方案描述）；外键：关联文章表
 
     private String goodsCover;//方案封面；图片链接
 
@@ -52,8 +60,42 @@ public class Goods {
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
     }
+    
+    
 
-    public Byte getGoodsSource() {
+    public Byte getGoodsPlaces() {
+		return goodsPlaces;
+	}
+
+	public void setGoodsPlaces(Byte goodsPlaces) {
+		this.goodsPlaces = goodsPlaces;
+	}
+
+	public String getGoodsStyle() {
+		return goodsStyle;
+	}
+
+	public void setGoodsStyle(String goodsStyle) {
+		this.goodsStyle = goodsStyle;
+	}
+
+	public String getGoodsFunction() {
+		return goodsFunction;
+	}
+
+	public void setGoodsFunction(String goodsFunction) {
+		this.goodsFunction = goodsFunction;
+	}
+
+	public String getGoodsHierarchy() {
+		return goodsHierarchy;
+	}
+
+	public void setGoodsHierarchy(String goodsHierarchy) {
+		this.goodsHierarchy = goodsHierarchy;
+	}
+
+	public Byte getGoodsSource() {
         return goodsSource;
     }
 
@@ -85,11 +127,11 @@ public class Goods {
         this.goodsMoney = goodsMoney;
     }
 
-    public Long getDetail() {
+    public String getDetail() {
         return detail;
     }
 
-    public void setDetail(Long detail) {
+    public void setDetail(String detail) {
         this.detail = detail;
     }
 
