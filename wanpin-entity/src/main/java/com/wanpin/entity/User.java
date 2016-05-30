@@ -51,6 +51,9 @@ public class User {
     private String recommendCode;
 
     private String recommendUser;
+    
+    /**头像*/
+    private String headPhoto;
 
     private String idcardPhoto1;
 
@@ -268,7 +271,15 @@ public class User {
         this.recommendUser = recommendUser == null ? null : recommendUser.trim();
     }
 
-    public String getIdcardPhoto1() {
+    public String getHeadPhoto() {
+		return headPhoto;
+	}
+
+	public void setHeadPhoto(String headPhoto) {
+		this.headPhoto = headPhoto == null ? null : headPhoto.trim();
+	}
+
+	public String getIdcardPhoto1() {
         return idcardPhoto1;
     }
 

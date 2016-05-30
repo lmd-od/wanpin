@@ -6,7 +6,16 @@ package com.wanpin.common.persistence;
  *
  */
 public class SystemEnum {
-    
+    /*
+     * 请求响应状态
+     */
+	/** 请求成功*/
+	public static final int RESP_STATUS_SUCCESS = 0;
+	/** 请求失败*/
+	public static final int RESP_STATUS_FAIL = 1;
+	/** 系统繁忙*/
+	public static final int RESP_SYSTEM_BUSY = -1;
+	
 	/*
 	 * 返回状态定义
 	 */
@@ -96,8 +105,13 @@ public class SystemEnum {
 	/** 方案层数字典类型 */
 	public static final String WP_GOODS_HIERARCHY  = "wp_goods_hierarchy";
 
-	
-	
+	/*
+	 * 用户状态
+	 */
+	/** 已启用*/
+	public static final int USER_STATUS_NORMAL = 1;
+	/** 未启用*/
+	public static final int USER_STATUS_DISABLED = 2;
 	
 	
 	

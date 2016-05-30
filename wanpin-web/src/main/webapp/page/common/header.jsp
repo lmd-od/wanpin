@@ -16,9 +16,15 @@
 		</div>
 		<div class="header-content-loginbar">
 			<ul>
-				<li><a href="${ctx}/page/user/login.jsp">登录</a></li>
+				<c:choose>
+					<c:when test="${empty sessionScope.userInfo}">
+				<li><a href="${ctx}/page/login.jsp">登录</a></li>
 				<li><a href="${ctx}/page/register.jsp">注册</a></li>
-				<li><a href="${ctx}/php/user/gobase.php" id="sdku">用户名</a></li>
+					</c:when>
+					<c:otherwise>
+				<li><a href="${ctx}/php/user/gobase.php" id="sdku">${sessionScope.userInfo.nickName}</a></li>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 			<span>
 				[<a href="#">中文版</a>
@@ -28,7 +34,7 @@
 		</div>
 		<div class="sidebar Droplie">
 			<ul>
-				<li><a href="${ctx}/php/user/gobase.php">基本信息</a></li>
+				<li><a href="${ctx}/${webAdminPath}/user/gobase.php">基本信息</a></li>
 				<li><a href="${ctx}/page/user/user_goods.jsp">我的方案订单</a></li>
 				<li><a href="${ctx}/page/user/user_favorite.jsp">我的收藏</a></li>
 				<li><a href="${ctx}/page/user/user_suggest.jsp">我的建议</a></li>
@@ -37,6 +43,7 @@
 				<li><a href="${ctx}/page/user/user_change_pass.jsp">修改密码</a></li>
 				<li><a href="${ctx}/page/user/user_lineup.jsp">排队</a></li>
 				<li><a href="${ctx}/page/user/user_refund.jsp">退款</a></li>
+				<li><a href="javascript:;" class="user_logout">退出</a></li>
 			</ul>
 		</div>
 	</div>

@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.StringUtils;
 
+import com.wanpin.common.persistence.SystemEnum;
 import com.wanpin.common.utils.LogUtils;
 
 /**
@@ -15,9 +17,6 @@ import com.wanpin.common.utils.LogUtils;
  * @version 2013-3-23
  */
 public class BaseController {
-	
-	private final static boolean SUCCESS_FLAG = true;
-	private final static boolean FAIL_FLAG = false;
 	
 	/**
 	 * 日志对象
@@ -62,18 +61,29 @@ public class BaseController {
 	}
 	
 	protected void setSuccessFlag(Map<String, Object> model) {
-		model.put("flag", SUCCESS_FLAG);
+		model.put("status", SystemEnum.RESP_STATUS_SUCCESS);
 	}
 	
 	protected void setFailFlag(Map<String, Object> model,String msg) {
-		model.put("flag", FAIL_FLAG);
+		model.put("status", SystemEnum.RESP_STATUS_FAIL);
+		if (StringUtils.hasText(msg)) {
+			model.put("msg", msg);
+		}
+	}
+	
+	protected void setFailFlag(Map<String, Object> model,Integer status) {
+		model.put("status", status);
+	}
+	
+	protected void setFailFlag(Map<String, Object> model,Integer status,String msg) {
+		model.put("status", status);
 		if (StringUtils.hasText(msg)) {
 			model.put("msg", msg);
 		}
 	}
 	
 	protected void setFailFlag(Map<String, Object> model) {
-		setFailFlag(model,null);
+		setFailFlag(model,"");
 	}
 	
 }

@@ -63,8 +63,10 @@
 		<div class="regsiter-warp">
 			<div class="regsiter">
 			<ul>
-				<li class="active"><a href="#">登录</a></li>
-				<li class="active02"><a href="#">注册</a></li>
+				<c:if test="${empty sessionScope.userInfo}">
+				<li class="active"><a href="${ctx}/page/login.jsp">登录</a></li>
+				<li class="active02"><a href="${ctx}/page/register.jsp">注册</a></li>
+				</c:if>
 				<li class="active03"><a href="#">中文版</a> / <a href="#">EngclsH</a></li>
 			</ul>
 		</div>

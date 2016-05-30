@@ -5,7 +5,7 @@
   <sql id="Base_Column_List" >
     user_id, mobile, email, password, pay_password, type, language, nick_name, real_name, 
     idcard_no, user_grad, birthday, qq, wei_xin, university, education, sex, is_auth, 
-    company, position, remain_money, status, recommend_code, recommend_user, idcard_photo1, 
+    company, position, remain_money, status, recommend_code, recommend_user, head_photo,idcard_photo1, 
     idcard_photo2, resume, del_flag, login_ip, login_date, old_login_ip, old_login_date, 
     create_user, create_time, update_user, update_time
   </sql>
@@ -21,7 +21,7 @@
     </where>
   </select>
 
-  <insert id="insert" parameterType="com.wanpin.entity.User" >
+  <insert id="insert" useGeneratedKeys="true" keyProperty="userId" parameterType="com.wanpin.entity.User" >
     insert into wp_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -95,6 +95,9 @@
       </if>
       <if test="recommendUser != null" >
         recommend_user,
+      </if>
+      <if test="headPhoto != null" >
+        head_photo,
       </if>
       <if test="idcardPhoto1 != null" >
         idcard_photo1,
@@ -206,6 +209,9 @@
       <if test="recommendUser != null" >
         #{recommendUser,jdbcType=VARCHAR},
       </if>
+      <if test="headPhoto != null" >
+        #{headPhoto,jdbcType=VARCHAR},
+      </if>
       <if test="idcardPhoto1 != null" >
         #{idcardPhoto1,jdbcType=VARCHAR},
       </if>
@@ -316,6 +322,9 @@
       </if>
       <if test="recommendUser != null" >
         recommend_user = #{recommendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="headPhoto != null" >
+        head_photo = #{headPhoto,jdbcType=VARCHAR},
       </if>
       <if test="idcardPhoto1 != null" >
         idcard_photo1 = #{idcardPhoto1,jdbcType=VARCHAR},

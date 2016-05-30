@@ -53,7 +53,7 @@ jQuery.validator.addMethod("userName", function(value, element) {
 // 手机号码验证
 jQuery.validator.addMethod("mobile", function(value, element) {
     var length = value.length;
-    return this.optional(element) || (length == 11 && /^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$/.test(value));
+    return this.optional(element) || (length == 11 && /^(1(3|4|5|7|8)\d{9})$/.test(value));
 }, "请正确填写您的手机号码");
 
 // 电话号码验证
@@ -64,7 +64,7 @@ jQuery.validator.addMethod("simplePhone", function(value, element) {
 
 // 电话号码验证     
 jQuery.validator.addMethod("phone", function(value, element) {     
-	var tel = /(^0[1-9]{1}\d{9,10}$)|(^1[3,5,8]\d{9}$)/g;     
+	var tel = /(^0[1-9]{1}\d{9,10}$)|(^1[3,4,5,7,8]\d{9}$)/g;     
 	return this.optional(element) || (tel.test(value));     
 }, "格式为:固话为区号(3-4位)号码(7-9位),手机为:13,15,18号段");	
 

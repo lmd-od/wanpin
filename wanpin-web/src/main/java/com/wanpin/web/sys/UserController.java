@@ -4,8 +4,11 @@ package com.wanpin.web.sys;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,10 +31,10 @@ public class UserController extends BaseController{
 	private UserService userService;
 	
 	@RequestMapping("gobase${urlSuffix}")
-	public ModelAndView gobase() throws Exception {
+	public ModelAndView gobase(HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			Long userId = SecurityHelper.getUserId();
+			Long userId = SecurityHelper.getUserId(request);
 			if (userId != null) {
 				User user = userService.getInfo(userId);
 				model.put("user", user);
@@ -46,11 +49,18 @@ public class UserController extends BaseController{
 	
 	@RequestMapping("save${urlSuffix}")
 	@ResponseBody
-	public Map<String, Object> save(User user) throws Exception {
+	public Map<String, Object> save(User user,HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			if (user != null) {
+				user.setUserId(SecurityHelper.getUserId(request));
+				if (StringUtils.hasText(user.getRealName())) {
+					user.setNickName(user.getRealName());
+				}
 				userService.save(user);
+				setSuccessFlag(model);
+				User userInfo = userService.getInfo(SecurityHelper.getUserId(request));
+				request.getSession().setAttribute(SecurityHelper.USER_INFO, userInfo);;
 			}
 		} catch (Exception e) {
 			setFailFlag(model);

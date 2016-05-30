@@ -24,10 +24,10 @@
 					</div>
 					<!--表单——↓-->
 					<div class="information-warp">
-						<form action="" method="post">
+						<form id="base_form" action="" method="post">
 							
 							<label for="user">手机号</label>
-							<input name="mobile" type="text" value="${user.mobile}" /><br />
+							<input type="text" value="${user.mobile}" disabled="disabled" /><br />
 							<!-- <label for="email">级别</label>
 							<input type="text"  value="" /><br /> -->
 							<label for="comment">姓名</label>
@@ -39,7 +39,8 @@
 							<input type="radio" name="sex" class="nan" value="2" <c:if test="${user.sex eq 2}">checked="checked"</c:if>/><span class="nanre">保密</span>
     						<br />
     						<label for="comment">出生年月</label>
-    						<input name="birthday" type="text"  value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>" />
+    						<%-- <input name="birthday" type="text"  value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>" /> --%>
+    						<input type="text"  value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>" />
     						<br />
     						<label for="comment">微信</label>
     						<input name="weiXin" type="text"  value="${user.weiXin}" />
@@ -70,6 +71,10 @@
 		</div>
 		<jsp:include page="/page/common/footer.jsp"></jsp:include>
 		<jsp:include page="/page/common/footer_js.jsp"></jsp:include>
+		<script src="${ctx}/res/lib/jquery-validation/1.14.0/jquery.validate.min.js"></script>
+		<script src="${ctx}/res/lib/jquery-validation/1.14.0/messages_zh.min.js"></script>
+		<script src="${ctx}/res/lib/jquery-validation/1.14.0/validate-methods.js"></script>
+		<script src="${ctx}/res/js/wanpin/user_base.js"></script>
 <script type="text/javascript">
 $(function(){
 	(function(){
