@@ -88,15 +88,15 @@ public class SystemEnum {
 	 * 审核状态
 	 */
 	/** 1：草稿 */
-	public static final int GOODS_STATUS_DRAFT  = 1;
+	public static final Byte GOODS_STATUS_DRAFT  = 1;
 	/** 2：待审核 */
-	public static final int GOODS_STATUS_PENDING  = 2;
+	public static final Byte GOODS_STATUS_PENDING  = 2;
 	/** 3：审核通过*/
-	public static final int GOODS_STATUS_PASSED  = 3;
+	public static final Byte GOODS_STATUS_PASSED  = 3;
 	/** 4：审核不通过*/
-	public static final int GOODS_STATUS_NO_PASSED  = 4;
+	public static final Byte GOODS_STATUS_NO_PASSED  = 4;
 	/** 5：已下架*/
-	public static final int GOODS_STATUS_FROMSALE  = 5;
+	public static final Byte GOODS_STATUS_FROMSALE  = 5;
 	
 	/** 方案风格字典类型 */
 	public static final String WP_GOODS_STYLE  = "wp_goods_style";
@@ -105,6 +105,7 @@ public class SystemEnum {
 	/** 方案层数字典类型 */
 	public static final String WP_GOODS_HIERARCHY  = "wp_goods_hierarchy";
 
+<<<<<<< Updated upstream
 	/*
 	 * 用户状态
 	 */
@@ -113,6 +114,11 @@ public class SystemEnum {
 	/** 未启用*/
 	public static final int USER_STATUS_DISABLED = 2;
 	
+=======
+	
+	/** 图片文件存储路径 */
+	public static final String WP_FILES_IMAGES_PATH  = "/wp/files/images";
+>>>>>>> Stashed changes
 	
 	
 }

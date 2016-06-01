@@ -43,6 +43,57 @@
 		</choose>
 		
 	</select>
+	
+	<delete id="delete">
+	   DELETE FROM wp_goods WHERE goods_id = #{goodsId}
+	</delete>
+	
+	
+	<insert id="insert">
+	   INSERT INTO wp_goods(
+	   goods_style,
+	   goods_function,
+	   goods_hierarchy,
+       goods_source,
+       goods_status,
+       goods_name,
+       goods_money,
+       goods_places,
+       detail,
+       goods_cover,
+       goods_image,
+       country_code,
+       country_name,
+       city_id,
+       city_zh_name,
+       architect,
+       built_area,
+       project_year,
+       create_user,
+       create_time
+	   ) VALUES(
+	     #{goodsStyle},
+	     #{goodsFunction},
+	     #{goodsHierarchy},
+	     #{goodsSource},
+	     #{goodsStatus},
+	     #{goodsName},
+	     #{goodsMoney},
+	     #{goodsPlaces},
+	     #{detail},
+	     #{goodsCover},
+	     #{goodsImage},
+	     #{countryCode},
+	     #{countryName},
+	     #{cityId},
+	     #{cityZhName},
+	     #{architect},
+	     #{builtArea},
+	     #{projectYear},
+	     #{createUser.id},
+	     #{createTime}
+	   )
+	</insert>
   
 
 </mapper>

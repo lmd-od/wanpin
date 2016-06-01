@@ -55,10 +55,10 @@
 	<!-- 依赖项定义 -->
 	<dependencies>
 
-		<!-- Service -->
+		<!-- wp_entity -->
 		<dependency>
 			<groupId>com.wanpin</groupId>
-			<artifactId>wanpin-service</artifactId>
+			<artifactId>wanpin-entity</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 
