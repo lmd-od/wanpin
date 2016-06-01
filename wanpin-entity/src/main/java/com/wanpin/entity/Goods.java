@@ -25,7 +25,7 @@ public class Goods {
 
     private BigDecimal goodsMoney;//方案金额
 
-    private String detail;//详情（方案描述）；外键：关联文章表
+    private String detail;//详情（方案描述）；
 
     private String goodsCover;//方案封面；图片链接
 

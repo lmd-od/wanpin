@@ -11,7 +11,7 @@ import java.util.List;
 public class QueryObject<T> {
 
 	/** 页号 */
-	private Integer pageNo = 0;
+	private Integer pageNo = 1;
 	
 	/** 每页显示记录数 */
 	private Integer pageSize = 10;

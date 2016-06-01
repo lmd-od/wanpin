@@ -9,7 +9,7 @@
 			<ul>
 				<li><a href="${ctx}/page/index.jsp">首页</a></li>
 				<li><a href="${ctx}/page/engine/engine.jsp">引擎</a></li>
-				<li><a href="${ctx}/page/goods/goods.jsp">方案商城</a></li>
+				<li><a href="${ctx}/${webAdminPath}/goods/golist.php">方案商城</a></li>
 				<li><a href="${ctx}/page/internet/internet.jsp">互联</a></li>
 				<li><a href="${ctx}/page/about/about.jsp">关于我们</a></li>
 			</ul>

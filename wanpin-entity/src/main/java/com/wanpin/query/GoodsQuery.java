@@ -10,7 +10,7 @@ public class GoodsQuery extends BaseQuery<Goods> {
 	/** 方案位置（1：搜索引擎  2：方案商城）*/
 	private Integer[] goodsPlaces;
 	/** 方案状态（1：草稿 2：待审核 3：审核通过 4：审核不通过 5：已下架）*/
-	private Integer[] goodsStatus;
+	private Byte[] goodsStatus;
 	/** 国别*/
 	private String[] countryCode;
 	/** 方案风格(欧式/美式/中式等*/
@@ -29,37 +29,37 @@ public class GoodsQuery extends BaseQuery<Goods> {
 	public Integer[] getGoodsPlaces() {
 		return goodsPlaces;
 	}
-	public void setGoodsPlaces(Integer[] goodsPlaces) {
+	public void setGoodsPlaces(Integer... goodsPlaces) {
 		this.goodsPlaces = goodsPlaces;
 	}
-	public Integer[] getGoodsStatus() {
+	public Byte[] getGoodsStatus() {
 		return goodsStatus;
 	}
-	public void setGoodsStatus(Integer[] goodsStatus) {
+	public void setGoodsStatus(Byte... goodsStatus) {
 		this.goodsStatus = goodsStatus;
 	}
 	public String[] getCountryCode() {
 		return countryCode;
 	}
-	public void setCountryCode(String[] countryCode) {
+	public void setCountryCode(String... countryCode) {
 		this.countryCode = countryCode;
 	}
 	public String[] getGoodsStyle() {
 		return goodsStyle;
 	}
-	public void setGoodsStyle(String[] goodsStyle) {
+	public void setGoodsStyle(String... goodsStyle) {
 		this.goodsStyle = goodsStyle;
 	}
 	public String[] getGoodsFunction() {
 		return goodsFunction;
 	}
-	public void setGoodsFunction(String[] goodsFunction) {
+	public void setGoodsFunction(String... goodsFunction) {
 		this.goodsFunction = goodsFunction;
 	}
 	public String[] getGoodsHierarchy() {
 		return goodsHierarchy;
 	}
-	public void setGoodsHierarchy(String[] goodsHierarchy) {
+	public void setGoodsHierarchy(String... goodsHierarchy) {
 		this.goodsHierarchy = goodsHierarchy;
 	}
 	

@@ -3,7 +3,7 @@
 <mapper namespace="com.wanpin.dao.CountryDao">
 
   <!-- 国家列表查询,要吗根据编码查询单个国家,要么查询所有国家列表 -->
-  <select id="list" resultMap="Country">
+  <select id="list" resultType="Country">
     SELECT * FROM wp_country where 1 = 1
     <if test="code != null and code != ''">
        AND code = #{code}
