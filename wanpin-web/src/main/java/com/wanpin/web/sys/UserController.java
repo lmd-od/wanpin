@@ -54,6 +54,7 @@ public class UserController extends BaseController{
 		try {
 			if (user != null) {
 				user.setUserId(SecurityHelper.getUserId(request));
+				user.setMobile(null);
 				if (StringUtils.hasText(user.getRealName())) {
 					user.setNickName(user.getRealName());
 				}

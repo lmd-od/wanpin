@@ -41,6 +41,12 @@
 		</choose>
 		
 	</select>
+	
+	<select id="queryList" resultType="Goods" parameterType="com.wanpin.query.GoodsQuery">
+		SELECT
+			<include refid="goodsColumns"/>
+		FROM wp_goods a
+	</select>
   
 
 </mapper>

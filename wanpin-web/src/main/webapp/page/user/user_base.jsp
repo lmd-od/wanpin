@@ -31,7 +31,7 @@
 							<!-- <label for="email">级别</label>
 							<input type="text"  value="" /><br /> -->
 							<label for="comment">姓名</label>
-							<input name="realName" type="text"  value="${user.realName}" />
+							<input name="nickName" type="text"  value="${user.nickName}" />
     						<br />
     						<label for="comment">性别</label>
 							<input type="radio" name="sex" class="nan" value="0" <c:if test="${empty user.sex or user.sex eq 0}">checked="checked"</c:if>/><span class="nanre">男</span>
@@ -39,8 +39,7 @@
 							<input type="radio" name="sex" class="nan" value="2" <c:if test="${user.sex eq 2}">checked="checked"</c:if>/><span class="nanre">保密</span>
     						<br />
     						<label for="comment">出生年月</label>
-    						<%-- <input name="birthday" type="text"  value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>" /> --%>
-    						<input type="text"  value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>" />
+    						<input name="birthday" type="text" onclick="WdatePicker();"  value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>" />
     						<br />
     						<label for="comment">微信</label>
     						<input name="weiXin" type="text"  value="${user.weiXin}" />
@@ -74,6 +73,7 @@
 		<script src="${ctx}/res/lib/jquery-validation/1.14.0/jquery.validate.min.js"></script>
 		<script src="${ctx}/res/lib/jquery-validation/1.14.0/messages_zh.min.js"></script>
 		<script src="${ctx}/res/lib/jquery-validation/1.14.0/validate-methods.js"></script>
+		<script src="${ctx}/res/lib/My97DatePicker/WdatePicker.js"></script>
 		<script src="${ctx}/res/js/wanpin/user_base.js"></script>
 <script type="text/javascript">
 $(function(){

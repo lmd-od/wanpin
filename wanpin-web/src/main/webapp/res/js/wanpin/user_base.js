@@ -1,6 +1,24 @@
 $(function(){
 	$("#base_form").validate({
 		rules: {
+			nickName: {
+				maxlength: 20
+			},
+			weiXin: {
+				maxlength: 50
+			},
+			qq: {
+				isQq: true
+			},
+			university: {
+				maxlength: 50
+			},
+			company: {
+				maxlength: 50
+			},
+			position: {
+				maxlength: 50
+			},
 			sex: {
 				required: true
 			}

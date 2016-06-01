@@ -105,7 +105,6 @@ public class SystemEnum {
 	/** 方案层数字典类型 */
 	public static final String WP_GOODS_HIERARCHY  = "wp_goods_hierarchy";
 
-<<<<<<< Updated upstream
 	/*
 	 * 用户状态
 	 */
@@ -114,11 +113,8 @@ public class SystemEnum {
 	/** 未启用*/
 	public static final int USER_STATUS_DISABLED = 2;
 	
-=======
 	
 	/** 图片文件存储路径 */
 	public static final String WP_FILES_IMAGES_PATH  = "/wp/files/images";
->>>>>>> Stashed changes
-	
 	
 }
