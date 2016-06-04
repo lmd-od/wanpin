@@ -20,7 +20,7 @@ $(function(){
 				url: ctx+"/"+webAdminPath+"/login/login.php",
 				success: function(res){
 					if (res.status === 0) {//登录成功
-						location.href = ctx;
+						location.href = res.action?res.action:ctx;
 					} else {
 						layer.alert(res.msg || '登录失败', {icon: 2});
 					}

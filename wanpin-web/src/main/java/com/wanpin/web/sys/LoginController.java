@@ -56,6 +56,10 @@ public class LoginController extends BaseController{
 				} else {
 					setSuccessFlag(model);
 					request.getSession().setAttribute(SecurityHelper.USER_INFO, userInfo);
+					String action = request.getSession().getAttribute("redirectUrl") == null ? null:request.getSession().getAttribute("redirectUrl").toString();
+					if (StringUtils.hasText(action)) {
+						model.put("action", action);
+					}
 				}
 			}
 		} catch (Exception e) {

@@ -22,8 +22,8 @@ import com.wanpin.web.BaseController;
 * @date 2016年2月26日 上午11:13:51
  */
 @Controller
-@RequestMapping("${webAdminPath}/goods")
-public class GoodsController extends BaseController{
+@RequestMapping("${webAdminPath}/engine")
+public class EngineController extends BaseController{
 	
 	@Autowired
 	private GoodsService goodsService;
@@ -38,7 +38,7 @@ public class GoodsController extends BaseController{
 			e.printStackTrace();
 			log.error("跳转引擎页面失败："+e.getMessage());
 		}
-		return new ModelAndView("goods/goods_home",model);
+		return new ModelAndView("engine/engine_home",model);
 	}
 	
 	/*@RequestMapping("query${urlSuffix}")
@@ -65,7 +65,7 @@ public class GoodsController extends BaseController{
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			queryObject.getOrderFields().add("a.create_time DESC");
-			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_SHOPPING);
+			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_ENGINE);
 			queryObject.setGoodsStatus(SystemEnum.GOODS_STATUS_PASSED);
 			queryObject.setPageSize(20);
 			goodsService.queryList(queryObject);
@@ -73,9 +73,9 @@ public class GoodsController extends BaseController{
 		} catch (Exception e) {
 			setFailFlag(model);
 			e.printStackTrace();
-			log.error("查询方案商城信息失败："+e.getMessage());
+			log.error("查询引擎信息失败："+e.getMessage());
 		}
-		return new ModelAndView("goods/goods_list",model);
+		return new ModelAndView("engine/engine_list",model);
 	}
 	
 }

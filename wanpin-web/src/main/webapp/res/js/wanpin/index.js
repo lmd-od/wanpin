@@ -5,7 +5,7 @@ wanpin.fly = {
 	json: function(url,data,success,options){
 		var that = this;
 		options = options || {};
-		data = data || {};
+		data = $.extend({},{'ajax':'true','targetUrl':top.window.location.href},data || {});
 		return $.ajax({
             type: options.type || 'post',
             dataType: options.dataType || 'json',
@@ -15,8 +15,8 @@ wanpin.fly = {
             	options.beforeSend && options.beforeSend();
             },
             success: function(res){
-                if (res.status === -1) {//登录超时
-					
+                if (res.status === -2) {//登录超时
+                	window.location.href = ctx + res.loginUrl;
 				} else {
 					success && success(res);
 				}
@@ -28,14 +28,15 @@ wanpin.fly = {
 	ajaxSubmit: function(options){
 		$(options.form).ajaxSubmit({
 			url: options.url,
+			data: {'ajax':'true','targetUrl':top.window.location.href},
 			type: options.type || 'POST',
 			dataType: options.dataType || 'json',
 			beforeSubmit: function(){
 				options.beforeSubmit && options.beforeSubmit();
 			},
 			success: function(res){
-				if (res.status == -1) {//登录超时
-					
+				if (res.status == -2) {//登录超时
+					window.location.href = ctx + res.loginUrl;
 				} else {
 					options.success && options.success(res);
 				}

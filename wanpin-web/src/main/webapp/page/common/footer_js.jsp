@@ -9,6 +9,11 @@
 <script type="text/javascript">
 var ctx = '${ctx}';
 var webAdminPath = '${webAdminPath}';
+/* wanpin.util.Constants = {
+	"STATIC_HOME": window.document.location.href.substring(0,window.document.location.href.indexOf(window.document.location.pathname)),
+	"ctx": '${ctx}',
+	"webAdminPath": '${webAdminPath}'
+}; */
 $(function(){
 	$(".header-content-nav a").each(function(){
 		var url = window.location.href;

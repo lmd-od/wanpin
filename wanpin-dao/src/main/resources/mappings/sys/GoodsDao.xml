@@ -20,12 +20,15 @@
        a.create_user,
        a.create_time,
        a.update_user,
-       a.update_time
+       a.update_time,
+       a.goods_style,
+       a.goods_function,
+       a.goods_hierarchy
     </sql>
     
     
     <!-- 分页查询解决方案信息 -->
-	<select id="findList" resultType="Goods">
+	<select id="findList" resultType="com.wanpin.vo.GoodsVO">
 	   SELECT
 			<include refid="goodsColumns"/>
 		FROM wp_goods a
@@ -42,10 +45,43 @@
 		
 	</select>
 	
-	<select id="queryList" resultType="Goods" parameterType="com.wanpin.query.GoodsQuery">
+	<select id="queryList" resultType="com.wanpin.vo.GoodsVO" parameterType="com.wanpin.query.GoodsQuery">
 		SELECT
-			<include refid="goodsColumns"/>
+			<include refid="goodsColumns"/>,
+			sds.label AS goods_style_name,
+			sdf.label AS goods_function_name,
+			sdh.label AS goods_hierarchy_name
 		FROM wp_goods a
+		LEFT JOIN sys_dict sds ON a.goods_style = sds.`value` AND sds.type = 'wp_goods_style'
+		LEFT JOIN sys_dict sdf ON a.goods_function = sdf.`value` AND sdf.type = 'wp_goods_function'
+		LEFT JOIN sys_dict sdh ON a.goods_hierarchy = sdh.`value` AND sdh.type = 'wp_goods_hierarchy'
+		<where>
+			<if test="goodsName != null and goodsName != ''">AND UPPER(a.goods_name) LIKE UPPER('%${goodsName}%')</if>
+			<if test="goodsPlaces != null and goodsPlaces.length > 0">
+			AND a.goods_places IN
+			<foreach collection="goodsPlaces" open="(" separator="," close=")" item="item">#{item}</foreach>
+			</if>
+			<if test="goodsStatus != null and goodsStatus.length > 0">
+			AND a.goods_status IN
+			<foreach collection="goodsStatus" open="(" separator="," close=")" item="item">#{item}</foreach>
+			</if>
+			<if test="countryCode != null and countryCode.length > 0">
+			AND a.country_code IN
+			<foreach collection="countryCode" open="(" separator="," close=")" item="item">#{item}</foreach>
+			</if>
+			<if test="goodsStyle != null and goodsStyle.length > 0">
+			AND a.goods_style IN
+			<foreach collection="goodsStyle" open="(" separator="," close=")" item="item">#{item}</foreach>
+			</if>
+			<if test="goodsFunction != null and goodsFunction.length > 0">
+			AND a.goods_function IN
+			<foreach collection="goodsFunction" open="(" separator="," close=")" item="item">#{item}</foreach>
+			</if>
+			<if test="goodsHierarchy != null and goodsHierarchy.length > 0">
+			AND a.goods_hierarchy IN
+			<foreach collection="goodsHierarchy" open="(" separator="," close=")" item="item">#{item}</foreach>
+			</if>
+		</where>
 	</select>
   
 

@@ -1,9 +1,9 @@
 package com.wanpin.query;
 
 import com.wanpin.common.query.BaseQuery;
-import com.wanpin.entity.Goods;
+import com.wanpin.vo.GoodsVO;
 
-public class GoodsQuery extends BaseQuery<Goods> {
+public class GoodsQuery extends BaseQuery<GoodsVO> {
 
 	/** 方案名称*/
 	private String goodsName;
@@ -24,7 +24,7 @@ public class GoodsQuery extends BaseQuery<Goods> {
 		return goodsName;
 	}
 	public void setGoodsName(String goodsName) {
-		this.goodsName = goodsName;
+		this.goodsName = goodsName == null ? null : goodsName.trim();
 	}
 	public Integer[] getGoodsPlaces() {
 		return goodsPlaces;

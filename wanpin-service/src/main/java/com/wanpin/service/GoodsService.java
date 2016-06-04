@@ -2,8 +2,8 @@ package com.wanpin.service;
 
 import java.util.List;
 
-import com.wanpin.entity.Goods;
 import com.wanpin.query.GoodsQuery;
+import com.wanpin.vo.GoodsVO;
 
 public interface GoodsService {
 
@@ -16,6 +16,6 @@ public interface GoodsService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Goods> queryList(GoodsQuery queryObject) throws Exception;
+	public List<GoodsVO> queryList(GoodsQuery queryObject) throws Exception;
 	
 }

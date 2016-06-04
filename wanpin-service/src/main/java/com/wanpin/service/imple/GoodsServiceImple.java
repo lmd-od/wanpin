@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wanpin.dao.GoodsDao;
-import com.wanpin.entity.Goods;
 import com.wanpin.query.GoodsQuery;
 import com.wanpin.service.GoodsService;
+import com.wanpin.vo.GoodsVO;
 @Service("goodsService")
 public class GoodsServiceImple implements GoodsService {
 	
@@ -16,7 +16,7 @@ public class GoodsServiceImple implements GoodsService {
 	private GoodsDao goodsDao;
 
 	@Override
-	public List<Goods> queryList(GoodsQuery queryObject) throws Exception {
+	public List<GoodsVO> queryList(GoodsQuery queryObject) throws Exception {
 		return goodsDao.queryList(queryObject);
 	}
 

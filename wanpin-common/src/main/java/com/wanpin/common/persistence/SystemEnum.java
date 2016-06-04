@@ -15,6 +15,8 @@ public class SystemEnum {
 	public static final int RESP_STATUS_FAIL = 1;
 	/** 系统繁忙*/
 	public static final int RESP_SYSTEM_BUSY = -1;
+	/** session超时*/
+	public static final int RESP_SESSION_INVALID = -2;
 	
 	/*
 	 * 返回状态定义
