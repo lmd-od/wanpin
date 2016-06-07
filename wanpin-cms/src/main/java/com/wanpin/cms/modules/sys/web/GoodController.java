@@ -140,8 +140,7 @@ public class GoodController  extends BaseController{
 			CommonsMultipartFile file =  files[i];
 			if(!file.isEmpty()){ 
 				String filePath = webapps + SystemEnum.WP_FILES_IMAGES_PATH + "/" + goodsName;
-				String fileName = UUID.randomUUID().toString() + "---"
-						+ file.getOriginalFilename();
+				String fileName = UUID.randomUUID().toString() + file.getFileItem().getName().substring(file.getFileItem().getName().lastIndexOf("."));
 				File targetFile = new File(filePath, fileName);
 				if (!targetFile.exists()) {
 					targetFile.mkdirs();
