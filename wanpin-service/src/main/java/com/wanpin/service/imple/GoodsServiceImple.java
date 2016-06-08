@@ -20,4 +20,12 @@ public class GoodsServiceImple implements GoodsService {
 		return goodsDao.queryList(queryObject);
 	}
 
+	@Override
+	public GoodsVO getGoodsByGoodsId(Long goodsId) throws Exception {
+		if (goodsId != null) {
+			return goodsDao.get(goodsId);
+		}
+		return null;
+	}
+
 }

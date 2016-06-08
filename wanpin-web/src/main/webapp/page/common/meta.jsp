@@ -7,4 +7,3 @@
 		<script src="http://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
           <![endif]
           -->
-<title>万品国际</title>

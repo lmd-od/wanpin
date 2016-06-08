@@ -6,32 +6,22 @@
 
 	<head>
 		<jsp:include page="/page/common/meta.jsp"></jsp:include>
+		<title>${goods.goodsName} | 万品国际</title>
 		<link href="${ctx}/res/css/engine_detail.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 		<jsp:include page="/page/common/header.jsp"></jsp:include>
 		<div class="active-content">
-			<div class="active-content-header">
-				<form action="" method="post" class="active-content-form">
-					<div class="wei">
-						<input type="text" placeholder="请输入您需要的风格关键字" class="active-content-text" />
-					</div>
-					<input type="image" name="" id="" value="" src="${ctx}/res/img/03.png" class="active-content-text-image" />
-				</form>
-				<input type="button" name="" id="" value="论 坛" class="active-content-text-button" />
-			</div>
 			<div class="active-content-column">
-				<h1>首页>>引擎>>搜索结果>>方案概述</h1>
+				<h1>首页>>引擎>>方案概述</h1>
 				<div class="introduce-warp">
 					<ul>
-						<li>兼职师：HOK</li>
-						<li>地址：阿塞拜藏,巴库</li>
-						<li>建筑面积：234500.0spm</li>
-						<li>项目年份：2013</li>
+						<li>兼职师：${goods.architect}</li>
+						<li>地址：${goods.countryName}</li>
+						<li>建筑面积：${goods.builtArea}㎡</li>
+						<li>项目年份：${goods.projectYear}</li>
 					</ul>
-					<div class="introduce-warp-div">
-						巴库对火的崇拜有着悠久的历史,被称为"永恒的火焰",而这为巴库开发标志性设计提供了灵感.巴库对火的崇拜有着悠久的历史,被称为"永恒的火焰",而这为巴库开发标志性设计提供了灵感.巴库对火的崇拜有着悠久的历史,被称为"永恒的火焰",而这为巴库开发标志性设计提供了灵感.巴库对火的崇拜有着悠久的历史,被称为"永恒的火焰",而这为巴库开发标志性设计提供了灵感.巴库对火的崇拜有着悠久的历史,被称为"永恒的火焰",而这为巴库开发标志性设计提供了灵感.巴库对火的崇拜有着悠久的历史,被称为"永恒的火焰",而这为巴库开发标志性设计提供了灵感.巴库对火的崇拜有着悠久的历史,被称为"永恒的火焰",而这为巴库开发标志性设计提供了灵感.巴库对火的崇拜有着悠久的历史,被称为"永恒的火焰",而这为巴库开发标志性设计提供了灵感.
-					</div>
+					<div class="introduce-warp-div">${goods.detail}</div>
 				</div>
 				<div class="rollabilitydiagram">
 					<div class="wrap picshow">
@@ -41,62 +31,16 @@
 									<P class=bigbtnPrev>
 										<span id=big_play_prev></span>
 									</P>
-									<div id=image_xixi-01 class=image>
+									<c:forEach items="${goodsImages}" var="gis" varStatus="vs">
+									<div id="image_xixi-${vs.index}" class="image">
 										<a href="#">
-											<img alt="" src="${ctx}/res/img/05.png">
+											<img alt="" src="${imgPrefix}${gis}">
 										</a>
 										<div class=word>
-											<h3>�趯�ഺ</h3>
+											<h3>${goods.goodsName}</h3>
 										</div>
 									</div>
-									<div id=image_xixi-02 class=image>
-										<a href="#">
-											<img alt="" src="${ctx}/res/img/06.png">
-										</a>
-										<div class=word>
-											<h3>̨��������</h3>
-										</div>
-									</div>
-									<div id=image_xixi-03 class=image>
-										<a href="#">
-											<img alt="" src="${ctx}/res/img/07.png">
-										</a>
-										<div class=word>
-											<h3>�ɷý�����</h3>
-										</div>
-									</div>
-									<div id=image_xixi-04 class=image>
-										<a href="#">
-											<img alt="" src="${ctx}/res/img/0369_03.png">
-										</a>
-										<div class=word>
-											<h3>��Ů������</h3>
-										</div>
-									</div>
-									<div id=image_xixi-05 class=image>
-										<a href="#">
-											<img alt="" src="${ctx}/res/img/0369_03.png">
-										</a>
-										<div class=word>
-											<h3>��ɫ����</h3>
-										</div>
-									</div>
-									<div id=image_xixi-06 class=image>
-										<a href="#">
-											<img alt="" src="${ctx}/res/img/002.jpg">
-										</a>
-										<div class=word>
-											<h3>����</h3>
-										</div>
-									</div>
-									<div id=image_xixi-07 class=image>
-										<a href="#">
-											<img alt="" src="${ctx}/res/img/001.jpg">
-										</a>
-										<div class=word>
-											<h3>ѣ����ջ�</h3>
-										</div>
-									</div>
+									</c:forEach>
 									<P class=bigbtnNext>
 										<span id=big_play_next></span>
 									</P>
@@ -108,41 +52,13 @@
 										<li class="first btnPrev">
 											<img id=play_prev src="${ctx}/res/img/08.png" style="width: 20px;height: 80px;">
 										</li>
-										<li class=slideshowItem>
-											<a id=thumb_xixi-01 href="#">
-												<img src="${ctx}/res/img/05.png">
+										<c:forEach items="${goodsImages}" var="gis" varStatus="vs">
+										<li class="<c:if test="${vs.count eq fn:length(goodsImages)}">last_img</c:if> slideshowItem">
+											<a id="thumb_xixi-${vs.index}" href="#">
+												<img src="${imgPrefix}${gis}">
 											</a>
 										</li>
-										<li class=slideshowItem>
-											<a id=thumb_xixi-02 href="#">
-												<img src="${ctx}/res/img/06.png">
-											</a>
-										</li>
-										<li class=slideshowItem>
-											<a id=thumb_xixi-03 href="#">
-												<img src="${ctx}/res/img/07.png">
-											</a>
-										</li>
-										<li class=slideshowItem>
-											<A id=thumb_xixi-04 href="#">
-												<img src="${ctx}/res/img/0369_03.png">
-											</A>
-										</li>
-										<li class=slideshowItem>
-											<a id=thumb_xixi-05 href="#">
-												<img src="${ctx}/res/img/0369_03.png">
-											</a>
-										</li>
-										<li class=slideshowItem>
-											<a id=thumb_xixi-06 href="#">
-												<img src="${ctx}/res/img/002.jpg">
-											</a>
-										</li>
-										<li class="last_img slideshowItem">
-											<a id=thumb_xixi-07 href="#">
-												<img src="${ctx}/res/img/001.jpg">
-											</a>
-										</li>
+										</c:forEach>
 										<li class="last btnNext">
 											<img id=play_next src="${ctx}/res/img/09.png" style="width: 20px;height: 80px;">
 										</li>
@@ -158,7 +74,10 @@
 		<jsp:include page="/page/common/footer_js.jsp"></jsp:include>
 		<SCRIPT type=text/javascript src="${ctx}/res/js/slide.js"></SCRIPT>
 		<script>
-			var target = ["xixi-01", "xixi-02", "xixi-03", "xixi-04", "xixi-05", "xixi-06", "xixi-07"];
+			var target = [];
+			for (var i = 0; i < parseInt('${fn:length(goodsImages)}'); i++) {
+				target.push('xixi-' + i);
+			}
 		</script>
 	</body>
 

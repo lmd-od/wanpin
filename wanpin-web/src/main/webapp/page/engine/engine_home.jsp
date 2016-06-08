@@ -6,6 +6,11 @@
 
 	<head>
 		<jsp:include page="/page/common/meta.jsp"></jsp:include>
+<style type="text/css">
+.active-content-warp li.active a {
+color:red;
+}
+</style>
 	</head>
 	<body>
 		<jsp:include page="/page/common/header.jsp"></jsp:include>

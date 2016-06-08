@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wanpin.common.persistence.SystemEnum;
 import com.wanpin.query.GoodsQuery;
 import com.wanpin.service.GoodsService;
+import com.wanpin.vo.GoodsVO;
 import com.wanpin.web.BaseController;
 
 /**
@@ -76,6 +79,26 @@ public class EngineController extends BaseController{
 			log.error("查询引擎信息失败："+e.getMessage());
 		}
 		return new ModelAndView("engine/engine_list",model);
+	}
+	
+	@RequestMapping("info/{goodsId}${urlSuffix}")
+	public ModelAndView get(@PathVariable Long goodsId,HttpServletRequest request) throws Exception {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			GoodsVO goods = goodsService.getGoodsByGoodsId(goodsId);
+			if (goods == null || goods.getGoodsStatus() != SystemEnum.GOODS_STATUS_PASSED || goods.getGoodsPlaces() != SystemEnum.GOODS_PLACES_ENGINE) {
+				return null;
+			}
+			if (StringUtils.hasText(goods.getGoodsImage())) {
+				model.put("goodsImages", goods.getGoodsImage().split(","));
+			}
+			model.put("goods", goods);
+		} catch (Exception e) {
+			setFailFlag(model);
+			e.printStackTrace();
+			log.error("查询引擎详情信息失败："+e.getMessage());
+		}
+		return new ModelAndView("engine/engine_detail",model);
 	}
 	
 }

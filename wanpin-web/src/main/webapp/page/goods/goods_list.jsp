@@ -4,9 +4,9 @@
 <c:if test="${not empty result.queryList}">
 <ul>
 <c:forEach items="${result.queryList}" var="gl">
-	<li><a href="${ctx}/page/goods/goods_detail.jsp" target="_blank"><img
+	<li><a href="${ctx}/${webAdminPath}/goods/info/${gl.goodsId}.php" target="_blank"><img
 			src="${imgPrefix}${gl.goodsCover}" /></a> <span>￥${gl.goodsMoney}</span> <a
-		href="${ctx}/page/goods/goods_detail.jsp"  target="_blank">
+		href="${ctx}/${webAdminPath}/goods/info/${gl.goodsId}.php"  target="_blank">
 			<p>
 				<b>${gl.goodsName}</b> <br /> ${gl.countryName}.${gl.goodsFunctionName}.${gl.goodsHierarchyName}.${gl.goodsStyleName}
 			</p>

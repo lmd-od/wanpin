@@ -21,6 +21,7 @@
        a.create_time,
        a.update_user,
        a.update_time,
+       a.goods_places,
        a.goods_style,
        a.goods_function,
        a.goods_hierarchy
@@ -81,6 +82,21 @@
 			AND a.goods_hierarchy IN
 			<foreach collection="goodsHierarchy" open="(" separator="," close=")" item="item">#{item}</foreach>
 			</if>
+		</where>
+	</select>
+	
+	<select id="get" resultType="com.wanpin.vo.GoodsVO" >
+		SELECT
+			<include refid="goodsColumns"/>,
+			sds.label AS goods_style_name,
+			sdf.label AS goods_function_name,
+			sdh.label AS goods_hierarchy_name
+		FROM wp_goods a
+		LEFT JOIN sys_dict sds ON a.goods_style = sds.`value` AND sds.type = 'wp_goods_style'
+		LEFT JOIN sys_dict sdf ON a.goods_function = sdf.`value` AND sdf.type = 'wp_goods_function'
+		LEFT JOIN sys_dict sdh ON a.goods_hierarchy = sdh.`value` AND sdh.type = 'wp_goods_hierarchy'
+		<where>
+			<if test="_parameter != null">AND a.goods_id = #{_parameter}</if>
 		</where>
 	</select>
   

@@ -27,13 +27,13 @@
 			<!--背景图-->
 			<div class="carousel-inner">
 				<div class="item active">
-					<a href="${ctx}/page/engine/engine.jsp"><img src="${ctx}/res/img/000.jpg" data-src=" " alt="First slide"></a>
+					<a href="${ctx}/${webAdminPath}/engine/golist.php"><img src="${ctx}/res/img/000.jpg" data-src=" " alt="First slide"></a>
 				</div>
 				<div class="item">
-					<a href="${ctx}/page/engine/engine.jsp"><img src="${ctx}/res/img/001.jpg" data-src="" alt="Second slide"></a>
+					<a href="${ctx}/${webAdminPath}/engine/golist.php"><img src="${ctx}/res/img/001.jpg" data-src="" alt="Second slide"></a>
 				</div>
 				<div class="item">
-					<a href="${ctx}/page/engine/engine.jsp"><img src="${ctx}/res/img/002.jpg" data-src="" alt="Third slide"></a>
+					<a href="${ctx}/${webAdminPath}/engine/golist.php"><img src="${ctx}/res/img/002.jpg" data-src="" alt="Third slide"></a>
 				</div>
 			</div>
 		</div>
