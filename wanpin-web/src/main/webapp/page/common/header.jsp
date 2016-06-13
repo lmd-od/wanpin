@@ -18,19 +18,19 @@
 			<ul>
 				<c:choose>
 					<c:when test="${empty sessionScope.userInfo}">
-				<li><a href="${ctx}/page/login.jsp">登录</a></li>
-				<li><a href="${ctx}/page/register.jsp">注册</a></li>
+				<li><a href="${ctx}/${webAdminPath}/login/goLogin.php">登录</a></li>
+				<li><a href="${ctx}/${webAdminPath}/login/goRegister.php">注册</a></li>
 					</c:when>
 					<c:otherwise>
 				<li><a href="${ctx}/php/user/gobase.php" id="sdku">${sessionScope.userInfo.nickName}</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>
-			<span>
+			<!-- <span>
 				[<a href="#">中文版</a>
 				 / 
 				<a href="#">English</a>]
-			</span>
+			</span> -->
 		</div>
 		<div class="sidebar Droplie">
 			<ul>
@@ -40,7 +40,7 @@
 				<li><a href="${ctx}/page/user/user_suggest.jsp">我的建议</a></li>
 				<li><a href="${ctx}/page/user/user_evaluate.jsp">评价晒单</a></li>
 				<li><a href="${ctx}/page/user/user_integral.jsp">我的积分</a></li>
-				<li><a href="${ctx}/page/user/user_change_pass.jsp">修改密码</a></li>
+				<li><a href="${ctx}/${webAdminPath}/user/goChangePwd.php">修改密码</a></li>
 				<li><a href="${ctx}/page/user/user_lineup.jsp">排队</a></li>
 				<li><a href="${ctx}/page/user/user_refund.jsp">退款</a></li>
 				<li><a href="javascript:;" class="user_logout">退出</a></li>

@@ -69,7 +69,7 @@
 					</div>
 					<div class="share">
 						<ul class="share-list">
-							<li><a href="#">收藏</a></li>
+							<li style="margin-top:5px;"><a onclick="collect();" id="collect_btn" data-id="${goods.goodsId}" collect="0" href="javascript:;">收藏</a></li>
 						<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
 						<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 						</ul>
@@ -124,10 +124,24 @@
 				
 			});
 			
+			
+			function collect(){
+				var $a = $('#collect_btn');
+				wanpin.fly.json(ctx + '/' + webAdminPath + '/user/collect.php',{'id':$a.attr('data-id')},function(res){
+					if(res.status == 0) {
+						if($a.attr('collect') == 0) {
+							$a.attr('collect','1').text('已收藏');
+						} else {
+							$a.attr('collect','0').text('收藏');
+						}
+					}
+				});
+			}
 		</script>
 		
 		<SCRIPT src="${ctx}/res/js/lib.js" type=text/javascript></SCRIPT>
 		<SCRIPT src="${ctx}/res/js/163css.js" type=text/javascript></SCRIPT>
+		<script src="${ctx}/res/js/wanpin/detail.js" type="text/javascript"></script>
 	</body>
 
 </html>

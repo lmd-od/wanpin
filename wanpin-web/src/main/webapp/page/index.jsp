@@ -60,16 +60,16 @@
 			</div>
 		</div>
 		<!--登録条-->
+				<c:if test="${empty sessionScope.userInfo}">
 		<div class="regsiter-warp">
 			<div class="regsiter">
 			<ul>
-				<c:if test="${empty sessionScope.userInfo}">
-				<li class="active"><a href="${ctx}/page/login.jsp">登录</a></li>
-				<li class="active02"><a href="${ctx}/page/register.jsp">注册</a></li>
-				</c:if>
-				<li class="active03"><a href="#">中文版</a> / <a href="#">EngclsH</a></li>
+				<li class="active"><a href="${ctx}/${webAdminPath}/login/goLogin.php">登录</a></li>
+				<li class="active02"><a href="${ctx}/${webAdminPath}/login/goRegister.php">注册</a></li>
+				<!-- <li class="active03"><a href="#">中文版</a> / <a href="#">EngclsH</a></li> -->
 			</ul>
 		</div>
+				</c:if>
 		</div>
 		<!--解决方案-->
 		<div class="scheme">

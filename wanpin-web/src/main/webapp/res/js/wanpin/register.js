@@ -5,6 +5,12 @@ $(function(){
 				required: true,
 				isMobile: true
 			},
+			img_code: {
+				required: true
+			},
+			code: {
+				required: true
+			},
 			password: {
 				required: true,
 				isPwd: true
@@ -12,6 +18,24 @@ $(function(){
 			repassword: {
 				required: true,
 				equalTo: '#password'
+			}
+		},
+		messages: {
+			mobile: {
+				required: '请输入手机号码'
+			},
+			img_code: {
+				required: '请输入图形验证码'
+			},
+			code: {
+				required: '请输入短信验证码'
+			},
+			password: {
+				required: '请输入密码'
+			},
+			repassword: {
+				required: '请输入确认密码',
+				equalTo: '两次输入不一致，请重新输入'
 			}
 		},
 		submitHandler:function(form){

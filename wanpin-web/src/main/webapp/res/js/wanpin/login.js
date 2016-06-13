@@ -6,13 +6,13 @@ $(function(){
 				isMobile: true
 			},
 			password: {
-				required: true,
-				isPwd: true
-			},
+				required: true
+				//isPwd: true
+			}/*,
 			img_code: {
 				required: true,
 				maxlength: 4
-			}
+			}*/
 		},
 		submitHandler:function(form){
 			wanpin.fly.ajaxSubmit({

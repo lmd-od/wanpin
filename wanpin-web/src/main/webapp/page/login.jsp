@@ -21,8 +21,10 @@
 							<span class="wenben-02">密码</span>
 							<input type="password" name="password"  class="text" placeholder="请输入密码"/>
 							<br /><br /> 
-							<span class="wenben-04">验证码</span>
+							<!-- <span class="wenben-04">验证码</span>
 							<input type="text" name="img_code" id="" value="" placeholder="请输入验证码" class="text"/>
+							<br /><br /> -->
+							<a href="${ctx}/${webAdminPath}/login/goForgetPwd.php" style="color: blue;">忘记密码？</a><a style="margin-left: 220px;color: blue;" href="${ctx}/${webAdminPath}/login/goRegister.php">注册</a>
 							<br /><br />
 							<input type="submit" value=" 登录 " class="register"/>
 						</form>

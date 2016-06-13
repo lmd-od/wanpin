@@ -143,8 +143,8 @@ $(function(){
     
     // 匹配密码，以字母开头，长度在6-12之间，只能包含字符、数字和下划线。      
     jQuery.validator.addMethod("isPwd", function(value, element) {       
-         return this.optional(element) || /^[a-zA-Z]\w{6,12}$/.test(value);       
-    }, "以字母开头，长度在6-12之间，只能包含字符、数字和下划线。");  
+         return this.optional(element) || /^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/.test(value);       
+    }, "6-22个字符；只能包含大小写、数字以及标点");  
     
     // 身份证号码验证
     jQuery.validator.addMethod("isIdCardNo", function(value, element) { 

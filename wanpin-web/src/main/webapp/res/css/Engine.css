@@ -3291,3 +3291,7 @@ select {
 .Droplie ul li a {
 	color: #FFFFFF;
 }
+
+.error {
+	color: red;	
+}
