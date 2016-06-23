@@ -3,6 +3,8 @@ package com.wanpin.common.persistence;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.wanpin.common.query.BaseQuery;
 
 /**
@@ -18,7 +20,7 @@ public interface CrudDao<T> extends BaseDao {
 	 * @param id
 	 * @return
 	 */
-	public T get(Long id);
+	public T get(@Param("id")Long id);
 	
 	/**
 	 * 获取单条数据
@@ -78,7 +80,7 @@ public interface CrudDao<T> extends BaseDao {
 	 * @return
 	 */
 	@Deprecated
-	public int delete(Long id);
+	public int delete(@Param("id")Long id);
 	
 	/**
 	 * 删除数据（一般为逻辑删除，更新del_flag字段为1）

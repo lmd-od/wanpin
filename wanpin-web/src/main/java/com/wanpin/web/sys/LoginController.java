@@ -216,7 +216,7 @@ public class LoginController extends BaseController{
 	@RequestMapping("logout${urlSuffix}")  
     public ModelAndView logout(HttpServletRequest request) throws Exception{
 		request.getSession().removeAttribute(SecurityHelper.USER_INFO);
-		return new ModelAndView("redirect:/page/login.jsp");
+		return new ModelAndView("redirect:/php/login/goLogin.php");
     }
 	
 }

@@ -63,7 +63,6 @@ color:red;
 var com;if (!com) com = {};else if (typeof com != "object")	throw new Error("com already exists and is not an object");	if (!com.wanpin) com.wanpin = {};else if (typeof com.wanpin != "object")	throw new Error("com.wanpin already exists and is not object");if (!com.wanpin.util) com.wanpin.util = {};else if (typeof com.wanpin.util != "object")	throw new Error("com.sinoiov.util already exists and is not object");
 com.wanpin.util.Constants = {'search':'/goods/query.php'};
 </script>
-<script src="${ctx}/res/js/wanpin/config.js" type="text/javascript"></script>
 <script src="${ctx}/res/js/wanpin/search.js" type="text/javascript"></script>
 </body>
 </html>

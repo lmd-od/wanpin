@@ -79,7 +79,7 @@
 $(function(){
 	(function(){
 		var $select = $("select[name='education']"),type=[];
-		$.each(DICT_VAL.EDUCATION,function(idx,item){
+		$.each(ALL_DICT.EDUCATION,function(idx,item){
 			var selected = '';
 			if ('${user.education}' == item['k']) {
 				selected = 'selected';

@@ -1,0 +1,14 @@
+package com.wanpin.web.app;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.wanpin.web.AppBaseController;
+
+@Controller
+@RequestMapping("${appAdminPath}/code")
+public class AppCodeController extends AppBaseController {
+	
+	
+	
+}

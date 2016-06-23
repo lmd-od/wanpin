@@ -66,9 +66,9 @@
 	
 	<mvc:interceptors>  
         <mvc:interceptor>  
-           <mvc:mapping path="/**/user/**" />  
+           <mvc:mapping path="/php/user/**" />  
            <bean class="com.wanpin.sys.interceptor.SessionInterceptor">
-           	<property name="loginUrl" value="/page/login.jsp"></property>
+           	<property name="loginUrl" value="${webAdminPath}/login/goLogin${urlSuffix}"></property>
            </bean>
         </mvc:interceptor>  
     </mvc:interceptors>

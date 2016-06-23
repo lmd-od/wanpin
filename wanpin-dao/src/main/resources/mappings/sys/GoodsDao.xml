@@ -17,6 +17,7 @@
        a.architect,
        a.built_area,
        a.project_year,
+       a.grade,
        a.create_user,
        a.create_time,
        a.update_user,
@@ -82,7 +83,15 @@
 			AND a.goods_hierarchy IN
 			<foreach collection="goodsHierarchy" open="(" separator="," close=")" item="item">#{item}</foreach>
 			</if>
+			<if test="grade != null and grade.length > 0">
+			AND a.grade IN
+			<foreach collection="grade" open="(" separator="," close=")" item="item">#{item}</foreach>
+			</if>
 		</where>
+		<if test="usePage == false and orderFields.size() > 0">
+	  	ORDER BY 
+	  	<foreach collection="orderFields" separator="," item="item">${item}</foreach>
+	  	</if>
 	</select>
 	
 	<select id="get" resultType="com.wanpin.vo.GoodsVO" >
@@ -96,7 +105,7 @@
 		LEFT JOIN sys_dict sdf ON a.goods_function = sdf.`value` AND sdf.type = 'wp_goods_function'
 		LEFT JOIN sys_dict sdh ON a.goods_hierarchy = sdh.`value` AND sdh.type = 'wp_goods_hierarchy'
 		<where>
-			<if test="_parameter != null">AND a.goods_id = #{_parameter}</if>
+			<if test="id != null">AND a.goods_id = #{id}</if>
 		</where>
 	</select>
   

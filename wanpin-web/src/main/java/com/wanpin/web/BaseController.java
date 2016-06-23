@@ -86,4 +86,12 @@ public class BaseController {
 		setFailFlag(model,"");
 	}
 	
+	protected boolean checkToken(String token) {
+		if (StringUtils.isEmpty(token)) {
+			return false;
+		}
+		
+		return true;
+	}
+	
 }

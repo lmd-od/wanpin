@@ -19,6 +19,8 @@ public class GoodsQuery extends BaseQuery<GoodsVO> {
 	private String[] goodsFunction;
 	/** 方案层数(底层/中层/高层)*/
 	private String[] goodsHierarchy;
+	/** 方案等级 1:精品 9:普通*/
+	private Integer[] grade;
 	
 	public String getGoodsName() {
 		return goodsName;
@@ -61,6 +63,12 @@ public class GoodsQuery extends BaseQuery<GoodsVO> {
 	}
 	public void setGoodsHierarchy(String... goodsHierarchy) {
 		this.goodsHierarchy = goodsHierarchy;
+	}
+	public Integer[] getGrade() {
+		return grade;
+	}
+	public void setGrade(Integer... grade) {
+		this.grade = grade;
 	}
 	
 }

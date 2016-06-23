@@ -4,7 +4,7 @@ import com.wanpin.entity.Goods;
 
 public class GoodsVO extends Goods {
 
-	/** 方案样式名*/
+	/** 方案风格名*/
 	private String goodsStyleName;
 	/** 方案功能名*/
 	private String goodsFunctionName;

@@ -6,6 +6,12 @@ package com.wanpin.common.persistence;
  *
  */
 public class SystemEnum {
+	
+	/** 是*/
+	public static final int YES = 1;
+	/** 否*/
+	public static final int NO = 0;
+	
     /*
      * 请求响应状态
      */
@@ -119,4 +125,9 @@ public class SystemEnum {
 	/** 图片文件存储路径 */
 	public static final String WP_FILES_IMAGES_PATH  = "/wp/files/images";
 	
+	/** 方案等级常量*/
+	/** 精品*/
+	public static final int GOODS_GRADE_BOUTIQUE = 1;
+	/** 普通*/
+	public static final int GOODS_GRADE_NORMAL = 9;
 }

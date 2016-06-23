@@ -2,6 +2,8 @@ package com.wanpin.web.sys;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +45,13 @@ public class CodeController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping()
+	public Map<String, Object> mobilecode(HttpServletRequest request) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		
+		return model;
 	}
 	
 }

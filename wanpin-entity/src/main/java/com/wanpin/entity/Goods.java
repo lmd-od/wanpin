@@ -44,6 +44,8 @@ public class Goods {
     private String builtArea;//建筑面积
 
     private Integer projectYear;//项目年份
+    
+    private Integer grade;//方案等级 1:精品 9:普通
 
     private String createUser;//创建用户
 
@@ -207,7 +209,15 @@ public class Goods {
         this.projectYear = projectYear;
     }
 
-    public String getCreateUser() {
+    public Integer getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Integer grade) {
+		this.grade = grade;
+	}
+
+	public String getCreateUser() {
         return createUser;
     }
 

@@ -36,7 +36,7 @@ public class Des3Utils {
         IvParameterSpec ips = new IvParameterSpec(iv.getBytes());  
         cipher.init(Cipher.ENCRYPT_MODE, deskey, ips);  
         byte[] encryptData = cipher.doFinal(text.getBytes(encoding));  
-        return Base64.encode(encryptData);  
+        return Base64.encodeByte(encryptData);  
     }  
   
     /**
@@ -54,7 +54,7 @@ public class Des3Utils {
         Cipher cipher = Cipher.getInstance("desede/CBC/PKCS5Padding");  
         IvParameterSpec ips = new IvParameterSpec(iv.getBytes());  
         cipher.init(Cipher.DECRYPT_MODE, deskey, ips);  
-        byte[] decryptData = cipher.doFinal(Base64.decode(text));  
+        byte[] decryptData = cipher.doFinal(Base64.decodeByte(text));  
         return new String(decryptData, encoding);  
     }  
     

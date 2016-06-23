@@ -18,29 +18,58 @@
 	
 	<!-- 更新 session -->
 	<update id="update">
-	    UPDATE sys_session s
-	      SET 
-	      s.sid = #{sid},
-	      s.begin_date = #{beginDate},
-	      s.end_date = #{endDate}
-	    WHERE s.user_code = #{userCode}
+	    update wp_session
+	    <set>
+	      <if test="sid != null" >
+	        sid = #{sid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="beginDate != null" >
+	        begin_date = #{beginDate,jdbcType=TIMESTAMP},
+	      </if>
+	      <if test="endDate != null" >
+	        end_date = #{endDate,jdbcType=TIMESTAMP},
+	      </if>
+	    </set>
+	    where user_code = #{userCode}
 	</update>
 	
 	<!-- 插入 session -->
-	<insert id="insert">
-	    INSERT INTO sys_session 
-	     (
-	       sid,
-	       user_code,
-	       begin_date,
-	       end_date
-	     )
-	     VALUES(
-	       #{sid},
-	       #{userCode},
-	       #{beginDate},
-	       #{endDate}
-	     )
+	<insert id="insert" >
+	    insert into wp_session
+	    <trim prefix="(" suffix=")" suffixOverrides="," >
+	      <if test="id != null" >
+	        id,
+	      </if>
+	      <if test="sid != null" >
+	        sid,
+	      </if>
+	      <if test="userCode != null" >
+	        user_code,
+	      </if>
+	      <if test="beginDate != null" >
+	        begin_date,
+	      </if>
+	      <if test="endDate != null" >
+	        end_date,
+	      </if>
+	    </trim>
+	    <trim prefix="values (" suffix=")" suffixOverrides="," >
+	      <if test="id != null" >
+	        #{id,jdbcType=INTEGER},
+	      </if>
+	      <if test="sid != null" >
+	        #{sid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="userCode != null" >
+	        #{userCode,jdbcType=VARCHAR},
+	      </if>
+	      <if test="beginDate != null" >
+	        #{beginDate,jdbcType=TIMESTAMP},
+	      </if>
+	      <if test="endDate != null" >
+	        #{endDate,jdbcType=TIMESTAMP},
+	      </if>
+	    </trim>
 	</insert>
 	
 	

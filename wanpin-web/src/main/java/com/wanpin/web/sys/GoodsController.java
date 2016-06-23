@@ -76,6 +76,7 @@ public class GoodsController extends BaseController{
 	public ModelAndView query(GoodsQuery queryObject,HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
+			queryObject.getOrderFields().add("a.grade ASC");
 			queryObject.getOrderFields().add("a.create_time DESC");
 			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_SHOPPING);
 			queryObject.setGoodsStatus(SystemEnum.GOODS_STATUS_PASSED);

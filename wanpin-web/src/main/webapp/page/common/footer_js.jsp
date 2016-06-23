@@ -5,7 +5,7 @@
 <script src="${ctx}/res/lib/layer/2.3/layer.js" type="text/javascript"></script>
 <script src="${ctx}/res/js/wanpin/index.js?${version}" type="text/javascript"></script>
 <script src="${ctx}/res/js/new_file.js" type="text/javascript" charset="utf-8"></script>
-<script src="${ctx}/res/js/config.js?${version}" type="text/javascript"></script>
+<script src="${ctx}/res/js/wanpin/config.js?${version}" type="text/javascript"></script>
 <script type="text/javascript">
 var ctx = '${ctx}';
 var webAdminPath = '${webAdminPath}';
