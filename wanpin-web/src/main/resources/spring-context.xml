@@ -119,4 +119,6 @@
 	    <property name="filters" value="stat" /> 
 	</bean>
 	
+	<bean id="messageSendUtils" class="com.wanpin.common.utils.MessageSendUtils"></bean>
+	
 </beans>

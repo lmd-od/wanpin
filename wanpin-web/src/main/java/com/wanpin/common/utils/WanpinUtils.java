@@ -72,11 +72,12 @@ public class WanpinUtils {
 	/**
 	 * <p>判断传过来的必填字段是否为空;如果为空返回false如果不为空返回true</p>
 	 * @author litr 2016年6月16日
-	 * @param request
 	 * @param fieldStr 以','分割的字段名
+	 * @param request
 	 * @return
+	 * @throws ParamIsNullException 
 	 */
-	public static Boolean isRequiredFields(HttpServletRequest request,String fieldStr){
+	public static Boolean isRequiredFields(String fieldStr, Map<String, Object> model, HttpServletRequest request) throws ParamIsNullException{
 		if(StringUtils.isEmpty(fieldStr)) return true;
 		
 		String[] fields = fieldStr.split(",");
@@ -84,7 +85,8 @@ public class WanpinUtils {
 			for(String field : fields){
 				String temp = request.getParameter(field);
 				if(StringUtils.isEmpty(temp)){
-					return false;
+					WanpinUtils.organizeData(model, StatusCodes.MUST_PARAMETER_NULL, field + StatusCodes.ERROR_MSG.get(StatusCodes.MUST_PARAMETER_NULL));
+					throw new ParamIsNullException();
 				}
 			}
 		}

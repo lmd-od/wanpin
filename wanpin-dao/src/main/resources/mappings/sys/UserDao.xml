@@ -19,6 +19,7 @@
     	<if test="mobile != null and mobile != ''">AND mobile = #{mobile}</if>
     	<if test="password != null and password != ''">AND password = #{password}</if>
     </where>
+    limit 1
   </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="userId" parameterType="com.wanpin.entity.User" >

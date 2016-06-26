@@ -18,6 +18,7 @@ import com.wanpin.common.persistence.SystemEnum;
 import com.wanpin.common.utils.CommonUtils;
 import com.wanpin.common.utils.MD5Utils;
 import com.wanpin.common.utils.SecurityHelper;
+import com.wanpin.common.utils.SmsUtils;
 import com.wanpin.entity.User;
 import com.wanpin.service.UserService;
 import com.wanpin.web.BaseController;
@@ -131,10 +132,11 @@ public class LoginController extends BaseController{
 			String password = request.getParameter("password");
 			String validCode = request.getParameter("code");
 			String recommendUser = request.getParameter("recommendUser");
-			if (StringUtils.isEmpty(validCode)) {
-				setFailFlag(model, "验证码不正确");
-			} else if (StringUtils.isEmpty(mobile) || !CommonUtils.isMobileNO(mobile)) {
+			
+			if (StringUtils.isEmpty(mobile) || !CommonUtils.isMobileNO(mobile)) {
 				setFailFlag(model, "手机号不正确");
+			} else if (!SmsUtils.validMobileCodeIsValid(mobile, validCode, request)) {
+				setFailFlag(model, "验证码不正确");
 			} else {
 				User userInfo = userService.getInfoByMobile(mobile);
 				if (userInfo != null) {
@@ -180,10 +182,10 @@ public class LoginController extends BaseController{
 			String newpwd = request.getParameter("newpassword");
 			String repwd = request.getParameter("repassword");
 			String validCode = request.getParameter("code");
-			if (StringUtils.isEmpty(validCode)) {
-				setFailFlag(model, "验证码不正确");
-			} else if (StringUtils.isEmpty(mobile) || !CommonUtils.isMobileNO(mobile)) {
+			if (StringUtils.isEmpty(mobile) || !CommonUtils.isMobileNO(mobile)) {
 				setFailFlag(model, "手机号不正确");
+			} else if (!SmsUtils.validMobileCodeIsValid(mobile, validCode, request)) {
+				setFailFlag(model, "验证码不正确");
 			} else if (StringUtils.isEmpty(newpwd) || StringUtils.isEmpty(repwd) || !newpwd.equals(repwd)) {
 				setFailFlag(model, "新密码与再次确认密码不一致");
 			} else {
@@ -192,7 +194,7 @@ public class LoginController extends BaseController{
 					setFailFlag(model, "手机号未注册");
 				} else {
 					User user = new User();
-					user.setMobile(mobile);
+					user.setUserId(userInfo.getUserId());
 					user.setPassword(MD5Utils.encode(newpwd));
 					userService.update(user);
 					setSuccessFlag(model);

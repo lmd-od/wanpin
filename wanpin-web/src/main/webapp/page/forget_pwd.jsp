@@ -25,15 +25,15 @@
 					<div class="form">
 						<form id="forget_pwd_form" action="" method="post">
 							<span class="spanstyle float-left">手机号码</span>
-							<input type="text" name="mobile" id="" value="" placeholder="请输入您的手机号码" class="text"/>
+							<input type="text" name="mobile" code-type="FIND_PWD_VCODE" id="" value="" placeholder="请输入您的手机号码" class="text"/>
 							<br /><br />
 							<span class="spanstyle float-left">图形验证码</span>
 							<input type="text" name="img_code" id="" value="" placeholder="请输入图形验证码" class="text float-left"/>
-							<img alt="点击刷新验证码" class="float-left" src="${ctx}/${webAdminPath}/code/imgcode.php" onclick="this.src = '${ctx}/${webAdminPath}/code/imgcode.php?rnd' + Math.random();">
+							<img alt="点击刷新验证码" id="img_code_img" class="float-left" src="${ctx}/${webAdminPath}/code/imgcode.php" onclick="this.src = '${ctx}/${webAdminPath}/code/imgcode.php?rnd' + Math.random();">
 							<br /><br />
 							<span class="spanstyle float-left">短信验证码</span>
 							<input type="text" name="code" id="" value="" placeholder="请输入短信验证码" class="text float-left"/>
-							<input type="button" value="获取验证码 " class="Captcha float-left"/>
+							<input type="button" id="sendCode" value="获取验证码 " class="Captcha float-left"/>
 							<br /><br />
 							<span class="spanstyle float-left">新密码</span>
 							<input type="password" name="newpassword" id="newpassword" class="text" placeholder="请输入密码"/>
@@ -41,7 +41,7 @@
 							<span class="spanstyle float-left">再次确认密码</span>
 							<input type="password" name="repassword" placeholder="确认密码" class="text"/>
 							<br /><br /> 
-							<input type="submit" value="提交注册 " class="registry"/>
+							<input type="submit" value="修改密码" class="registry"/>
 						</form>
 					</div>
 				</div>
@@ -52,6 +52,7 @@
 		<script src="${ctx}/res/lib/jquery-validation/1.14.0/jquery.validate.min.js"></script>
 		<script src="${ctx}/res/lib/jquery-validation/1.14.0/messages_zh.min.js"></script>
 		<script src="${ctx}/res/lib/jquery-validation/1.14.0/validate-methods.js"></script>
+		<script src="${ctx}/res/js/wanpin/code.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#forget_pwd_form").validate({
@@ -98,13 +99,13 @@ $(function(){
 				form: form,
 				url: ctx+"/"+webAdminPath+"/login/changepwd.php",
 				success: function(res){
-					if (res.status === 0) {//登录成功
+					if (res.status === 0) {// 修改密码成功
 						layer.alert('修改密码成功', {icon: 1},function(index){
 							location.href = res.action ? res.action : ctx + '/'+ webAdminPath +'/login/goLogin.php';
 							layer.close(index);
 						});
 					} else {
-						layer.alert(res.msg || '修改密码失败', {icon: 2});
+						layer.msg(res.msg || '修改密码失败', function(){});
 					}
 				}
 			});

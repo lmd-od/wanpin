@@ -24,6 +24,6 @@ public final class MD5Utils {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(MD5Utils.encode("112358"));
+		System.out.println(MD5Utils.encode("123456"));
 	}
 }

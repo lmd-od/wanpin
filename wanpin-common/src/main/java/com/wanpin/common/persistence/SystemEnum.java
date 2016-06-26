@@ -23,6 +23,8 @@ public class SystemEnum {
 	public static final int RESP_SYSTEM_BUSY = -1;
 	/** session超时*/
 	public static final int RESP_SESSION_INVALID = -2;
+	/** 图形验证码无效*/
+	public static final int RESP_IMGCODE_INVALID = 2;
 	
 	/*
 	 * 返回状态定义
@@ -130,4 +132,20 @@ public class SystemEnum {
 	public static final int GOODS_GRADE_BOUTIQUE = 1;
 	/** 普通*/
 	public static final int GOODS_GRADE_NORMAL = 9;
+	
+	/** 短信发送来源*/
+	/** PC*/
+	public static final byte SMS_SOURCE_PC = 1;
+	/** android*/
+	public static final byte SMS_SOURCE_ANDROID = 2;
+	/** ios*/
+	public static final byte SMS_SOURCE_IOS = 3;
+	
+	/** 短信供应商*/
+	/** 阿里大鱼*/
+	public static final byte SMS_SP_ALIDAYU = 1;
+	
+	/** 短消息类型*/
+	/** 通知类*/
+	public static final byte SMS_MSG_TYPE_NOTICE = 1;
 }

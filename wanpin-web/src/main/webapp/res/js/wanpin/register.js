@@ -49,7 +49,7 @@ $(function(){
 							layer.close(index);
 						});
 					} else {
-						layer.alert(res.msg || '注册失败', {icon: 2});
+						layer.msg(res.msg || '注册失败', function(){});
 					}
 				}
 			});

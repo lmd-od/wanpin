@@ -28,11 +28,15 @@ public class StatusCodes {
 	public static int MOBILE_REGISTER = 10005;
 	/** 旧密码错误*/
 	public static int OLD_PASSWORD_ERROR = 10006;
+	/** 手机号格式不正确*/
+	public static int MOBILE_FORMAT_ERROR = 10007;
 	
 	/** 短信验证码无效*/
 	public static int SMS_CODE_INVALID = 20001;
 	/** 短信验证码超时*/
 	public static int SMS_CODE_OVERTIME = 20002;
+	/** 发送短信失败*/
+	public static int SMS_SEND_FAIL = 20003;
 	
 	/** 不合法的请求参数*/
 	public static int INVALID_PARAMETER = 30001;
@@ -47,7 +51,6 @@ public class StatusCodes {
 	/** 方案已收藏*/
 	public static int GOODS_COLLECT = 30006;
 	
-	
 	static {
 		ERROR_MSG.put(SYSTEM_BUSY, "系统繁忙，请稍后再试");
 		
@@ -57,9 +60,11 @@ public class StatusCodes {
 		ERROR_MSG.put(MOBILE_PASSWORD_ERROR, "手机号或密码错误");
 		ERROR_MSG.put(MOBILE_REGISTER, "手机号已注册");
 		ERROR_MSG.put(OLD_PASSWORD_ERROR, "旧密码错误");
+		ERROR_MSG.put(MOBILE_FORMAT_ERROR, "手机号格式不正确");
 		
 		ERROR_MSG.put(SMS_CODE_INVALID, "短信验证码无效");
 		ERROR_MSG.put(SMS_CODE_OVERTIME, "短信验证码超时");
+		ERROR_MSG.put(SMS_SEND_FAIL, "短信发送失败");
 		
 		ERROR_MSG.put(INVALID_PARAMETER, "不合法的请求参数");
 		ERROR_MSG.put(MUST_PARAMETER_NULL, "不合法的必须请求参数");

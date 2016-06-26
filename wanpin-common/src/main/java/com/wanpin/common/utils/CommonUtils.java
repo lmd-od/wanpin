@@ -47,12 +47,12 @@ public class CommonUtils {
 	/**
 	 * <p>是否是手机号</p>
 	 * @author litr 2016年5月26日
-	 * @param mobiles
+	 * @param mobile
 	 * @return
 	 */
-	public static boolean isMobileNO(String mobiles) {
+	public static boolean isMobileNO(String mobile) {
 		Pattern p = Pattern.compile("^1(3|4|5|7|8)\\d{9}$");
-		Matcher m = p.matcher(mobiles);
+		Matcher m = p.matcher(mobile);
 		return m.matches();
 	}
 }
