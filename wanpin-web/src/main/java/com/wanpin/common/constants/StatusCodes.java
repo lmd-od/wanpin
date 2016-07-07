@@ -51,6 +51,9 @@ public class StatusCodes {
 	/** 方案已收藏*/
 	public static int GOODS_COLLECT = 30006;
 	
+	/** 方案已下架*/
+	public static int GOODS_OFF_THE_SHELVES = 31001;
+	
 	static {
 		ERROR_MSG.put(SYSTEM_BUSY, "系统繁忙，请稍后再试");
 		
@@ -72,6 +75,8 @@ public class StatusCodes {
 		ERROR_MSG.put(TOKEN_INVALID, "请求的令牌无效");
 		ERROR_MSG.put(GOODS_NOT_COLLECT, "方案未收藏");
 		ERROR_MSG.put(GOODS_COLLECT, "方案已收藏");
+		
+		ERROR_MSG.put(GOODS_OFF_THE_SHELVES, "方案已下架");
 	}
 	
 }

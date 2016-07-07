@@ -40,6 +40,7 @@ public class AppGoodsController extends AppBaseController {
 	@ResponseBody
 	public Object queryAll(GoodsQuery queryObject,HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			WanpinUtils.checkParams("pageNo", request, model);
 			
@@ -50,8 +51,9 @@ public class AppGoodsController extends AppBaseController {
 			goodsService.queryList(queryObject);
 			List<Map<String, Object>> engines = new ArrayList<Map<String, Object>>();
 			this.organizeGoods(queryObject, engines);
-			model.put("dataList", engines);
-			model.put("totalPageNum", queryObject.getTotalPageNum());
+			data.put("dataList", engines);
+			data.put("totalPageNum", queryObject.getTotalPageNum());
+			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 		} catch (ParamIsNullException e) {
 			
 		} catch (Exception e) {
@@ -74,6 +76,7 @@ public class AppGoodsController extends AppBaseController {
 	@ResponseBody
 	public Object queryVoice(GoodsQuery queryObject,HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			WanpinUtils.checkParams("pageNo", request, model);
 			
@@ -84,8 +87,9 @@ public class AppGoodsController extends AppBaseController {
 			goodsService.queryList(queryObject);
 			List<Map<String, Object>> engines = new ArrayList<Map<String, Object>>();
 			this.organizeGoods(queryObject, engines);
-			model.put("dataList", engines);
-			model.put("totalPageNum", queryObject.getTotalPageNum());
+			data.put("dataList", engines);
+			data.put("totalPageNum", queryObject.getTotalPageNum());
+			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 		} catch (ParamIsNullException e) {
 			
 		} catch (Exception e) {
@@ -108,6 +112,7 @@ public class AppGoodsController extends AppBaseController {
 	@ResponseBody
 	public Object queryGoods(GoodsQuery queryObject,HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			WanpinUtils.checkParams("pageNo", request, model);
 			
@@ -115,11 +120,13 @@ public class AppGoodsController extends AppBaseController {
 			queryObject.getOrderFields().add("a.create_time DESC");
 			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_SHOPPING);
 			queryObject.setGoodsStatus(SystemEnum.GOODS_STATUS_PASSED);
+			// 查询数据
 			goodsService.queryList(queryObject);
 			List<Map<String, Object>> engines = new ArrayList<Map<String, Object>>();
 			this.organizeGoods(queryObject, engines);
-			model.put("dataList", engines);
-			model.put("totalPageNum", queryObject.getTotalPageNum());
+			data.put("dataList", engines);
+			data.put("totalPageNum", queryObject.getTotalPageNum());
+			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 		} catch (ParamIsNullException e) {
 			
 		} catch (Exception e) {
@@ -142,6 +149,7 @@ public class AppGoodsController extends AppBaseController {
 	@ResponseBody
 	public Object queryEngines(GoodsQuery queryObject,HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			WanpinUtils.checkParams("pageNo", request, model);
 			
@@ -152,8 +160,9 @@ public class AppGoodsController extends AppBaseController {
 			goodsService.queryList(queryObject);
 			List<Map<String, Object>> engines = new ArrayList<Map<String, Object>>();
 			this.organizeGoods(queryObject, engines);
-			model.put("dataList", engines);
-			model.put("totalPageNum", queryObject.getTotalPageNum());
+			data.put("dataList", engines);
+			data.put("totalPageNum", queryObject.getTotalPageNum());
+			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 		} catch (ParamIsNullException e) {
 			
 		} catch (Exception e) {
@@ -172,6 +181,7 @@ public class AppGoodsController extends AppBaseController {
 	 * @return
 	 */
 	private void organizeGoods(GoodsQuery queryObject, List<Map<String, Object>> engines) {
+		String imgUrl = "http://114.55.103.166";
 		List<GoodsVO> goodsVOs = queryObject.getQueryList();
 		for (GoodsVO goodsVO : goodsVOs) {
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -181,8 +191,8 @@ public class AppGoodsController extends AppBaseController {
 			map.put("goodsName", goodsVO.getGoodsName());
 			map.put("goodsMoney", goodsVO.getGoodsMoney());
 			map.put("detail", goodsVO.getDetail());
-			map.put("goodsCover", goodsVO.getGoodsCover());
-			map.put("goodsImage", goodsVO.getGoodsImage());
+			map.put("goodsCover", StringUtils.isEmpty(goodsVO.getGoodsCover())?"":(imgUrl+goodsVO.getGoodsCover()));
+			// map.put("goodsImage", goodsVO.getGoodsImage());
 			map.put("countryName", goodsVO.getCountryName());
 			map.put("cityZhName", goodsVO.getCityZhName());
 			map.put("architect", goodsVO.getArchitect());
@@ -195,6 +205,68 @@ public class AppGoodsController extends AppBaseController {
 			WanpinUtils.removeMapValueIsNull(map);
 			engines.add(map);
 		}
+	}
+	
+	@RequestMapping(value = "getInfo${urlSuffix}")
+	@ResponseBody
+	public Object getInfo(Long goodsId,HttpServletRequest request) throws Exception {
+		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
+		try {
+			WanpinUtils.checkParams("goodsId", request, model);
+			
+			GoodsVO goodsVO = goodsService.getGoodsByGoodsId(goodsId);
+			if (goodsVO == null || goodsVO.getGoodsStatus() != SystemEnum.GOODS_STATUS_PASSED) {
+				WanpinUtils.organizeData(model, StatusCodes.GOODS_OFF_THE_SHELVES);
+			} else {
+				String imgUrl = "http://114.55.103.166";
+				data.put("goodsId", goodsVO.getGoodsId());
+				data.put("goodsSource", goodsVO.getGoodsSource());
+				data.put("goodsPlaces", goodsVO.getGoodsPlaces());
+				data.put("goodsName", goodsVO.getGoodsName());
+				data.put("goodsMoney", goodsVO.getGoodsMoney());
+				data.put("detail", goodsVO.getDetail());
+				data.put("goodsCover", StringUtils.isEmpty(goodsVO.getGoodsCover())?"":(imgUrl+goodsVO.getGoodsCover()));
+				if (StringUtils.hasText(goodsVO.getGoodsImage())) {
+					String[] gImgArr = goodsVO.getGoodsImage().split(",");
+					List<String> arr = new ArrayList<String>();
+					for (String str : gImgArr) {
+						arr.add(imgUrl + str);
+					}
+					data.put("goodsImage", arr);
+				}
+				// map.put("goodsImage", goodsVO.getGoodsImage());
+				data.put("countryName", goodsVO.getCountryName());
+				data.put("cityZhName", goodsVO.getCityZhName());
+				data.put("architect", goodsVO.getArchitect());
+				data.put("builtArea", goodsVO.getBuiltArea());
+				data.put("projectYear", goodsVO.getProjectYear());
+				data.put("grade", goodsVO.getGrade());
+				data.put("goodsStyleName", goodsVO.getGoodsStyleName());
+				data.put("goodsFunctionName", goodsVO.getGoodsFunctionName());
+				data.put("goodsHierarchyName", goodsVO.getGoodsHierarchyName());
+				
+				// 获取用户是否已收藏该方案
+				String token = request.getParameter("token");
+				if (StringUtils.isEmpty(token) || !checkToken(token, model)) {
+					data.put("isCollect", 0);
+				} else {
+					UserGoods userGoods = userGoodsService.getByUserIdAndGoodsId(WanpinUtils.getUserIdByToken(token), goodsId);
+					data.put("isCollect", userGoods == null?0:1);
+				}
+				
+				
+				WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
+			}
+			
+		} catch (ParamIsNullException e) {
+			
+		} catch (Exception e) {
+			WanpinUtils.organizeData(model, StatusCodes.SYSTEM_BUSY);
+			e.printStackTrace();
+			log.error("app用户查询方案详情信息出错："+e.getMessage());
+		}
+		return model;
 	}
 
 	/**

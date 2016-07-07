@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public class SysDupMitInterceptor implements HandlerInterceptor {
 	/* 日志对象 */
-	//protected Logger logger = LoggerFactory.getLogger(getClass());
+	protected Logger logger = LoggerFactory.getLogger(getClass());
 	/* 全局用户线程池 */
 	Map<String,Object> userThreadMap = new HashMap<String,Object>();
 	

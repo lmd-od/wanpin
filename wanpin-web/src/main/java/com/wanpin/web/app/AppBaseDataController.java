@@ -40,18 +40,21 @@ public class AppBaseDataController extends BaseController {
 	@ResponseBody
 	public Object getVersion(String dataCode)throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			if (StringUtils.hasText(dataCode)) {
 				DataVersion dataVersion = dataVersionService.getByDataCode(dataCode.toUpperCase());
 				if (dataVersion == null) {
 					WanpinUtils.organizeData(model, StatusCodes.INVALID_PARAMETER);
 				} else {
-					model.put("version", dataVersion.getVersion());
-					return model;
+					data.put("version", dataVersion.getVersion());
+					WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 				}
 			} else {
 				List<DataVersion> dataVersions = dataVersionService.queryList(null);
-				return dataVersions;
+				data.put("dataVersions", dataVersions);
+				WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
+				// return dataVersions;
 			}
 		} catch (Exception e) {
 			WanpinUtils.organizeData(model, StatusCodes.SYSTEM_BUSY);
@@ -70,14 +73,15 @@ public class AppBaseDataController extends BaseController {
 	@ResponseBody
 	public Object getPeriodicals(String belongProduct)throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			if (StringUtils.isEmpty(belongProduct)) {
 				WanpinUtils.organizeData(model, StatusCodes.MUST_PARAMETER_NULL);
 			} else {
 				Periodical periodical = periodicalService.getByBelongProduct(belongProduct);
 				if (periodical != null) {
-					// data.put("periodicalItems", periodical.getPeriodicalItems());
-					return periodical.getPeriodicalItems();
+					data.put("periodicalItems", periodical.getPeriodicalItems());
+					WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 				} else {
 					WanpinUtils.organizeData(model, StatusCodes.PERIODICAL_NULL);
 				}
@@ -99,6 +103,7 @@ public class AppBaseDataController extends BaseController {
 	@ResponseBody
 	public Object getBaseData()throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			// 方案风格(欧式/中式等)
 			List<Map<String, Object>> goodsStyle = new ArrayList<Map<String, Object>>();
@@ -208,12 +213,13 @@ public class AppBaseDataController extends BaseController {
 			education.add(e7);
 			education.add(e8);
 			education.add(e9);
-			model.put("goodsStyle", goodsStyle);
-			model.put("goodsFunction", goodsFunction);
-			model.put("goodsHierarchy", goodsHierarchy);
-			model.put("sex", sex);
-			model.put("country", country);
-			model.put("education", education);
+			data.put("goodsStyle", goodsStyle);
+			data.put("goodsFunction", goodsFunction);
+			data.put("goodsHierarchy", goodsHierarchy);
+			data.put("sex", sex);
+			data.put("country", country);
+			data.put("education", education);
+			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 		} catch (Exception e) {
 			WanpinUtils.organizeData(model, StatusCodes.SYSTEM_BUSY);
 			e.printStackTrace();

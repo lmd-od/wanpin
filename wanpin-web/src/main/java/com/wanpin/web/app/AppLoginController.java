@@ -38,6 +38,7 @@ public class AppLoginController extends AppBaseController {
 	@ResponseBody
 	public Map<String, Object> login(HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			String mobile = request.getParameter("mobile");
 			String password = request.getParameter("password");
@@ -54,8 +55,9 @@ public class AppLoginController extends AppBaseController {
 					WanpinUtils.organizeData(model, StatusCodes.MOBILE_PASSWORD_ERROR);
 				} else {
 					String token = WanpinUtils.getToken(userInfo.getMobile(), userInfo.getUserId());
-					model.put("token", token);
 					this.saveToken(mobile, token);
+					data.put("token", token);
+					WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 					return model;
 				}
 			}
@@ -78,6 +80,7 @@ public class AppLoginController extends AppBaseController {
 	@ResponseBody
 	public Map<String, Object> register(HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			String mobile = request.getParameter("mobile");
 			String code = request.getParameter("code");
@@ -107,7 +110,8 @@ public class AppLoginController extends AppBaseController {
 					String token = WanpinUtils.getToken(mobile, userInfo.getUserId());
 					// 保存令牌
 					this.saveToken(mobile, token);
-					model.put("token", token);
+					data.put("token", token);
+					WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 				}
 			}
 			

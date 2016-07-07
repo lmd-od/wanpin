@@ -43,6 +43,7 @@ public class AppUserController extends AppBaseController {
 	@ResponseBody
 	public Object getUserInfo(HttpServletRequest request)throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			// 校验令牌
 			String token = request.getParameter("token");
@@ -52,22 +53,24 @@ public class AppUserController extends AppBaseController {
 			
 			Long userId = WanpinUtils.getUserIdByToken(token);
 			User userInfo = userService.getInfo(userId);
-			model.put("userId", userInfo.getUserId());
-			model.put("mobile", userInfo.getMobile());
-			model.put("nickName", userInfo.getNickName());
-			model.put("birthday", userInfo.getBirthday());
-			model.put("qq", userInfo.getQq());
-			model.put("weiXin", userInfo.getWeiXin());
-			model.put("university", userInfo.getUniversity());
-			model.put("education", userInfo.getEducation());
-			model.put("sex", userInfo.getSex());
-			model.put("company", userInfo.getCompany());
-			model.put("position", userInfo.getPosition());
-			model.put("recommendCode", userInfo.getRecommendCode());
-			model.put("recommendUser", userInfo.getRecommendUser());
-			model.put("headPhoto", userInfo.getHeadPhoto());
+			data.put("userId", userInfo.getUserId());
+			data.put("mobile", userInfo.getMobile());
+			data.put("nickName", userInfo.getNickName());
+			data.put("birthday", userInfo.getBirthday());
+			data.put("qq", userInfo.getQq());
+			data.put("weiXin", userInfo.getWeiXin());
+			data.put("university", userInfo.getUniversity());
+			data.put("education", userInfo.getEducation());
+			data.put("sex", userInfo.getSex());
+			data.put("company", userInfo.getCompany());
+			data.put("position", userInfo.getPosition());
+			data.put("recommendCode", userInfo.getRecommendCode());
+			data.put("recommendUser", userInfo.getRecommendUser());
+			data.put("headPhoto", userInfo.getHeadPhoto());
 			
-			WanpinUtils.removeMapValueIsNull(model);
+			WanpinUtils.removeMapValueIsNull(data);
+			
+			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 			
 		} catch (Exception e) {
 			WanpinUtils.organizeData(model, StatusCodes.SYSTEM_BUSY);
