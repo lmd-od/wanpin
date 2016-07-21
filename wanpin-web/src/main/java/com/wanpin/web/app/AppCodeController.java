@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wanpin.common.constants.StatusCodes;
 import com.wanpin.common.core.sms.SmsTemplateCode;
@@ -16,7 +18,7 @@ import com.wanpin.common.exception.SmsException;
 import com.wanpin.common.persistence.SystemEnum;
 import com.wanpin.common.utils.CommonUtils;
 import com.wanpin.common.utils.MessageSendUtils;
-import com.wanpin.common.utils.VerifyCodeUtils;
+import com.wanpin.common.utils.SmsUtils;
 import com.wanpin.common.utils.WanpinUtils;
 import com.wanpin.web.AppBaseController;
 
@@ -27,16 +29,19 @@ public class AppCodeController extends AppBaseController {
 	@Autowired
 	private MessageSendUtils messageSendUtils;
 	
+	@RequestMapping(value = "smsCode${urlSuffix}",method = RequestMethod.POST)
+	@ResponseBody
 	public Map<String, Object> smsCode(HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			// 验证必填字段
 			// WanpinUtils.isRequiredFields("mobile,code,code1,code2,smsType,smsSource", model, request);
-			WanpinUtils.isRequiredFields("mobile,smsType,smsSource", model, request);
+			WanpinUtils.isRequiredFields("mobile,code,smsType,smsSource", model, request);
 			
 			String mobile = request.getParameter("mobile");
 			String smsType = request.getParameter("smsType");
 			Byte smsSource = Byte.valueOf(request.getParameter("smsSource"));
+			String code = request.getParameter("code");
 			/*String code = request.getParameter("code");
 			String code1 = request.getParameter("code1");
 			String code2 = request.getParameter("code2");
@@ -51,21 +56,22 @@ public class AppCodeController extends AppBaseController {
 				return model;
 			}
 			
-			if (smsSource != SystemEnum.SMS_SOURCE_PC && smsSource != SystemEnum.SMS_SOURCE_ANDROID && smsSource != SystemEnum.SMS_SOURCE_IOS) {
+			if (smsSource != SystemEnum.SOURCE_PC && smsSource != SystemEnum.SOURCE_ANDROID && smsSource != SystemEnum.SOURCE_IOS) {
 				WanpinUtils.organizeData(model, StatusCodes.INVALID_PARAMETER, "smsSource参数无效");
 				return model;
 			}
 			
 			SmsTemplateCode smsTypeCode = SmsTemplateCode.valueOf(smsType);
 			// 获取6位随机数验证码
-			String vcode = VerifyCodeUtils.generateTextCode(VerifyCodeUtils.TYPE_NUM_ONLY, 6, null);
+			// String vcode = VerifyCodeUtils.generateTextCode(VerifyCodeUtils.TYPE_NUM_ONLY, 6, null);
 			
-			boolean flag = messageSendUtils.sendSms(smsTypeCode, mobile, vcode, CommonUtils.getIpAddr(request), String.valueOf(smsSource));
+			boolean flag = messageSendUtils.sendSms(smsTypeCode, mobile, code, CommonUtils.getIpAddr(request), String.valueOf(smsSource));
 			if (!flag) {
 				WanpinUtils.organizeData(model, StatusCodes.SMS_SEND_FAIL);
 				return model;
 			}
-			model.put("code", vcode);
+			SmsUtils.setMobileCode(mobile, code, true, request);
+			WanpinUtils.organizeData(model, StatusCodes.SUCCESS);
 			
 		} catch (ParamIsNullException e) {
 			

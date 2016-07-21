@@ -20,7 +20,9 @@
 				<div class="information">
 					<!--头像——↓-->
 					<div class="information-logo">
-						<img src="${ctx}/res/img/0030.png" /><a href="#">上传头像</a>
+						<div style="position: relative;">
+						<img id="head-photo" src="${imgPrefix}${user.headPhoto}" /><a href="javascript:;">上传头像</a><input id="file-head-upload" type="file" name="headPhoto" class="file"></input>
+						</div>
 					</div>
 					<!--表单——↓-->
 					<div class="information-warp">
@@ -70,6 +72,8 @@
 		</div>
 		<jsp:include page="/page/common/footer.jsp"></jsp:include>
 		<jsp:include page="/page/common/footer_js.jsp"></jsp:include>
+		<script src="${ctx}/res/lib/jquery-ajaxfileup/ajaxfileupload.js"></script>
+		<script src="${ctx}/res/js/wanpin/ajaxfileupload-core.js"></script>
 		<script src="${ctx}/res/lib/jquery-validation/1.14.0/jquery.validate.min.js"></script>
 		<script src="${ctx}/res/lib/jquery-validation/1.14.0/messages_zh.min.js"></script>
 		<script src="${ctx}/res/lib/jquery-validation/1.14.0/validate-methods.js"></script>
@@ -89,6 +93,7 @@ $(function(){
 		$select.html(type.join(''));
 	})();
 });
+
 </script>
 	</body>
 

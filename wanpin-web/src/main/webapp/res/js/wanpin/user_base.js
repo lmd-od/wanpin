@@ -37,4 +37,16 @@ $(function(){
 			});
 		}
 	});
+	
+	var uploadHeadPhoto = new ImgFileUpload({
+		id: 'file-head-upload',
+		imgId: 'head-photo',
+		server: ctx + '/' + webAdminPath + '/user/uploadHead.php',
+		download: 'http://localhost:8080'
+	});
+
+	$(".information-logo").on('change',"#file-head-upload",function(){
+		uploadHeadPhoto.init();
+		$("#file-head-upload").replaceWith('<input id="file-head-upload" type="file" name="headPhoto" class="file" title="'+((new Date()).getMilliseconds())+'"></input>');
+	});
 });

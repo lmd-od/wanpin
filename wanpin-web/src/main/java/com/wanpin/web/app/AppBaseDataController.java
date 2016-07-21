@@ -15,6 +15,7 @@ import com.wanpin.common.constants.StatusCodes;
 import com.wanpin.common.utils.WanpinUtils;
 import com.wanpin.entity.DataVersion;
 import com.wanpin.entity.Periodical;
+import com.wanpin.entity.PeriodicalItem;
 import com.wanpin.service.DataVersionService;
 import com.wanpin.service.PeriodicalService;
 import com.wanpin.web.BaseController;
@@ -80,7 +81,15 @@ public class AppBaseDataController extends BaseController {
 			} else {
 				Periodical periodical = periodicalService.getByBelongProduct(belongProduct);
 				if (periodical != null) {
-					data.put("periodicalItems", periodical.getPeriodicalItems());
+					List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
+					for (PeriodicalItem pi : periodical.getPeriodicalItems()) {
+						Map<String, Object> item = new HashMap<String, Object>();
+						item.put("imgUrl", WanpinUtils.IMG_PREFIX+pi.getImgUrl());
+						item.put("detailsUrl", pi.getDetailsUrl());
+						WanpinUtils.removeMapValueIsNull(item);
+						items.add(item);
+					}
+					data.put("periodicalItems", items);
 					WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 				} else {
 					WanpinUtils.organizeData(model, StatusCodes.PERIODICAL_NULL);

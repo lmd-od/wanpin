@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.wanpin.common.constants.StatusCodes;
 import com.wanpin.common.exception.ParamIsNullException;
@@ -181,7 +183,6 @@ public class AppGoodsController extends AppBaseController {
 	 * @return
 	 */
 	private void organizeGoods(GoodsQuery queryObject, List<Map<String, Object>> engines) {
-		String imgUrl = "http://114.55.103.166";
 		List<GoodsVO> goodsVOs = queryObject.getQueryList();
 		for (GoodsVO goodsVO : goodsVOs) {
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -191,7 +192,7 @@ public class AppGoodsController extends AppBaseController {
 			map.put("goodsName", goodsVO.getGoodsName());
 			map.put("goodsMoney", goodsVO.getGoodsMoney());
 			map.put("detail", goodsVO.getDetail());
-			map.put("goodsCover", StringUtils.isEmpty(goodsVO.getGoodsCover())?"":(imgUrl+goodsVO.getGoodsCover()));
+			map.put("goodsCover", StringUtils.isEmpty(goodsVO.getGoodsCover())?"":(WanpinUtils.IMG_PREFIX+goodsVO.getGoodsCover()));
 			// map.put("goodsImage", goodsVO.getGoodsImage());
 			map.put("countryName", goodsVO.getCountryName());
 			map.put("cityZhName", goodsVO.getCityZhName());
@@ -219,19 +220,18 @@ public class AppGoodsController extends AppBaseController {
 			if (goodsVO == null || goodsVO.getGoodsStatus() != SystemEnum.GOODS_STATUS_PASSED) {
 				WanpinUtils.organizeData(model, StatusCodes.GOODS_OFF_THE_SHELVES);
 			} else {
-				String imgUrl = "http://114.55.103.166";
 				data.put("goodsId", goodsVO.getGoodsId());
 				data.put("goodsSource", goodsVO.getGoodsSource());
 				data.put("goodsPlaces", goodsVO.getGoodsPlaces());
 				data.put("goodsName", goodsVO.getGoodsName());
 				data.put("goodsMoney", goodsVO.getGoodsMoney());
 				data.put("detail", goodsVO.getDetail());
-				data.put("goodsCover", StringUtils.isEmpty(goodsVO.getGoodsCover())?"":(imgUrl+goodsVO.getGoodsCover()));
+				data.put("goodsCover", StringUtils.isEmpty(goodsVO.getGoodsCover())?"":(WanpinUtils.IMG_PREFIX+goodsVO.getGoodsCover()));
 				if (StringUtils.hasText(goodsVO.getGoodsImage())) {
 					String[] gImgArr = goodsVO.getGoodsImage().split(",");
 					List<String> arr = new ArrayList<String>();
 					for (String str : gImgArr) {
-						arr.add(imgUrl + str);
+						arr.add(WanpinUtils.IMG_PREFIX + str);
 					}
 					data.put("goodsImage", arr);
 				}
@@ -304,6 +304,35 @@ public class AppGoodsController extends AppBaseController {
 			log.error("app校验用户是否收藏该方案信息出错："+e.getMessage());
 		}
 		return model;
+	}
+	
+	@RequestMapping(value = "view/{goodsId}${urlSuffix}")
+	public ModelAndView view(@PathVariable Long goodsId,HttpServletRequest request) throws Exception {
+		Map<String, Object> model = new HashMap<String, Object>();
+		String url = "app/engine/engine_view";
+		try {
+			String token = request.getParameter("token");
+			
+			GoodsVO goodsInfo = goodsService.getGoodsByGoodsId(goodsId);
+			if (goodsInfo == null || goodsInfo.getGoodsStatus() != SystemEnum.GOODS_STATUS_PASSED) {
+				return null;
+			}
+			
+			if (StringUtils.hasText(goodsInfo.getGoodsImage())) {
+				model.put("goodsImages", goodsInfo.getGoodsImage().split(","));
+			}
+			
+			if (goodsInfo.getGoodsPlaces() == SystemEnum.GOODS_PLACES_SHOPPING) {
+				url = "app/goods/goods_view";
+			}
+			
+			model.put("goodsInfo", goodsInfo);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("app查看详情出错："+e.getMessage());
+		}
+		return new ModelAndView(url, model);
 	}
 	
 }

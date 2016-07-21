@@ -73,7 +73,7 @@ public class CodeController extends BaseController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		String mobile = request.getParameter("mobile");
 		String smsType = request.getParameter("codeType");
-		Byte smsSource = SystemEnum.SMS_SOURCE_PC;
+		Byte smsSource = SystemEnum.SOURCE_PC;
 		String imgcode = request.getParameter("imgcode");
 		
 		if (StringUtils.isEmpty(mobile) || StringUtils.isEmpty(imgcode) || StringUtils.isEmpty(smsType)

@@ -69,7 +69,6 @@ $(function(){
 		dataJson.goodsHierarchy = goodsHierarchy.join(',');
 		dataJson.countryCode = country.join(',');
 		dataJson.pageNo = curr || 1;
-		console.log(dataJson);
 		wanpin.fly.json(ctx + '/' + webAdminPath + com.wanpin.util.Constants['search'],dataJson,function(res){
 			$(".logo-list-01").html(res);
 			var totalPageNum = $('.logo-list-01 #totalPageNum').val();

@@ -1,6 +1,6 @@
 package com.wanpin.common.utils;
 
-import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -25,7 +25,7 @@ public class WanpinUtils {
 	/**返回数据*/
 	private static final String DATA = "data";
 	
-	public static final String SMS_CODE_TIME_SUFFIX = "_TIME";
+	public static final String IMG_PREFIX = "http://res.wanpin.sh";
 	
 	/**
 	 * <p>对返回对象中赋值</p>
@@ -35,9 +35,9 @@ public class WanpinUtils {
 	 * @param errorMsg 错误信息
 	 * @param data 返回数据
 	 */
-	public static void organizeData(Map<String, Object> model,Integer statusCode,String errorMsg,Object data){
+	public static void organizeData(Map<String, Object> model,String statusCode,String errorMsg,Object data){
 		model.put(STATUS_CODE, statusCode);
-		if (statusCode == StatusCodes.SUCCESS) {
+		if (statusCode.equals(StatusCodes.SUCCESS)) {
 			model.put(ERROR_MSG, "");
 		} else {
 			model.put(ERROR_MSG, StringUtils.hasText(errorMsg)? errorMsg : StatusCodes.ERROR_MSG.get(statusCode));
@@ -52,20 +52,21 @@ public class WanpinUtils {
 	 * @param statusCode 状态码
 	 * @param data 返回数据
 	 */
-	public static void organizeData(Map<String, Object> model,Integer statusCode,Object data){
+	public static void organizeData(Map<String, Object> model,String statusCode,Object data){
 		organizeData(model, statusCode, null, data);
 	}
 	
-	public static void organizeData(Map<String, Object> model, Integer statusCode, String errorMsg){
+	public static void organizeData(Map<String, Object> model, String statusCode, String errorMsg){
 		model.put(STATUS_CODE, statusCode);
-		if (statusCode == StatusCodes.SUCCESS) {
+		if (statusCode.equals(StatusCodes.SUCCESS)) {
 			model.put(ERROR_MSG, "");
 		} else {
 			model.put(ERROR_MSG, StringUtils.hasText(errorMsg)? errorMsg : StatusCodes.ERROR_MSG.get(statusCode));
 		}
+		model.put(DATA, new HashMap<String, Object>());
 	}
 	
-	public static void organizeData(Map<String, Object> model, Integer statusCode){
+	public static void organizeData(Map<String, Object> model, String statusCode){
 		organizeData(model, statusCode, null);
 	}
 	
@@ -84,7 +85,7 @@ public class WanpinUtils {
 		if(fields != null && fields.length > 0){
 			for(String field : fields){
 				String temp = request.getParameter(field);
-				if(StringUtils.isEmpty(temp)){
+				if(StringUtils.isEmpty(temp) || temp.trim() == ""){
 					WanpinUtils.organizeData(model, StatusCodes.MUST_PARAMETER_NULL, field + StatusCodes.ERROR_MSG.get(StatusCodes.MUST_PARAMETER_NULL));
 					throw new ParamIsNullException();
 				}
@@ -106,7 +107,7 @@ public class WanpinUtils {
 			Map<String, Object> model) throws ParamIsNullException {
 		String param = request.getParameter(paramName);
 		if (StringUtils.hasText(param)) {
-			return param;
+			return param.trim();
 		} else {
 			WanpinUtils.organizeData(model, StatusCodes.MUST_PARAMETER_NULL, paramName + StatusCodes.ERROR_MSG.get(StatusCodes.MUST_PARAMETER_NULL));
 			throw new ParamIsNullException();
@@ -167,33 +168,6 @@ public class WanpinUtils {
 	public static Long getUserIdByToken(String token) throws Exception {
 		String[] array = Base64.decode(token).split("-");
 		return Long.valueOf(array[1]);
-	}
-	
-	public static boolean checkSMSCode(String mobile, String code, Map<String, Object> model,HttpServletRequest request) throws Exception {
-		Object codeObj = request.getSession().getServletContext().getAttribute(mobile);
-		Object timeObj = request.getSession().getServletContext().getAttribute(mobile + SMS_CODE_TIME_SUFFIX);
-		if (StringUtils.isEmpty(code) || StringUtils.isEmpty(codeObj) || StringUtils.isEmpty(timeObj)) {
-			WanpinUtils.organizeData(model, StatusCodes.SMS_CODE_INVALID);
-			return false;
-		}
-		
-		String smsCode = String.valueOf(codeObj);
-		if (!smsCode.equals(code)) {
-			WanpinUtils.organizeData(model, StatusCodes.SMS_CODE_INVALID);
-			return false;
-		}
-		
-		Long time = ((Date) timeObj).getTime();
-		Long now = new Date().getTime();
-		if ((now - time)/1000 > 120) {
-			WanpinUtils.organizeData(model, StatusCodes.SMS_CODE_OVERTIME);
-			return false;
-		}
-		
-		request.getSession().getServletContext().removeAttribute(mobile);
-		request.getSession().getServletContext().removeAttribute(mobile + SMS_CODE_TIME_SUFFIX);
-		
-		return true;
 	}
 	
 	public static void main(String[] args) {

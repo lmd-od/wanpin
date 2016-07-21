@@ -225,7 +225,8 @@ public class VerifyCodeUtils {
 		int fx = height - fsize;
 		int fy = fsize;
 		// 设定字体
-		graphics.setFont(new Font("Default", Font.PLAIN, fsize));
+		//graphics.setFont(new Font("Default", Font.PLAIN, fsize));
+		graphics.setFont(new Font(Font.DIALOG, Font.PLAIN, fsize));
 		// 写验证码字符
 		for(int i=0; i<textCode.length(); i++){
 			fy = randomLocation ? (int)((Math.random()*0.3+0.6)*height) : fy;
@@ -256,7 +257,8 @@ public class VerifyCodeUtils {
 		//将验证码放到HttpSession里面
 		System.out.println("本次生成的验证码为[" + verifyCode + "],已存放到HttpSession中");
 		//设置输出的内容的类型为JPEG图像
-		BufferedImage bufferedImage = VerifyCodeUtils.generateImageCode(verifyCode, 90, 30, 3, true, Color.WHITE, Color.BLACK, null);
+		//BufferedImage bufferedImage = VerifyCodeUtils.generateImageCode(verifyCode, 90, 30, 3, true, Color.WHITE, Color.BLACK, null);
+		BufferedImage bufferedImage = VerifyCodeUtils.generateImageCode(verifyCode, 90, 30, 3, true, Color.WHITE, null, null);
 		File img = new File("D:\\img.jpeg");
 		FileOutputStream outputStream = new FileOutputStream(img);
 		//写给浏览器

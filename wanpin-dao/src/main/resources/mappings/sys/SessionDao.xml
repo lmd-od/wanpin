@@ -6,7 +6,7 @@
     <select id="get" resultType="Session">
 		SELECT
 			*
-		FROM  sys_session s
+		FROM  wp_session s
 		WHERE 1 = 1
 		<if test="userCode != null and userCode != ''">
 		  and s.user_code = #{userCode} 

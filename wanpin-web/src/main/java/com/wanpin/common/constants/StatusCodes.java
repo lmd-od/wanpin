@@ -10,49 +10,58 @@ import java.util.Map;
  */
 public class StatusCodes {
 
-	public static Map<Integer, String> ERROR_MSG = new HashMap<Integer, String>();
+	public static Map<String, String> ERROR_MSG = new HashMap<String, String>();
 	
 	/** 请求成功*/
-	public static int SUCCESS = 0;
+	public static String SUCCESS = "0";
 	/** 系统繁忙*/
-	public static int SYSTEM_BUSY = -1;
+	public static String SYSTEM_BUSY = "-1";
 	/** 手机号或密码为空*/
-	public static int MOBILE_PASSWORD_NULL = 10001;
+	public static String MOBILE_PASSWORD_NULL = "10001";
 	/** 手机号未注册*/
-	public static int MOBILE_NOT_REGISTER = 10002;
+	public static String MOBILE_NOT_REGISTER = "10002";
 	/** 手机号被禁用*/
-	public static int MOBILE_DISABLED = 10003;
+	public static String MOBILE_DISABLED = "10003";
 	/** 手机号或密码错误*/
-	public static int MOBILE_PASSWORD_ERROR = 10004;
+	public static String MOBILE_PASSWORD_ERROR = "10004";
 	/** 手机号已注册*/
-	public static int MOBILE_REGISTER = 10005;
+	public static String MOBILE_REGISTER = "10005";
 	/** 旧密码错误*/
-	public static int OLD_PASSWORD_ERROR = 10006;
+	public static String OLD_PASSWORD_ERROR = "10006";
 	/** 手机号格式不正确*/
-	public static int MOBILE_FORMAT_ERROR = 10007;
+	public static String MOBILE_FORMAT_ERROR = "10007";
 	
 	/** 短信验证码无效*/
-	public static int SMS_CODE_INVALID = 20001;
+	public static String SMS_CODE_INVALID = "20001";
 	/** 短信验证码超时*/
-	public static int SMS_CODE_OVERTIME = 20002;
+	public static String SMS_CODE_OVERTIME = "20002";
 	/** 发送短信失败*/
-	public static int SMS_SEND_FAIL = 20003;
+	public static String SMS_SEND_FAIL = "20003";
 	
 	/** 不合法的请求参数*/
-	public static int INVALID_PARAMETER = 30001;
+	public static String INVALID_PARAMETER = "30001";
 	/** 必须请求参数为空*/
-	public static int MUST_PARAMETER_NULL = 30002;
+	public static String MUST_PARAMETER_NULL = "30002";
 	/** 请求的期刊数据为空*/
-	public static int PERIODICAL_NULL = 30003;
+	public static String PERIODICAL_NULL = "30003";
 	/** 请求的令牌无效*/
-	public static int TOKEN_INVALID = 30004;
+	public static String TOKEN_INVALID = "30004";
 	/** 方案未收藏*/
-	public static int GOODS_NOT_COLLECT = 30005;
+	public static String GOODS_NOT_COLLECT = "30005";
 	/** 方案已收藏*/
-	public static int GOODS_COLLECT = 30006;
+	public static String GOODS_COLLECT = "30006";
 	
 	/** 方案已下架*/
-	public static int GOODS_OFF_THE_SHELVES = 31001;
+	public static String GOODS_OFF_THE_SHELVES = "31001";
+	
+	/** 上传文件为空*/
+	public static String UPLOAD_FILE_NULL = "32001";
+	/** 上传文件过大*/
+	public static String UPLOAD_FILE_GT_MAXSIZE = "32002";
+	/** 上传文件扩展名不支持*/
+	public static String UPLOAD_FILE_SUFFIX_UNSUPPORT = "32003";
+	/** 上传文件失败*/
+	public static String UPLOAD_FILE_FAIL = "32010";
 	
 	static {
 		ERROR_MSG.put(SYSTEM_BUSY, "系统繁忙，请稍后再试");
@@ -77,6 +86,11 @@ public class StatusCodes {
 		ERROR_MSG.put(GOODS_COLLECT, "方案已收藏");
 		
 		ERROR_MSG.put(GOODS_OFF_THE_SHELVES, "方案已下架");
+		
+		ERROR_MSG.put(UPLOAD_FILE_NULL, "上传文件为空");
+		ERROR_MSG.put(UPLOAD_FILE_GT_MAXSIZE, "上传文件过大");
+		ERROR_MSG.put(UPLOAD_FILE_SUFFIX_UNSUPPORT, "上传文件扩展名不支持");
+		ERROR_MSG.put(UPLOAD_FILE_FAIL, "上传文件失败");
 	}
 	
 }

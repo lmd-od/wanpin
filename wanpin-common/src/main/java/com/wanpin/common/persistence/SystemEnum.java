@@ -133,13 +133,13 @@ public class SystemEnum {
 	/** 普通*/
 	public static final int GOODS_GRADE_NORMAL = 9;
 	
-	/** 短信发送来源*/
+	/** 发送来源*/
 	/** PC*/
-	public static final byte SMS_SOURCE_PC = 1;
+	public static final byte SOURCE_PC = 1;
 	/** android*/
-	public static final byte SMS_SOURCE_ANDROID = 2;
+	public static final byte SOURCE_ANDROID = 2;
 	/** ios*/
-	public static final byte SMS_SOURCE_IOS = 3;
+	public static final byte SOURCE_IOS = 3;
 	
 	/** 短信供应商*/
 	/** 阿里大鱼*/

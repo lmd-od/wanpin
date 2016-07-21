@@ -249,12 +249,12 @@ main {
 	position: absolute;
 	z-index: 99;
 	width: 250px;
-	height: 30px;
+	height: 38px;
 	background: #2d7ebd;
 	border-radius: 0 0 5px 5px;
 	font-size: 1.3em;
 	color: #FFFFFF;
-	margin-left: 100px;
+	/*	margin-left: 100px;*/
 }
 
 .regsiter-warp {
@@ -844,7 +844,6 @@ main {
 	width: 1025px;
 	height: 80px;
 	margin: 0 auto;
-	position: relative;
 }
 
 
@@ -1206,7 +1205,6 @@ main {
 	margin: 0 19px 19px 0;
 	float: left;
 }
-
 .logo-list-01 li p {
 	background: #eeefef none repeat scroll 0 0;
 	border-radius: 3px;
@@ -1216,8 +1214,9 @@ main {
 	width: 100%;
 	font-size: 14px;
 	color: #555;
+	height: 60px;
+    overflow: hidden;
 }
-
 .logo-list-01 li p b {
 	color: #333;
 }
@@ -1907,9 +1906,6 @@ main {
 	margin: 20px;
 }
 */
-.text-center {
-	text-align: center;
-}
 
 .cb-slideshow,
 .cb-slideshow:after {
@@ -2556,6 +2552,18 @@ label {
 	height: 25px;
 	color: #fff;
 	line-height: 25px;
+	cursor: pointer;
+}
+
+.information-logo .file {
+    position: absolute;
+    top: 130px !important;
+    left: 6px !important;
+    height: 34px;
+    filter: alpha(opacity:0);
+    opacity: 0;
+    width: 100px;
+    cursor: pointer;
 }
 
 
@@ -2650,6 +2658,7 @@ select {
 	height: 385px;
 	float: left;
 }
+
 
 /*.picture-logo img {
 	width: 655px;
@@ -2942,32 +2951,28 @@ select {
 
 .register,
 .registry {
+	font-size: 19px;
+	color: #000000;
+	margin-left: 150px;
+	background: #009bcb;
+	border-radius: 5px;
 	height: 25px;
-    border-radius: 3px;
-    background: #008cd6;
-    color: #fff;
-    font-size: 14px;
-    line-height: 25px;
-	margin-left:150px;
-	padding:0 5px;
 }
 
 .register {
 	margin: 0 5px 0 170px;
 	height: 25px;
-	border-radius: 3px;
-	background: #008cd6;
-	padding:0 10px;
+	border-radius: 5px;
+	background: #009bcb;
+	;
 }
 
 .Captcha {
+	font-size: 16px;
+	background: #CCCCCC;
 	height: 25px;
-    border-radius: 3px;
-    background: #008cd6;
-    color: #fff;
-    font-size: 14px;
-    line-height: 25px;
-	padding:0 5px;
+	border-radius: 5px;
+	background: #009bcb;
 }
 
 .register:hover,
@@ -3279,19 +3284,114 @@ select {
 }
 
 .Droplie {
-	background:url(../img/46.png);
+	background: url(../img/46.png);
 	position: absolute;
 	top: 45px;
-	right:82px;
+	right: 285px;
 	overflow: hidden;
 	border-radius: 5px;
 	width: 125px;
 	display: none;
 }
+
 .Droplie ul li a {
 	color: #FFFFFF;
 }
 
-.error {
-	color: red;	
+.CarouselFigureContainer {
+	overflow: hidden;
+}
+
+.Dot {
+	width: 100%;
+	height: 500px;
+	position: relative;
+}
+
+.Dot img {
+	width: 100%;
+	height: 100%;
+}
+
+#RightButton,
+#STARTTQVaul {
+	background: #BD8886 no-repeat;
+	z-index: 222;
+	cursor: pointer;
+	position: absolute;
+	display: block;
+	width: 40px;
+	height: 50px;
+	top: 45%;
+}
+
+#STARTTQVaul {
+	left: 0;
+	background: url(../images/leftbig.png)no-repeat;
+}
+
+#RightButton {
+	right: 0;
+	background: url(../images/rightbig.png)no-repeat;
+}
+
+.weiactive {
+	width: 100%;
+	margin-top: 10px;
+	position: relative;
+}
+
+.weiactive ul {
+	width: 10000px;
+}
+
+.weiactive ul li {
+	float: left;
+	width: 143px;
+	height: 100px;
+	margin-right: 10px;
+}
+.weiactive ul li:hover{
+	border: 2px solid #000000;
+	width: 139px;
+	height: 96px;
+}
+.weiactive ul li img {
+	width: 100%;
+	height: 100%;
+}
+.weiactive .ul-li {
+	border: 2px solid red;
+	width: 139px;
+	height: 96px;
+	opacity: .6;
+}
+.weiactive span {
+	position: absolute;
+	width: 30px;
+	height: 100px;
+	top: 0;
+	background: #FF0000;
+}
+.weiactive span:hover{
+	opacity: .8;
+}
+#left {
+	left: 0px;
+	background: url(../img/08.png) no-repeat 3px;
+}
+
+#right {
+	right: 0;
+	background: url(../img/09.png) no-repeat 3px;
+}
+
+.weiactive span {
+	cursor: pointer;
+}
+
+.warp-ul-dd {
+	width: 918px;
+	overflow: hidden;
+	margin-left: 44px;
 }

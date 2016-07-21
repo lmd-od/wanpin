@@ -4,7 +4,6 @@ var wanpin = {v: '1.0'};
 wanpin.fly = {
 	json: function(url,data,success,options){
 		var that = this;
-		console.log(that);
 		options = options || {};
 		data = $.extend({},{'ajax':'true','targetUrl':top.window.location.href},data || {});
 		return $.ajax({
@@ -18,7 +17,6 @@ wanpin.fly = {
             success: function(res){
                 if (res.status === -2) {//登录超时
                 	//window.location.href = ctx + res.loginUrl;
-                	console.log(this);
                 	wanpin.fly.login();
 				} else {
 					success && success(res);
@@ -41,7 +39,6 @@ wanpin.fly = {
 			success: function(res){
 				if (res.status == -2) {//登录超时
 					//window.location.href = ctx + res.loginUrl;
-					console.log(this);
 					wanpin.fly.login();
 				} else {
 					options.success && options.success(res);
@@ -58,6 +55,20 @@ wanpin.fly = {
 		});
 	}
 };
+
+wanpin.utils = {
+	trim: function (str) {
+        return str.replace(/(^[ \t\n\r]+)|([ \t\n\r]+$)/g, '');
+    },
+    isEmpty: function (obj) {
+    	// this代表的是wanpin.utils
+    	var self = this;
+    	if(obj === undefined || obj === null || this.trim(obj) === '' ) {
+    		return true;
+    	}
+    	return false;
+    }
+}
 
 win.wanpin = wanpin;
 }(window);

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wanpin.common.constants.StatusCodes;
 import com.wanpin.common.persistence.SystemEnum;
 import com.wanpin.common.utils.MD5Utils;
+import com.wanpin.common.utils.SmsUtils;
 import com.wanpin.common.utils.WanpinUtils;
 import com.wanpin.entity.User;
 import com.wanpin.service.UserService;
@@ -89,7 +90,7 @@ public class AppLoginController extends AppBaseController {
 			
 			if (StringUtils.isEmpty(mobile) || StringUtils.isEmpty(password)) {
 				WanpinUtils.organizeData(model, StatusCodes.MOBILE_PASSWORD_NULL);
-			} else if (!WanpinUtils.checkSMSCode(mobile, code, model, request)) {
+			} else if (!SmsUtils.checkSMSCode(mobile, code, model, request)) {
 				return model;
 			} else {
 				User userInfo = userService.getInfoByMobile(mobile);
@@ -141,7 +142,7 @@ public class AppLoginController extends AppBaseController {
 			
 			if (StringUtils.isEmpty(mobile) || StringUtils.isEmpty(password)) {
 				WanpinUtils.organizeData(model, StatusCodes.MOBILE_PASSWORD_NULL);
-			} else if (!WanpinUtils.checkSMSCode(mobile, code, model, request)) {
+			} else if (!SmsUtils.checkSMSCode(mobile, code, model, request)) {
 				return model;
 			} else {
 				User userInfo = userService.getInfoByMobile(mobile);
