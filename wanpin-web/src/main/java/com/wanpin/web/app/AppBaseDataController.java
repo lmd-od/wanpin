@@ -79,7 +79,7 @@ public class AppBaseDataController extends BaseController {
 			if (StringUtils.isEmpty(belongProduct)) {
 				WanpinUtils.organizeData(model, StatusCodes.MUST_PARAMETER_NULL);
 			} else {
-				Periodical periodical = periodicalService.getByBelongProduct(belongProduct);
+				Periodical periodical = periodicalService.getByBelongProduct("20");
 				if (periodical != null) {
 					List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
 					for (PeriodicalItem pi : periodical.getPeriodicalItems()) {
@@ -175,15 +175,43 @@ public class AppBaseDataController extends BaseController {
 			Map<String, Object> c1 = new HashMap<String, Object>();
 			c1.put("value", "CHN");
 			c1.put("label", "中国");
+			Map<String, Object> c7 = new HashMap<String, Object>();
+			c7.put("value", "GBR");
+			c7.put("label", "英国");
 			Map<String, Object> c2 = new HashMap<String, Object>();
 			c2.put("value", "USA");
 			c2.put("label", "美国");
 			Map<String, Object> c3 = new HashMap<String, Object>();
 			c3.put("value", "FRA");
 			c3.put("label", "法国");
+			Map<String, Object> c4 = new HashMap<String, Object>();
+			c4.put("value", "DEU");
+			c4.put("label", "德国");
+			Map<String, Object> c5 = new HashMap<String, Object>();
+			c5.put("value", "ITA");
+			c5.put("label", "意大利");
+			Map<String, Object> c6 = new HashMap<String, Object>();
+			c6.put("value", "THA");
+			c6.put("label", "泰国");
+			Map<String, Object> c8 = new HashMap<String, Object>();
+			c8.put("value", "AUS");
+			c8.put("label", "澳大利亚");
+			Map<String, Object> c9 = new HashMap<String, Object>();
+			c9.put("value", "POL");
+			c9.put("label", "波兰");
+			Map<String, Object> c10 = new HashMap<String, Object>();
+			c10.put("value", "CYP");
+			c10.put("label", "塞浦路斯");
 			country.add(c1);
 			country.add(c2);
 			country.add(c3);
+			country.add(c4);
+			country.add(c5);
+			country.add(c6);
+			country.add(c7);
+			country.add(c8);
+			country.add(c9);
+			country.add(c10);
 			// 学历
 			List<Map<String, Object>> education = new ArrayList<Map<String, Object>>();
 			Map<String, Object> e1 = new HashMap<String, Object>();

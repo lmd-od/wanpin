@@ -28,7 +28,6 @@ img {
 	padding: 0;
 	font-weight: 400;
 }
-
 body,
 button,
 input,
@@ -73,7 +72,7 @@ table {
 	border-spacing: 0;
 }
 
-.fe {
+.fe{
 	clear: both;
 }
 
@@ -248,7 +247,7 @@ main {
 .regsiter {
 	position: absolute;
 	z-index: 99;
-	width: 250px;
+	width: 100px;
 	height: 38px;
 	background: #2d7ebd;
 	border-radius: 0 0 5px 5px;
@@ -278,7 +277,7 @@ main {
 		margin-bottom: 12px;
 	}
 	body .regsiter {
-		width: 225px;
+		width: 100px;
 		margin-left: 30px;
 		height: 30px;
 	}
@@ -298,7 +297,7 @@ main {
 		margin-bottom: 12px;
 	}
 	body .regsiter {
-		width: 200px;
+		width: 100px;
 		height: 23px;
 	}
 	body .regsiter ul li {
@@ -311,7 +310,7 @@ main {
 	}
 	body .regsiter ul li {
 		float: left;
-		width: 22%;
+		width: 50%;
 		height: 10px;
 		text-align: center;
 		line-height: 10px;
@@ -331,7 +330,7 @@ main {
 		width: 100%;
 	}
 	body .regsiter {
-		width: 200px;
+		width: 100px;
 		right: 50px;
 		height: 22px;
 	}
@@ -348,7 +347,7 @@ main {
 		width: 100%;
 	}
 	body .regsiter {
-		width: 165px;
+		width: 100px;
 		right: 10px;
 		height: 18px;
 		border-radius: 0 0 3px 3px;
@@ -358,7 +357,7 @@ main {
 	}
 	body .regsiter ul li {
 		float: left;
-		width: 20%;
+		width: 50%;
 		height: 10px;
 		text-align: center;
 		line-height: 10px;
@@ -433,7 +432,7 @@ main {
 
 .regsiter ul li {
 	float: left;
-	width: 25%;
+	width: 50%;
 	height: 17px;
 	text-align: center;
 	line-height: 17px;
@@ -916,19 +915,19 @@ main {
 /*头部-注册——↓*/
 
 .header-content-loginbar {
-	width: 195px;
-	margin: 27px 0 0 30px;
+	/*width: 195px;*/
+	margin: 27px 0 0 0px;
 	float: right;
 }
 
 .header-content-loginbar ul {
-	width: 72px;
+	/*width: 72px;*/
 	float: left;
 }
 
 .header-content-loginbar ul li {
 	float: left;
-	width: 35px;
+	/*width: 35px;*/
 	height: 20px;
 	text-align: center;
 	background: #008cd6;
@@ -936,13 +935,10 @@ main {
 	line-height: 20px;
 	border-right: 1px solid #074d84;
 }
-
-.header-content-loginbar .username li {
-	width: 40px;
-	background: #004a8f;
-	margin: -1px 0 0 25px;
+.header-content-loginbar .username .activ {
+	position: relative;
+	max-width: 125px;
 }
-
 .header-content-loginbar ul li a {
 	color: #FFFFFF;
 	display: block;
@@ -1630,11 +1626,11 @@ main {
 	color: #555;
 }
 
-.sidebar ul {
+/* body .sidebar ul {
 	margin: 0 0 0 10px;
-}
+} */
 
-.companyProfile-indent {
+body .companyProfile-indent {
 	width: 850px;
 	padding-top: 15px;
 	overflow: hidden;
@@ -2479,8 +2475,8 @@ label {
 }
 
 .header-content-loginbar {
-	width: 195px;
-	margin: 27px 0 0 30px;
+	/*width: 195px;*/
+	margin: 27px 0 0 0px;
 	float: right;
 }
 
@@ -2552,18 +2548,6 @@ label {
 	height: 25px;
 	color: #fff;
 	line-height: 25px;
-	cursor: pointer;
-}
-
-.information-logo .file {
-    position: absolute;
-    top: 130px !important;
-    left: 6px !important;
-    height: 34px;
-    filter: alpha(opacity:0);
-    opacity: 0;
-    width: 100px;
-    cursor: pointer;
 }
 
 
@@ -3283,28 +3267,35 @@ select {
 	*margin-left: 0;
 }
 
-.Droplie {
+body .Droplie {
+	padding-top: 12px;
 	background: url(../img/46.png);
 	position: absolute;
-	top: 45px;
-	right: 285px;
+	right: 0px;
 	overflow: hidden;
 	border-radius: 5px;
 	width: 125px;
 	display: none;
 }
-
-.Droplie ul li a {
+#sdku{
+	padding: 0 5px;
+	position: relative;
+}
+body .Droplie ul li{
+	background: none;clear: both;
+	border: none;
+}
+body .Droplie ul li a {
 	color: #FFFFFF;
 }
 
-.CarouselFigureContainer {
+body .CarouselFigureContainer {
 	overflow: hidden;
 }
 
 .Dot {
 	width: 100%;
-	height: 500px;
+	height: 520px;
 	position: relative;
 }
 
@@ -3394,4 +3385,14 @@ select {
 	width: 918px;
 	overflow: hidden;
 	margin-left: 44px;
+}
+
+span.error {
+	color: red;
+	margin-left: 10px;
+	font-size: 15px;
+}
+
+.text-center {
+	text-align: center;
 }

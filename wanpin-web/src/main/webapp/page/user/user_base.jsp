@@ -6,6 +6,18 @@
 
 	<head>
 		<jsp:include page="/page/common/meta.jsp"></jsp:include>
+<style type="text/css">
+.information .file {
+    position: absolute;
+    top: 130px !important;
+    left: 6px !important;
+    height: 34px;
+    filter: alpha(opacity:0);
+    opacity: 0;
+    width: 100px;
+    cursor: pointer;
+}
+</style>
 	</head>
 	<body>
 		<jsp:include page="/page/common/header.jsp"></jsp:include>
@@ -21,7 +33,11 @@
 					<!--头像——↓-->
 					<div class="information-logo">
 						<div style="position: relative;">
-						<img id="head-photo" src="${imgPrefix}${user.headPhoto}" /><a href="javascript:;">上传头像</a><input id="file-head-upload" type="file" name="headPhoto" class="file"></input>
+						<c:choose>
+							<c:when test="${not empty user.headPhoto}"><img id="head-photo" src="${imgPrefix}${user.headPhoto}" /></c:when>
+							<c:otherwise><img id="head-photo" src="${ctx}/res/img/0030.png" /></c:otherwise>
+						</c:choose>
+						<a href="javascript:;">上传头像</a><input id="file-head-upload" type="file" name="headPhoto" class="file"></input>
 						</div>
 					</div>
 					<!--表单——↓-->

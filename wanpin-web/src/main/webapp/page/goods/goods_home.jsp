@@ -23,7 +23,7 @@ color:red;
 						</div>
 						<img alt="" id="search_btn" src="${ctx}/res/img/03.png" class="active-content-text-image">
 					</form>
-					<a href="forum.html" class="active-content-text-button">充 值</a>
+					<!-- <a href="forum.html" class="active-content-text-button">充 值</a> -->
 				</div>
 				<div class="active-content-column">
 					<h1>首页>>引擎>>搜索结果</h1>

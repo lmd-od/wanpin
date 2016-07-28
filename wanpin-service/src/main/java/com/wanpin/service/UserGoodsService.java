@@ -1,9 +1,15 @@
 package com.wanpin.service;
 
+import java.util.List;
+
 import com.wanpin.entity.UserGoods;
+import com.wanpin.query.UserGoodsQuery;
+import com.wanpin.vo.GoodsVO;
 
 public interface UserGoodsService {
 
+	public List<GoodsVO> queryUserGoods(UserGoodsQuery queryObject) throws Exception;
+	
 	/**
 	 * <p>通过用户ID和方案ID查询收藏信息</p>
 	 * @author litr 2016年6月8日

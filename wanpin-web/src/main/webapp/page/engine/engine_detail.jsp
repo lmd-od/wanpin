@@ -6,7 +6,7 @@
 
 	<head>
 		<jsp:include page="/page/common/meta.jsp"></jsp:include>
-		<title>${goods.goodsName} | 万品国际</title>
+		<title>${goods.goodsName} | 万品建筑视界</title>
 	</head>
 	<body>
 		<jsp:include page="/page/common/header.jsp"></jsp:include>
@@ -170,6 +170,7 @@
 					$div.html('<p>' + arr.join('</p><p>') + '</p>');
 				}
 			})();
+			
 		});
 		</script>
 	</body>

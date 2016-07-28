@@ -1,19 +1,27 @@
 package com.wanpin.service.imple;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wanpin.dao.UserGoodsDao;
 import com.wanpin.entity.UserGoods;
+import com.wanpin.query.UserGoodsQuery;
 import com.wanpin.service.UserGoodsService;
+import com.wanpin.vo.GoodsVO;
 @Service("userGoodsService")
 public class UserGoodsServiceImple implements UserGoodsService {
 	
 	@Autowired
 	private UserGoodsDao userGoodsDao;
 
+	@Override
+	public List<GoodsVO> queryUserGoods(UserGoodsQuery queryObject) throws Exception {
+		return userGoodsDao.queryUserGoods(queryObject);
+	}
+	
 	@Override
 	public UserGoods getByUserIdAndGoodsId(Long userId, Long goodsId) throws Exception {
 		if (userId != null && goodsId != null) {
@@ -62,6 +70,5 @@ public class UserGoodsServiceImple implements UserGoodsService {
 			userGoodsDao.delete(userGoods);
 		}
 	}
-	
 
 }

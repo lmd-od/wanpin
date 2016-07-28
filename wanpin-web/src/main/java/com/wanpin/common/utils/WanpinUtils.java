@@ -154,6 +154,9 @@ public class WanpinUtils {
 	 * @throws Exception
 	 */
 	public static String getMobileByToken(String token) throws Exception {
+		if (StringUtils.isEmpty(token)) {
+			return null;
+		}
 		String[] array = Base64.decode(token).split("-");
 		return array[0];
 	}
@@ -166,6 +169,9 @@ public class WanpinUtils {
 	 * @throws Exception
 	 */
 	public static Long getUserIdByToken(String token) throws Exception {
+		if (StringUtils.isEmpty(token)) {
+			return null;
+		}
 		String[] array = Base64.decode(token).split("-");
 		return Long.valueOf(array[1]);
 	}

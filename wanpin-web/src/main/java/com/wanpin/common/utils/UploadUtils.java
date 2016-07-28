@@ -1,6 +1,9 @@
 package com.wanpin.common.utils;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -148,6 +151,83 @@ public class UploadUtils {
 				}
 			}
 		}
+		return null;
+	}
+	
+	/**
+	 * <p>用一句话描述这个方法的作用</p>
+	 * @author litr 2016年7月27日
+	 * @param inputStream 文件流
+	 * @param fileExt 文件扩展名
+	 * @param request 
+	 * @param model
+	 * @return
+	 * @throws FileUploadException
+	 */
+	public String uploadFile(InputStream inputStream, String fileExt, HttpServletRequest request, Map<String, Object> model) throws FileUploadException {
+		
+		if (inputStream == null) {
+			WanpinUtils.organizeData(model, StatusCodes.UPLOAD_FILE_NULL);
+			return null;
+		}
+		
+		// 判断上传文件大小是否超过限制
+		long fileSize = 0;
+		try {
+			fileSize = inputStream.available();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if (maxSize < fileSize) {
+			WanpinUtils.organizeData(model, StatusCodes.UPLOAD_FILE_GT_MAXSIZE, "上传文件大于"+ (maxSize/1024/1024) +"M");
+			return null;
+		}
+		
+		// 判断上传文件后缀是否支持
+		if (!Arrays.<String>asList(extMap.get(dirName).split(",")).contains(fileExt)) {
+			WanpinUtils.organizeData(model, StatusCodes.UPLOAD_FILE_SUFFIX_UNSUPPORT, "上传文件扩展名是不允许的扩展名");
+			return null;
+		}
+		
+		// 获取webapps绝对路径
+		String webapps = request.getSession().getServletContext().getRealPath("../");
+		String saveUrl = "/" + basePath + "/" + savePath + "/" + DateUtils.getCurrentDate("yyyy/MM");
+		
+		if (StringUtils.isEmpty(this.fileName)) {
+			this.fileName = UUID.randomUUID().toString() + "." + fileExt;
+		}
+		
+		// 判断
+		File targetFile = new File(webapps + saveUrl, this.fileName);
+		if (!targetFile.exists()) {
+			targetFile.mkdirs();
+		}
+		
+		FileOutputStream fo = null;
+		try {
+			fo = new FileOutputStream(targetFile);
+			byte[] bytes = new byte[1024];
+			int end = 0;
+			while ((end = inputStream.read(bytes)) > 0) {
+				fo.write(bytes, 0, end);
+				fo.flush();
+			}
+			
+			return saveUrl + "/" + this.fileName;
+		} catch (Exception e) {
+			WanpinUtils.organizeData(model, StatusCodes.UPLOAD_FILE_FAIL);
+			e.printStackTrace();
+		} finally {
+			if (fo != null) {
+				try {
+					fo.close();
+				} catch (IOException e) {
+					WanpinUtils.organizeData(model, StatusCodes.UPLOAD_FILE_FAIL);
+					e.printStackTrace();
+				}
+			}
+		}
+		
 		return null;
 	}
 

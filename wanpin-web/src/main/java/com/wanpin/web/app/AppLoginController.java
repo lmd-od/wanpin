@@ -58,6 +58,7 @@ public class AppLoginController extends AppBaseController {
 					String token = WanpinUtils.getToken(userInfo.getMobile(), userInfo.getUserId());
 					this.saveToken(mobile, token);
 					data.put("token", token);
+					data.put("headPhoto", StringUtils.hasText(userInfo.getHeadPhoto())?WanpinUtils.IMG_PREFIX + userInfo.getHeadPhoto():"");
 					WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 					return model;
 				}

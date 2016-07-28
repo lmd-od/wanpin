@@ -44,8 +44,8 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
-      	<div class="col-xs-4"><a href="${ctx}/${webAdminPath}/login/goForgetPwd.php">忘记密码?</a><br></div>
-      	<div class="col-xs-4 col-xs-offset-4 text-right"><a href="${ctx}/${webAdminPath}/login/goRegister.php">注册</a></div>
+      	<div class="col-xs-4"><a href="${ctx}/${webAdminPath}/login/goForgetPwd.php" id="forget_pwd">忘记密码?</a><br></div>
+      	<div class="col-xs-4 col-xs-offset-4 text-right"><a href="javascript:;" id="register">注册</a></div>
       </div>
       <br>
       <!-- .row -->
@@ -121,6 +121,13 @@
 		}
 	});
     
+    $("#register").on("click",function(){
+    	top.window.location.href = ctx + '/' + webAdminPath + '/login/goForgetPwd.php';
+    });
+    
+    $("#forget_pwd").on("click",function(){
+    	top.window.location.href = ctx + '/' + webAdminPath + '/login/goRegister.php';
+    });
   });
 </script>
 </body>

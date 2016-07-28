@@ -6,7 +6,7 @@
 
 	<head>
 		<jsp:include page="/page/common/meta.jsp"></jsp:include>
-		<title>${goods.goodsName} | 万品国际</title>
+		<title>${goods.goodsName} | 万品建筑视界</title>
 		<link href="${ctx}/res/css/goods_detail.css" rel="stylesheet" type="text/css" >
 	</head>
 	<body>
@@ -26,7 +26,7 @@
 									<div class=control id=spec-left>
 										<img src="${ctx}/res/images/left.gif" style="width: 20px;height: 70px;margin: 0;" />
 									</div>
-									<div id=spec-list>
+									<div id="spec-list">
 										<ul class=list-h>
 										<c:forEach items="${goodsImages}" var="gis">
 											<li><img src="${imgPrefix}${gis}"> </li>
@@ -52,12 +52,21 @@
 							<div class="introduce-03">
 								<em>功 能:</em><span>${goods.goodsFunctionName}</span>
 							</div>
-							<div class="introduce-04">
+							<div class="introduce-03">
 								<em>层 数:</em><span>${goods.goodsHierarchyName}</span>
+							</div>
+							<div class="introduce-03">
+								<em>简介:</em>
+								<span title="${goods.detail}">
+								<c:choose>
+									<c:when test="${fn:length(goods.detail) gt 80}">${fn:substring(goods.detail, 0, 80)}...</c:when>
+									<c:otherwise>${goods.detail}</c:otherwise>
+								</c:choose>
+								</span>
 							</div>
 							<div class="goumai-warp">
 								<P>￥${goods.goodsMoney}</P>
-								<a href="javascript:;" class="goumai">立即购买</a>
+								<!-- <a href="javascript:;" class="goumai">立即购买</a> -->
 								<ul class="zhifu">
 									<li><b>支付</b></li>
 									<li><a href="javascript:;">微信支付</a></li>

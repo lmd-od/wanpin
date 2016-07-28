@@ -30,6 +30,7 @@ import com.wanpin.common.utils.WanpinUtils;
 import com.wanpin.entity.Question;
 import com.wanpin.entity.User;
 import com.wanpin.entity.UserGoods;
+import com.wanpin.query.UserGoodsQuery;
 import com.wanpin.service.QuestionService;
 import com.wanpin.service.UserGoodsService;
 import com.wanpin.service.UserService;
@@ -105,40 +106,6 @@ public class UserController extends BaseController{
 			setFailFlag(model);
 			e.printStackTrace();
 			log.error("用户中心保存用户信息失败："+e.getMessage());
-		}
-		return model;
-	}
-	
-	/**
-	 * <p>用户收藏方案信息</p>
-	 * @author litr 2016年6月13日
-	 * @param goodsId
-	 * @param request
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping("collect${urlSuffix}")
-	@ResponseBody
-	public Map<String, Object> collect(@RequestParam("id") Long goodsId,HttpServletRequest request) throws Exception {
-		Map<String, Object> model = new HashMap<String, Object>();
-		try {
-			Long userId = SecurityHelper.getUserId(request);
-			if (userId != null) {
-				UserGoods userGoods = userGoodsService.getByUserIdAndGoodsId(userId, goodsId);
-				if (userGoods == null) {
-					UserGoods ug = new UserGoods();
-					ug.setUserId(userId);
-					ug.setGoodsId(goodsId);
-					userGoodsService.save(ug);
-				} else {
-					userGoodsService.deleteByUserIdAndGoodsIds(userId, goodsId);
-				}
-			}
-			this.setSuccessFlag(model);
-		} catch (Exception e) {
-			this.setFailFlag(model);
-			e.printStackTrace();
-			log.error("用户收藏方案信息失败："+e.getMessage());
 		}
 		return model;
 	}
@@ -276,6 +243,96 @@ public class UserController extends BaseController{
 			setFailFlag(model);
 			e.printStackTrace();
 			log.error("用户投诉建议失败："+e.getMessage());
+		}
+		return model;
+	}
+	
+	/**
+	 * <p>用户收藏方案信息</p>
+	 * @author litr 2016年6月13日
+	 * @param goodsId
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("collect${urlSuffix}")
+	@ResponseBody
+	public Map<String, Object> collect(@RequestParam("id") Long goodsId,HttpServletRequest request) throws Exception {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Long userId = SecurityHelper.getUserId(request);
+			if (userId != null) {
+				UserGoods userGoods = userGoodsService.getByUserIdAndGoodsId(userId, goodsId);
+				if (userGoods == null) {
+					UserGoods ug = new UserGoods();
+					ug.setUserId(userId);
+					ug.setGoodsId(goodsId);
+					userGoodsService.save(ug);
+				} else {
+					userGoodsService.deleteByUserIdAndGoodsIds(userId, goodsId);
+				}
+			}
+			this.setSuccessFlag(model);
+		} catch (Exception e) {
+			this.setFailFlag(model);
+			e.printStackTrace();
+			log.error("用户收藏方案信息失败："+e.getMessage());
+		}
+		return model;
+	}
+	
+	/**
+	 * <p>查询用户收藏的引擎信息</p>
+	 * @author litr 2016年7月22日
+	 * @param queryObject
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("collectEngines${urlSuffix}")
+	@ResponseBody
+	public Map<String, Object> collectEngines(UserGoodsQuery queryObject,HttpServletRequest request) throws Exception {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			queryObject.getOrderFields().add("ug.collect_time DESC");
+			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_ENGINE);
+			queryObject.setUserId(SecurityHelper.getUserId(request));
+			userGoodsService.queryUserGoods(queryObject);
+			model.put("data", queryObject.getQueryList());
+			model.put("totalPageNum", queryObject.getTotalPageNum());
+			this.setSuccessFlag(model);
+		} catch (Exception e) {
+			this.setFailFlag(model);
+			e.printStackTrace();
+			log.error("查询用户收藏的引擎信息失败："+e.getMessage());
+		}
+		return model;
+	}
+	
+	/**
+	 * <p>查询用户收藏的方案信息</p>
+	 * @author litr 2016年7月22日
+	 * @param queryObject
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("collectGoods${urlSuffix}")
+	@ResponseBody
+	public Map<String, Object> collectGoods(UserGoodsQuery queryObject,HttpServletRequest request) throws Exception {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			queryObject.getOrderFields().add("ug.collect_time DESC");
+			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_SHOPPING);
+			queryObject.setUserId(SecurityHelper.getUserId(request));
+			userGoodsService.queryUserGoods(queryObject);
+			model.put("data", queryObject.getQueryList());
+			model.put("totalPageNum", queryObject.getTotalPageNum());
+			this.setSuccessFlag(model);
+		} catch (Exception e) {
+			this.setFailFlag(model);
+			e.printStackTrace();
+			log.error("查询用户收藏的方案信息失败："+e.getMessage());
 		}
 		return model;
 	}

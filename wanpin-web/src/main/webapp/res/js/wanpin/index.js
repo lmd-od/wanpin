@@ -67,6 +67,10 @@ wanpin.utils = {
     		return true;
     	}
     	return false;
+    },
+    isNotEmpty: function (obj) {
+    	// this代表的是wanpin.utils
+    	return !wanpin.utils.isEmpty.call(this,obj);
     }
 }
 

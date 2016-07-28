@@ -43,12 +43,7 @@
 				<img src="${ctx}/res/img/12.png" />
 				<div class="Connectionbox01 Connection01">
 					<ul>
-						<li><a href="#">人力资源部</a></li>
-						<li><a href="#">人力资源部</a></li>
-						<li><a href="#">人力资源部</a></li>
-						<li><a href="#">人力资源部</a></li>
-						<li><a href="#">人力资源部</a></li>
-						<li><a href="#">人力资源部</a></li>
+						<li><a href="http://wpa.qq.com/msgrd?v=3&uin=1024610620&site=qq&menu=yes" target="_blank">业务部</a></li>
 					</ul>
 				</div>
 			</div>

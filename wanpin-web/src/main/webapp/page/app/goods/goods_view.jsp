@@ -64,27 +64,35 @@
 			<div class="mui-content-padded" style="margin: 5px;">
 				<form class="mui-input-group">
 					<div class="mui-input-row">
-						<label>建筑师:</label>
-						<span>${goodsInfo.architect}</span>
-					</div>
-					<div class="mui-input-row">
-						<label>地址:</label>
+						<label>国别:</label>
 						<span>${goodsInfo.countryName}</span>
 					</div>
 					<div class="mui-input-row">
-						<label>建筑面积:</label>
-						<span>
-							<c:choose><c:when test="${not empty goodsInfo.builtArea and goodsInfo.builtArea ne '0'}">${goodsInfo.builtArea}spm</c:when><c:otherwise>不详</c:otherwise></c:choose>
-						</span>
+						<label>风格:</label>
+						<span>${goodsInfo.goodsStyleName}</span>
 					</div>
 					<div class="mui-input-row">
-						<label>项目年份:</label>
-						<span>${goodsInfo.projectYear}年</span>
+						<label>功能:</label>
+						<span>${goodsInfo.goodsFunctionName}</span>
+					</div>
+					<div class="mui-input-row">
+						<label>层数:</label>
+						<span>${goodsInfo.goodsHierarchyName}</span>
 					</div>
 				</form>
 			</div>
 		</div>
 		<!-- 方案参数end -->
+		<div class="mui-content">
+			<h4 class="h-style"><span><img src="${ctx}/res/lib/MUI/images/wanpin/yellow-block.png"/>&nbsp;&nbsp;购买流程</span></h4>
+		</div>
+		<!-- 购买流程begin -->
+		<div class="mui-content">
+			<p>
+				<img src="${ctx}/res/lib/MUI/images/wanpin/img_liucheng_help.png" style="width: 100%" data-preview-src="" data-preview-group="1" />
+			</p>
+		</div>
+		<!-- 购买流程end -->
 		<script src="${ctx}/res/lib/MUI/js/mui.min.js"></script>
 		<script src="${ctx}/res/lib/MUI/js/mui.zoom.js"></script>
 		<script src="${ctx}/res/lib/MUI/js/mui.previewimage.js"></script>

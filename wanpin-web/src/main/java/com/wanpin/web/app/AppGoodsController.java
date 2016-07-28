@@ -46,15 +46,17 @@ public class AppGoodsController extends AppBaseController {
 		try {
 			WanpinUtils.checkParams("pageNo", request, model);
 			
+			String token = request.getParameter("token");
+			
 			queryObject.getOrderFields().add("a.grade ASC");
 			queryObject.getOrderFields().add("a.create_time DESC");
-			// queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_SHOPPING);
+			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_ENGINE);
 			queryObject.setGoodsStatus(SystemEnum.GOODS_STATUS_PASSED);
 			goodsService.queryList(queryObject);
 			List<Map<String, Object>> engines = new ArrayList<Map<String, Object>>();
-			this.organizeGoods(queryObject, engines);
+			this.organizeGoods(queryObject, engines, token);
 			data.put("dataList", engines);
-			data.put("totalPageNum", queryObject.getTotalPageNum());
+			data.put("totalPageNum", String.valueOf(queryObject.getTotalPageNum()));
 			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 		} catch (ParamIsNullException e) {
 			
@@ -82,15 +84,17 @@ public class AppGoodsController extends AppBaseController {
 		try {
 			WanpinUtils.checkParams("pageNo", request, model);
 			
+			String token = request.getParameter("token");
+			
 			queryObject.getOrderFields().add("a.grade ASC");
 			queryObject.getOrderFields().add("a.create_time DESC");
-			// queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_SHOPPING);
+			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_ENGINE);
 			queryObject.setGoodsStatus(SystemEnum.GOODS_STATUS_PASSED);
 			goodsService.queryList(queryObject);
 			List<Map<String, Object>> engines = new ArrayList<Map<String, Object>>();
-			this.organizeGoods(queryObject, engines);
+			this.organizeGoods(queryObject, engines, token);
 			data.put("dataList", engines);
-			data.put("totalPageNum", queryObject.getTotalPageNum());
+			data.put("totalPageNum", String.valueOf(queryObject.getTotalPageNum()));
 			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 		} catch (ParamIsNullException e) {
 			
@@ -118,6 +122,8 @@ public class AppGoodsController extends AppBaseController {
 		try {
 			WanpinUtils.checkParams("pageNo", request, model);
 			
+			String token = request.getParameter("token");
+			
 			queryObject.getOrderFields().add("a.grade ASC");
 			queryObject.getOrderFields().add("a.create_time DESC");
 			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_SHOPPING);
@@ -125,9 +131,9 @@ public class AppGoodsController extends AppBaseController {
 			// 查询数据
 			goodsService.queryList(queryObject);
 			List<Map<String, Object>> engines = new ArrayList<Map<String, Object>>();
-			this.organizeGoods(queryObject, engines);
+			this.organizeGoods(queryObject, engines, token);
 			data.put("dataList", engines);
-			data.put("totalPageNum", queryObject.getTotalPageNum());
+			data.put("totalPageNum", String.valueOf(queryObject.getTotalPageNum()));
 			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 		} catch (ParamIsNullException e) {
 			
@@ -155,15 +161,17 @@ public class AppGoodsController extends AppBaseController {
 		try {
 			WanpinUtils.checkParams("pageNo", request, model);
 			
+			String token = request.getParameter("token");
+			
 			queryObject.getOrderFields().add("a.grade ASC");
 			queryObject.getOrderFields().add("a.create_time DESC");
 			queryObject.setGoodsPlaces(SystemEnum.GOODS_PLACES_ENGINE);
 			queryObject.setGoodsStatus(SystemEnum.GOODS_STATUS_PASSED);
 			goodsService.queryList(queryObject);
 			List<Map<String, Object>> engines = new ArrayList<Map<String, Object>>();
-			this.organizeGoods(queryObject, engines);
+			this.organizeGoods(queryObject, engines, token);
 			data.put("dataList", engines);
-			data.put("totalPageNum", queryObject.getTotalPageNum());
+			data.put("totalPageNum", String.valueOf(queryObject.getTotalPageNum()));
 			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 		} catch (ParamIsNullException e) {
 			
@@ -180,15 +188,18 @@ public class AppGoodsController extends AppBaseController {
 	 * @author litr 2016年6月21日
 	 * @param queryObject
 	 * @param engines 
+	 * @param token 访问令牌
 	 * @return
+	 * @throws Exception 
 	 */
-	private void organizeGoods(GoodsQuery queryObject, List<Map<String, Object>> engines) {
+	private void organizeGoods(GoodsQuery queryObject, List<Map<String, Object>> engines, String token) throws Exception {
 		List<GoodsVO> goodsVOs = queryObject.getQueryList();
+		Long userId = WanpinUtils.getUserIdByToken(token);
 		for (GoodsVO goodsVO : goodsVOs) {
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("goodsId", goodsVO.getGoodsId());
-			map.put("goodsSource", goodsVO.getGoodsSource());
-			map.put("goodsPlaces", goodsVO.getGoodsPlaces());
+			map.put("goodsId", String.valueOf(goodsVO.getGoodsId()));
+			map.put("goodsSource", String.valueOf(goodsVO.getGoodsSource()));
+			map.put("goodsPlaces", String.valueOf(goodsVO.getGoodsPlaces()));
 			map.put("goodsName", goodsVO.getGoodsName());
 			map.put("goodsMoney", goodsVO.getGoodsMoney());
 			map.put("detail", goodsVO.getDetail());
@@ -198,11 +209,16 @@ public class AppGoodsController extends AppBaseController {
 			map.put("cityZhName", goodsVO.getCityZhName());
 			map.put("architect", goodsVO.getArchitect());
 			map.put("builtArea", goodsVO.getBuiltArea());
-			map.put("projectYear", goodsVO.getProjectYear());
-			map.put("grade", goodsVO.getGrade());
+			map.put("projectYear", String.valueOf(goodsVO.getProjectYear()));
+			map.put("grade", String.valueOf(goodsVO.getGrade()));
 			map.put("goodsStyleName", goodsVO.getGoodsStyleName());
 			map.put("goodsFunctionName", goodsVO.getGoodsFunctionName());
 			map.put("goodsHierarchyName", goodsVO.getGoodsHierarchyName());
+			
+			// 校验用户是否已收藏该信息
+			UserGoods ug = userGoodsService.getByUserIdAndGoodsId(userId, goodsVO.getGoodsId());
+			map.put("isCollect", ug == null ? "0":"1");
+			
 			WanpinUtils.removeMapValueIsNull(map);
 			engines.add(map);
 		}
@@ -220,9 +236,9 @@ public class AppGoodsController extends AppBaseController {
 			if (goodsVO == null || goodsVO.getGoodsStatus() != SystemEnum.GOODS_STATUS_PASSED) {
 				WanpinUtils.organizeData(model, StatusCodes.GOODS_OFF_THE_SHELVES);
 			} else {
-				data.put("goodsId", goodsVO.getGoodsId());
-				data.put("goodsSource", goodsVO.getGoodsSource());
-				data.put("goodsPlaces", goodsVO.getGoodsPlaces());
+				data.put("goodsId", String.valueOf(goodsVO.getGoodsId()));
+				data.put("goodsSource", String.valueOf(goodsVO.getGoodsSource()));
+				data.put("goodsPlaces", String.valueOf(goodsVO.getGoodsPlaces()));
 				data.put("goodsName", goodsVO.getGoodsName());
 				data.put("goodsMoney", goodsVO.getGoodsMoney());
 				data.put("detail", goodsVO.getDetail());
@@ -240,8 +256,8 @@ public class AppGoodsController extends AppBaseController {
 				data.put("cityZhName", goodsVO.getCityZhName());
 				data.put("architect", goodsVO.getArchitect());
 				data.put("builtArea", goodsVO.getBuiltArea());
-				data.put("projectYear", goodsVO.getProjectYear());
-				data.put("grade", goodsVO.getGrade());
+				data.put("projectYear", String.valueOf(goodsVO.getProjectYear()));
+				data.put("grade", String.valueOf(goodsVO.getGrade()));
 				data.put("goodsStyleName", goodsVO.getGoodsStyleName());
 				data.put("goodsFunctionName", goodsVO.getGoodsFunctionName());
 				data.put("goodsHierarchyName", goodsVO.getGoodsHierarchyName());
@@ -281,10 +297,13 @@ public class AppGoodsController extends AppBaseController {
 	@ResponseBody
 	public Map<String, Object> checkCollect(@RequestParam("id") Long goodsId,HttpServletRequest request) throws Exception {
 		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> data = new HashMap<String, Object>();
 		try {
 			String token = request.getParameter("token");
 			if (StringUtils.isEmpty(token)) {
-				WanpinUtils.organizeData(model, StatusCodes.GOODS_NOT_COLLECT);
+				// WanpinUtils.organizeData(model, StatusCodes.GOODS_NOT_COLLECT);
+				data.put("isCollect", "0");
+				WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 				return model;
 			}
 			
@@ -294,9 +313,13 @@ public class AppGoodsController extends AppBaseController {
 			
 			UserGoods userGoods = userGoodsService.getByUserIdAndGoodsId(WanpinUtils.getUserIdByToken(token), goodsId);
 			if (userGoods == null) {
-				WanpinUtils.organizeData(model, StatusCodes.GOODS_NOT_COLLECT);
+				// WanpinUtils.organizeData(model, StatusCodes.GOODS_NOT_COLLECT);
+				data.put("isCollect", "0");
+				WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 			} else {
-				WanpinUtils.organizeData(model, StatusCodes.GOODS_COLLECT);
+				// WanpinUtils.organizeData(model, StatusCodes.GOODS_COLLECT);
+				data.put("isCollect", "1");
+				WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 			}
 		} catch (Exception e) {
 			WanpinUtils.organizeData(model, StatusCodes.SYSTEM_BUSY);
@@ -311,7 +334,7 @@ public class AppGoodsController extends AppBaseController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		String url = "app/engine/engine_view";
 		try {
-			String token = request.getParameter("token");
+			// String token = request.getParameter("token");
 			
 			GoodsVO goodsInfo = goodsService.getGoodsByGoodsId(goodsId);
 			if (goodsInfo == null || goodsInfo.getGoodsStatus() != SystemEnum.GOODS_STATUS_PASSED) {

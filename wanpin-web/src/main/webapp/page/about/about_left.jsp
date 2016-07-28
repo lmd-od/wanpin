@@ -2,10 +2,10 @@
 <%@ include file="/page/common/taglibs.jsp"%>
 <div class="companyProfile-left">
 	<ul>
-		<li><a href="${ctx}/page/about/about.jsp">企业简介</a></li>
-		<li><a href="${ctx}/page/about/about_culture.jsp">企业文化</a></li>
-		<li><a href="${ctx}/page/about/about_top.jsp">高层专区</a></li>
-		<li><a href="${ctx}/page/about/about_careers.jsp">招贤纳士</a></li>
-		<li><a href="${ctx}/page/about/about_connectus.jsp">联系我们</a></li>
+		<li><a href="${ctx}/${webAdminPath}/about/about.php">企业简介</a></li>
+		<li><a href="${ctx}/${webAdminPath}/about/about_culture.php">企业文化</a></li>
+		<li><a href="${ctx}/${webAdminPath}/about/about_top.php">高层专区</a></li>
+		<li><a href="${ctx}/${webAdminPath}/about/about_careers.php">招贤纳士</a></li>
+		<li><a href="${ctx}/${webAdminPath}/about/about_connectus.php">联系我们</a></li>
 	</ul>
 </div>
