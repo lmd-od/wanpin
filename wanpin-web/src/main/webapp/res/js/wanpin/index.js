@@ -27,7 +27,6 @@ wanpin.fly = {
         });
 	},
 	ajaxSubmit: function(options){
-		console.log(this);
 		$(options.form).ajaxSubmit({
 			url: options.url,
 			data: {'ajax':'true','targetUrl':top.window.location.href},
@@ -71,6 +70,15 @@ wanpin.utils = {
     isNotEmpty: function (obj) {
     	// this代表的是wanpin.utils
     	return !wanpin.utils.isEmpty.call(this,obj);
+    },
+    getValFromURL: function (str, key) {
+    	var arr, reg = new RegExp("[&?]"+key+"=([^&]*)");
+		arr = str.match(reg);
+		if(arr instanceof Array){
+			return arr[1];
+		}else{//没有key的情况，返回''
+			return '';
+		}
     }
 }
 

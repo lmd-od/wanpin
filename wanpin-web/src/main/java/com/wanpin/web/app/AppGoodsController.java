@@ -219,7 +219,7 @@ public class AppGoodsController extends AppBaseController {
 			UserGoods ug = userGoodsService.getByUserIdAndGoodsId(userId, goodsVO.getGoodsId());
 			map.put("isCollect", ug == null ? "0":"1");
 			
-			WanpinUtils.removeMapValueIsNull(map);
+			// WanpinUtils.removeMapValueIsNull(map);
 			engines.add(map);
 		}
 	}

@@ -1,0 +1,59 @@
+.text-desc {
+	text-indent: 22px;
+	padding: 0px 10px;
+}
+
+h4 {
+	padding: 0px 10px;
+	text-align: center;
+}
+
+/*h标题独特样式*/
+.h-style {
+	background-position: center;
+	background-image: url(../../images/wanpin/xiexian.png);
+	background-repeat: repeat-x;
+}
+
+.h-style span {
+	background-color: white;
+}
+
+.h-style span img {
+	position: absolute;
+	z-index: 1;
+	height: 12px;
+	
+}
+
+.mui-content {
+	padding-top: 10px;
+}
+
+.mui-input-row {
+	height: 100% !important;
+}
+
+.mui-input-row label {
+	color: #8f8f94;
+}
+
+.mui-input-row label~span {
+	width: 65%;
+	float: right;
+	margin-bottom: 0px;
+	padding-left: 0px;
+	border: 0;
+	/*height: 40px;*/
+	/*vertical-align: middle;*/
+	line-height: 1.1;
+	padding: 11px 0px;
+}
+
+body>.mui-progressbar {
+	top: 0px;
+}
+
+.mui-progressbar {
+	height: 4px;
+}

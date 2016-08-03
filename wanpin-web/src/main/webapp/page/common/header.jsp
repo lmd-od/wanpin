@@ -27,7 +27,7 @@
 						<ul>
 							<li><a href="${ctx}/${webAdminPath}/user/gobase.php">基本信息</a></li>
 							<%-- <li><a href="${ctx}/page/user/user_goods.jsp">我的方案订单</a></li> --%>
-							<li><a href="${ctx}/page/user/user_favorite.jsp">我的收藏</a></li>
+							<li><a href="${ctx}/${webAdminPath}/user/user_favorite.php">我的收藏</a></li>
 							<li><a href="${ctx}/${webAdminPath}/user/user_suggest.php">我的建议</a></li>
 							<%-- <li><a href="${ctx}/page/user/user_evaluate.jsp">评价晒单</a></li>
 							<li><a href="${ctx}/page/user/user_integral.jsp">我的积分</a></li> --%>

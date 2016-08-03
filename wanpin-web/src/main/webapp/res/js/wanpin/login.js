@@ -28,10 +28,8 @@ $(function(){
 				url: ctx+"/"+webAdminPath+"/login/login.php",
 				success: function(res){
 					if (res.status === 0) {//登录成功
-						//location.href = res.action?res.action:ctx;
-						location.href = '/';
-						// history.go(-1);
-						// location.reload();
+						var redirectURL = decodeURIComponent(wanpin.utils.getValFromURL(location.href,'redirectURL'));
+						location.href = redirectURL == ''?'/':ctx + redirectURL;
 					} else {
 						layer.alert(res.msg || '登录失败', {icon: 2});
 					}

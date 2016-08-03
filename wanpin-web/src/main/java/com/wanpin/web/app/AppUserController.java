@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.wanpin.common.constants.StatusCodes;
 import com.wanpin.common.exception.ParamIsNullException;
 import com.wanpin.common.persistence.SystemEnum;
@@ -84,7 +82,7 @@ public class AppUserController extends AppBaseController {
 			data.put("recommendUser", userInfo.getRecommendUser());
 			data.put("headPhoto", userInfo.getHeadPhoto());
 			
-			WanpinUtils.removeMapValueIsNull(data);
+			// WanpinUtils.removeMapValueIsNull(data);
 			
 			WanpinUtils.organizeData(model, StatusCodes.SUCCESS, data);
 			
@@ -186,29 +184,13 @@ public class AppUserController extends AppBaseController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		Map<String, Object> data = new HashMap<String, Object>();
 		try {
-			// 校验token令牌
-			/*String token = request.getParameter("token");
-			if (!checkToken(token, model)) {
-				return model;
-			}
-			
-			UploadUtils upload = new UploadUtils();
-			String fileUrl = upload.uploadFile(fileHead, request, model);
-			if (StringUtils.isEmpty(fileUrl)) {
-				return model;
-			}*/
-			
-			String dataInfo = request.getHeader("dataInfo");
-			log.error("dataInfo:"+dataInfo);
-			JSONObject parseObject = JSON.parseObject(dataInfo);
 			// 校验令牌
-			String token = parseObject.getString("token");
+			String token = request.getHeader("token");
 			if (!checkToken(token, model)) {
 				return model;
 			}
-			
 			// 上传图片的后缀，例如：png
-			String fileExt = parseObject.getString("fileExt");
+			String fileExt = request.getHeader("fileExt");
 			if (StringUtils.isEmpty(fileExt)) {
 				WanpinUtils.organizeData(model, StatusCodes.UPLOAD_FILE_SUFFIX_UNSUPPORT, "上传文件扩展名是不允许的扩展名");
 				return model;
@@ -452,7 +434,7 @@ public class AppUserController extends AppBaseController {
 			map.put("goodsStyleName", goodsVO.getGoodsStyleName());
 			map.put("goodsFunctionName", goodsVO.getGoodsFunctionName());
 			map.put("goodsHierarchyName", goodsVO.getGoodsHierarchyName());
-			WanpinUtils.removeMapValueIsNull(map);
+			// WanpinUtils.removeMapValueIsNull(map);
 			engines.add(map);
 		}
 	}

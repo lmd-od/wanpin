@@ -198,10 +198,12 @@ public class UploadUtils {
 		}
 		
 		// 判断
-		File targetFile = new File(webapps + saveUrl, this.fileName);
+		File targetFile = new File(webapps + saveUrl);
 		if (!targetFile.exists()) {
 			targetFile.mkdirs();
 		}
+		
+		targetFile = new File(targetFile, this.fileName);
 		
 		FileOutputStream fo = null;
 		try {

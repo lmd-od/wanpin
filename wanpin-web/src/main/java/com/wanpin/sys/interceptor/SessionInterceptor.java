@@ -1,11 +1,13 @@
 package com.wanpin.sys.interceptor;
 
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,18 +38,17 @@ public class SessionInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
 		User userInfo = SecurityHelper.getUserInfo(request);
 		if (userInfo == null) {
-			boolean ajax = "XMLHttpRequest".equals( request.getHeader("X-Requested-With") );
+			boolean ajax = "XMLHttpRequest".equalsIgnoreCase( request.getHeader("X-Requested-With") );
 			String ajaxFlag = null == request.getParameter("ajax") ?  "false": request.getParameter("ajax") ;
 		    boolean isAjax = ajax || ajaxFlag.equalsIgnoreCase("true");
 		    if (isAjax) {
-		    	request.getSession().setAttribute("redirectUrl", request.getParameter("targetUrl"));
 		    	Map<String, Object> map = new HashMap<String, Object>();
 		    	map.put("status", SystemEnum.RESP_SESSION_INVALID);
 		    	map.put("loginUrl", loginUrl);
 				response.getWriter().write(JSONUtils.toJSONString(map));
 			} else {
-				request.getSession().setAttribute("redirectUrl", request.getRequestURL());
-				response.getWriter().write("<script>top.window.location.href='"+request.getContextPath()+loginUrl+"'</script>");
+				String uri = request.getRequestURI() + (StringUtils.hasText(request.getQueryString())?"?"+request.getQueryString():"");
+				response.getWriter().write("<script>top.window.location.href='"+request.getContextPath()+loginUrl+"?redirectURL="+URLEncoder.encode(uri, "utf-8")+"'</script>");
 			}
 			return false;
 		} else {

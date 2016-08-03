@@ -219,3 +219,7 @@ body>.mui-progressbar {
 .mui-progressbar {
 	height: 4px;
 }
+
+.mui-input-group {
+	font-size: 14px;
+}

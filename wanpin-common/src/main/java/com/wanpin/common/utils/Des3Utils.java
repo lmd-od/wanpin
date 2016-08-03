@@ -67,6 +67,10 @@ public class Des3Utils {
     	System.out.println(Des3Utils.encode("张三"));
     	System.out.println(Des3Utils.encode("US20160427094957"));
     	
+    	System.out.println(Des3Utils.decode("qwIowCQjPdk="));
+    	System.out.println(Des3Utils.decode("zY37dDJwmrsa50FxDGYEFM59Dtwi7dTb"));
+    	
+    	System.out.println(MD5Utils.encode("US20160427094957"));
     	
     	
     	
